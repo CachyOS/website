@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon';
+
+const items = [
+  [
+    {
+      title: 'Desktop Environment',
+      description:
+        'Mostly all desktop packages are compiled with thinlto optimation, security flags and performance improvements.',
+      icon: 'tabler:rocket',
+    },
+    {
+      title: 'Installer to suit your needs',
+      description:
+        'We provide two versions of Installer. One GUI Version, which is based on Calamares and a CLI-Installer for the people who dont need a GUI as installer.',
+      icon: 'tabler:apps',
+    },
+  ],
+  [
+    {
+      title: 'Kernel Support',
+      description:
+        'The default installation of CachyOS contains Arch Linux kernel as a backup, and CachyOS kernel which is very similar to Arch Linux stock kernel in terms of source and configurations but with CacULE CPU scheduler. CachyOS also provides a set of kernels in its repository.',
+      icon: 'tabler:refresh',
+    },
+    {
+      title: 'A Better Browser',
+      description:
+        'The default browser of CachyOS is Cachy-Browser, which is a fork of the Librewolf Browser with some security additions and also compiled with more secure flags and performance improvement.',
+      icon: 'tabler:browser',
+    },
+  ],
+];
+---
+
+<section class="scroll-mt-16" id="features">
+  <div class="px-4 py-16 mx-auto max-w-4xl lg:px-8 lg:py-20">
+    <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-xl">
+      <p class="text-base text-primary-600 dark:text-primary-200 font-semibold tracking-wide uppercase">Features</p>
+      <h2 class="text-2xl md:text-3xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+        What you get with <span class="whitespace-nowrap">CachyOS</span>
+      </h2>
+      <p class="max-w-xl mx-auto sm:text-center text-lg text-gray-600 dark:text-slate-400">
+        CachyOS is a Linux distribution based on Arch Linux. The default Linux kernel is linux-cacule which is the Arch
+        Linux stock kernel plus the CacULE CPU Scheduler.
+      </p>
+    </div>
+    <div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0">
+      {
+        items.map((subitems) => (
+          <div class="space-y-8 sm:px-8">
+            {subitems.map(({ title, description, icon }) => (
+              <div class="flex flex-row max-w-md">
+                <div class="mb-4 mr-4">
+                  <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500 dark:bg-primary-700">
+                    {icon && <Icon name={icon} class="w-6 h-6 text-white icon-light" />}
+                  </div>
+                </div>
+                <div>
+                  <h3 class="mb-3 text-sm font-bold">{title}</h3>
+                  <p class="text-gray-600 dark:text-slate-400">{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
