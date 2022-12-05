@@ -1,18 +1,8 @@
 ---
-import { Picture } from '@astrojs/image/components';
 import logoSrc from '~/assets/images/logo.svg';
 ---
 
-<Picture
-  src={logoSrc}
-  class="self-center"
-  widths={[32]}
-  alt="CachyOS logo"
-  aspectRatio={32 / 32}
-  loading="eager"
-  width={32}
-  height={32}
-/>
+<img class="self-center" src={logoSrc} loading="eager" decoding="async" alt="CachyOS logo" width="32" height="32"/>
 <span class="self-center ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
   CachyOS</span
 >
