@@ -6,7 +6,7 @@ const items = [
     {
       title: 'Desktop Environment',
       description:
-        'Mostly all desktop packages are compiled with thinlto optimation, security flags and performance improvements.',
+        'All desktop packages are compiled with LTO and x86-64-v3  optimization, security flags and performance improvements.',
       icon: 'tabler:rocket',
     },
     {
@@ -20,13 +20,13 @@ const items = [
     {
       title: 'Kernel Support',
       description:
-        'The default installation of CachyOS contains Arch Linux kernel as a backup, and CachyOS kernel which is very similar to Arch Linux stock kernel in terms of source and configurations but with CacULE CPU scheduler. CachyOS also provides a set of kernels in its repository.',
+        'linux-cachyos is using the BORE Scheduler and has a lot of performance improvements. We also provide other schedulers: CFS, PDS, BMQ, BORE, TT, cacULE. All kernels are compiled with x86-64-v3 instructions and also available with LTO.',
       icon: 'tabler:refresh',
     },
     {
       title: 'A Better Browser',
       description:
-        'The default browser of CachyOS is Cachy-Browser, which is a fork of the Librewolf Browser with some security additions and also compiled with more secure flags and performance improvement.',
+        'The default browser of CachyOS is Cachy-Browser, which is a fork of the Firefox Browser with some security additions and also compiled with more secure flags and performance improvement. It has also patches from the librewolf browser included.',
       icon: 'tabler:browser',
     },
   ],
@@ -41,8 +41,8 @@ const items = [
         What you get with <span class="whitespace-nowrap">CachyOS</span>
       </h2>
       <p class="max-w-xl mx-auto sm:text-center text-lg text-gray-600 dark:text-slate-400">
-        CachyOS is a Linux distribution based on Arch Linux. The default Linux kernel is linux-cacule which is the Arch
-        Linux stock kernel plus the CacULE CPU Scheduler.
+        CachyOS is a Linux distribution based on Arch Linux. The default Linux kernel is linux-cachyos which is heavily optimized
+        and is using the BORE Scheduler.
       </p>
     </div>
     <div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0">
