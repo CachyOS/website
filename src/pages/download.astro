@@ -1,0 +1,19 @@
+---
+import { SITE } from '~/config.mjs';
+
+import { getCanonical, getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
+import Editions from '~/components/widgets/Editions.astro';
+
+const meta = {
+  title: `Download — ${SITE.name}`,
+  description: `Find a suitable ${SITE.name} edition for your hardware.`,
+  canonical: getCanonical(getHomePermalink()),
+};
+
+---
+
+<Layout {meta}>
+  <Editions />
+  <!--div class="h-[calc(100vh)]">HELP ME!</div-->
+</Layout>

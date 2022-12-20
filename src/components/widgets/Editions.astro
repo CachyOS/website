@@ -1,0 +1,55 @@
+---
+const items = [
+  [
+    {
+      title: 'KDE PLASMA',
+      description:
+        'Use Plasma to surf the web; keep in touch with colleagues, friends and family; manage your files, enjoy music and videos; and get creative and productive at work. Do it all in a beautiful environment that adapts to your needs, and with the safety, privacy-protection and peace of mind that the best Free Open Source Software has to offer..',
+      url: 'https://mirror.cachyos.org/ISO/kde/2221119/cachyos-kde-linux-221119.iso',
+      preview: 'src/assets/images/kde.png',
+    },
+    {
+      title: 'GNOME',
+      description:
+        'GNOME is a modern desktop environment which is both clean and beautiful. It is focused on ease of use.',
+      url: 'https://mirror.cachyos.org/ISO/gnome/221023/cachyos-gnome-linux-221023.iso',
+      preview: 'src/assets/images/gnome.png',
+    },
+    {
+      title: 'XFCE',
+      description:
+        'Xfce is a lightweight desktop environment for UNIX-like operating systems. It aims to be fast and low on system resources, while still being visually appealing and user-friendly.',
+      url: 'https://mirror.cachyos.org/ISO/xfce/220919/cachyos-xfce-linux-220919.iso',
+      preview: 'src/assets/images/xfce.png',
+    },
+  ],
+];
+
+---
+
+<section class="scroll-mt-16">
+  <div class="flex x-auto space-y-6 justify-center md:space-y-0 p-9">
+    {
+      items.map((subitems) => (
+        <div class="container sm:px-8 mx-auto">
+          {subitems.map(({ title, description, url, preview }) => (
+            <div class="flex flex-wrap items-center -m-8 mt-20">
+              <div class="w-full md:w-1/2 p-8">
+                <h2 class="mb-9 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">{title}</h2>
+                <p class="mb-10 text-lg text-gray-900 dark:text-slate-400 font-medium leading-relaxed md:max-w-md">{description}</p>
+                <div class="mb-11 md:inline-block rounded-xl shadow-4xl bg-primary-500 dark:bg-primary-700">
+                  {url && <a href={url} class="btn py-4 px-6">Download {title}</a>}
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 p-8">
+                {preview &&
+                  <img class="transform hover:-translate-x-16 rounded-xl transition ease-in-out duration-1000" alt="" src={preview} loading="eager">
+                }
+              </div>
+            </div>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</section>
