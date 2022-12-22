@@ -3,6 +3,7 @@ import { SITE } from '~/config.mjs';
 
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
+import Note from '~/components/widgets/EditionsNote.astro';
 import Editions from '~/components/widgets/Editions.astro';
 
 const meta = {
@@ -14,6 +15,7 @@ const meta = {
 ---
 
 <Layout {meta}>
+  <Note />
   <Editions />
   <!--div class="h-[calc(100vh)]">HELP ME!</div-->
 </Layout>
