@@ -13,15 +13,12 @@ const items = [
       title: 'GNOME',
       description:
         'GNOME is a modern desktop environment which is both clean and beautiful. It is focused on ease of use.',
-      direct_url: 'https://mirror.cachyos.org/ISO/gnome/221023/cachyos-gnome-linux-221023.iso',
-      srcforge_url: 'https://sourceforge.net/projects/cachyos-arch/files/gui-installer/gnome/221023/cachyos-gnome-linux-221023.iso/download',
       preview: 'src/assets/images/gnome.png',
     },
     {
       title: 'XFCE',
       description:
         'Xfce is a lightweight desktop environment for UNIX-like operating systems. It aims to be fast and low on system resources, while still being visually appealing and user-friendly.',
-      direct_url: 'https://mirror.cachyos.org/ISO/xfce/220919/cachyos-xfce-linux-220919.iso',
       preview: 'src/assets/images/xfce.png',
     },
   ],
@@ -50,6 +47,11 @@ const items = [
                       {srcforge_url && <a href={srcforge_url} class="btn-dropdown-item block" role="menuitem" tabindex="-1" id="menu-item-1">Sourceforge</a>}
                       <a href={direct_url + '.sha256'} class="btn-dropdown-item block" role="menuitem" tabindex="-1" id="menu-item-2">Checksum</a>
                     </ul>
+                  }
+                  {!direct_url && !srcforge_url &&
+                    <div>
+                      <button type="button" class="btn-under-constuction py-4 px-6">Under constuction 🚧</button>
+                    </div>
                   }
                 </div>
               </div>
