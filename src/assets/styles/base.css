@@ -14,6 +14,10 @@
   .btn-primary {
     @apply font-semibold bg-blue-600 text-white border-blue-600 hover:bg-blue-800 hover:border-blue-800 hover:text-white dark:text-white dark:bg-blue-700 dark:border-blue-700 dark:hover:border-blue-900 dark:hover:bg-blue-900;
   }
+
+  .btn-dropdown-item {
+    @apply text-sm text-gray-700 hover:bg-gray-100 px-10 py-2 transition hover:ease-in hover:duration-75 ease-out duration-100 dark:text-slate-400 dark:hover:bg-slate-700;
+  }
 }
 
 .dropdown:hover .dropdown-menu {
