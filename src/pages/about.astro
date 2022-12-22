@@ -1,0 +1,17 @@
+---
+import { SITE } from '~/config.mjs';
+
+import { getCanonical, getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
+
+const meta = {
+  title: `About us — ${SITE.name}`,
+  description: `Learn more about us.`,
+  canonical: getCanonical(getHomePermalink()),
+};
+
+---
+
+<Layout {meta}>
+  <div class="h-[calc(100vh)]">HELP ME!</div>
+</Layout>
