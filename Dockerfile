@@ -11,13 +11,13 @@ COPY . .
 RUN yarn build
 
 # Production
-FROM nginx:stable-alpine as production
+#FROM nginx:stable-alpine as production
 
-COPY --from=builder dist/* /var/www/html/
-
-EXPOSE 3000
-CMD [ "nginx", "-g", "daemon off;" ]
+#COPY --from=builder dist/* /var/www/html/
 
 #EXPOSE 3000
-#CMD [ "yarn", "preview", "--host"]
+#CMD [ "nginx", "-g", "daemon off;" ]
+
+EXPOSE 3000
+CMD [ "yarn", "preview", "--host"]
 #CMD [ "yarn", "dev", "--host"]
