@@ -3,6 +3,7 @@ import { SITE } from '~/config.mjs';
 
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
+import Company from '~/components/widgets/AboutCompany.astro';
 import Team from '~/components/widgets/Team.astro';
 import Contibutors from '~/components/widgets/Contibutors.astro';
 
@@ -15,6 +16,7 @@ const meta = {
 ---
 
 <Layout {meta}>
+  <Company />
   <Team />
   <Contibutors />
   <div class="h-[calc(100vh)]">HELP ME!</div>
