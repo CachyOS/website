@@ -1,0 +1,10 @@
+version: '3'
+services:
+  website:
+    image: nginx:latest
+    container_name: website
+    volumes:
+      - ./dist:/usr/share/nginx/html
+networks:
+  default:
+    name: proxy
