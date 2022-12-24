@@ -1,5 +1,10 @@
 ---
 import { Icon } from 'astro-icon';
+
+const donationbtns = [
+  { label: 'Paypal', icon: 'tabler:brand-paypal', href: 'https://paypal.me/pttrr' },
+  { label: 'Patreon', icon: 'tabler:brand-patreon', href: 'https://www.patreon.com/CachyOS' },
+];
 ---
 
 <section>
@@ -22,22 +27,18 @@ import { Icon } from 'astro-icon';
               </p>
 
               <div class="flex w-full sm:w-auto space-x-4">
-                <a
-                  class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
-                  href="https://paypal.me/pttrr/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <Icon name="tabler:brand-paypal" class="w-5 h-5 mr-1 -ml-1.5" /> Paypal
-                </a>
-                <a
-                  class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
-                  href="https://www.patreon.com/CachyOS/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <Icon name="tabler:brand-patreon" class="w-5 h-5 mr-1 -ml-1.5" /> Patreon
-                </a>
+                {
+                  donationbtns.map(({ label, href, icon }) => (
+                    <a
+                      class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
+                      href={href}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <Icon name={icon} class="w-5 h-5 mr-1 -ml-1.5" /> {label}
+                    </a>
+                  ))
+                }
               </div>
             </div>
           </div>
