@@ -6,33 +6,34 @@ const items = [
   [
     {
       name: 'Peter Jung (ptr1337)',
-      description:
-        'Founder, Developer',
+      description: 'Founder, Developer',
       avatar: import('~/assets/images/ptr1337_avatar.png'),
       github_url: 'https://github.com/ptr1337',
     },
     {
       name: 'Vladislav Nepogodin (vnepogodin)',
-      description:
-        'Founder, Developer',
+      description: 'Founder, Developer',
       avatar: import('~/assets/images/cpp_code.jpg'),
       github_url: 'https://github.com/vnepogodin',
     },
     {
       name: 'Piotr Gorski (sir_lucjan)',
-      description:
-        'Kernel maintainer, University lecturer from Poland',
+      description: 'Kernel maintainer, University lecturer from Poland',
       avatar: import('~/assets/images/binary-code.jpg'),
       github_url: 'https://github.com/sirlucjan',
     },
   ],
 ];
-
 ---
 
 <section class="py-28 overflow-hidden" id="team">
   <div class="container px-4 mx-auto">
-    <h2 class="mb-20 text-6xl md:text-8xl xl:text-10xl text-center font-bold font-heading tracking-px-n leading-none" data-config-id="auto-txt-1-6">Meet our team!</h2>
+    <h2
+      class="mb-20 text-6xl md:text-8xl xl:text-10xl text-center font-bold font-heading tracking-px-n leading-none"
+      data-config-id="auto-txt-1-6"
+    >
+      Meet our team!
+    </h2>
     {
       items.map((subitems) => (
         <div class="max-w-5xl mx-auto">
@@ -53,7 +54,9 @@ const items = [
                     />
                   </div>
                   <h3 class="mb-1 text-lg font-bold font-heading leading-snug">{name}</h3>
-                  <p class="font-medium text-gray-600 dark:text-gray-400" data-config-id="auto-txt-3-6">{description}</p>
+                  <p class="font-medium text-gray-600 dark:text-gray-400" data-config-id="auto-txt-3-6">
+                    {description}
+                  </p>
                   <a
                     class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                     aria-label="Github"

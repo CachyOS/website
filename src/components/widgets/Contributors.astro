@@ -3,37 +3,36 @@ const items = [
   [
     {
       name: 'Soong(Vilda)',
-      description:
-        'Contributor, Wiki, Documentation, Tutorials',
+      description: 'Contributor, Wiki, Documentation, Tutorials',
     },
     {
       name: 'teppyboy',
-      description:
-        'PasteBin, Wiki',
+      description: 'PasteBin, Wiki',
     },
     {
       name: 'firelzrd',
-      description:
-        'BORE scheduler',
+      description: 'BORE scheduler',
     },
     {
       name: 'NextWorksGFX',
-      description:
-        'GFX, ART',
+      description: 'GFX, ART',
     },
     {
       name: 'ventureo',
-      description:
-        'ARU',
+      description: 'ARU',
     },
   ],
 ];
-
 ---
 
 <section class="py-28 scroll-mt-16" id="contibutors">
   <div class="container px-4 sm:px-8 mx-auto">
-    <h3 class="mb-20 text-2xl md:text-4xl xl:text-6xl text-center font-bold font-heading tracking-px-n leading-none" data-config-id="auto-txt-1-6">Our Contributors!</h3>
+    <h3
+      class="mb-20 text-2xl md:text-4xl xl:text-6xl text-center font-bold font-heading tracking-px-n leading-none"
+      data-config-id="auto-txt-1-6"
+    >
+      Our Contributors!
+    </h3>
     {
       items.map((subitems) => (
         <div class="max-w-5xl mx-auto">
@@ -42,7 +41,9 @@ const items = [
               <div class="w-full md:w-1/5 p-3">
                 <div class="max-w-max mx-auto">
                   <h3 class="mb-1 text-lg font-bold font-heading leading-snug">{name}</h3>
-                  <p class="font-medium text-gray-600 dark:text-gray-400" data-config-id="auto-txt-3-6">{description}</p>
+                  <p class="font-medium text-gray-600 dark:text-gray-400" data-config-id="auto-txt-3-6">
+                    {description}
+                  </p>
                 </div>
               </div>
             ))}
