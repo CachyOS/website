@@ -6,10 +6,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
-import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 
-import { remarkReadingTime } from './src/utils/frontmatter.mjs';
 import { SITE } from './src/config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -33,13 +31,7 @@ export default defineConfig({
     image({
       serviceEntryPoint: '@astrojs/image/sharp',
     }),
-    mdx(),
   ],
-
-  markdown: {
-    remarkPlugins: [remarkReadingTime],
-    extendDefaultPlugins: true,
-  },
 
   vite: {
     resolve: {

@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "@astrojs/image": "^0.11.6",
-    "@astrojs/mdx": "^0.11.6",
     "@astrojs/partytown": "^1.0.1",
     "@astrojs/react": "^1.2.2",
     "@astrojs/sitemap": "^1.0.0",
@@ -47,5 +46,8 @@
   },
   "engines": {
     "node": "^14.15.0 || >=16.0.0"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.7"
   }
 }

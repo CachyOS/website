@@ -1,5 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
+import DropdownMenu from '~/components/widgets/DropdownMenu'
 
 const items = [
   [
@@ -41,15 +42,7 @@ const items = [
                 <p class="mb-10 text-lg text-gray-900 dark:text-slate-400 font-medium leading-relaxed md:max-w-md">{description}</p>
                 <div class="mb-11 md:inline-block rounded-xl shadow-4xl bg-primary-500 dark:bg-primary-700 dropdown">
                   {direct_url &&
-                    <div>
-                      <button type="button" class="btn dropdown-toggle py-4 px-6" id="menu-button" aria-expanded="true" aria-haspopup="true">Download {title}<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    </div>
-
-                    <ul id="editions-menu-list" class="dropdown-menu min-w-max absolute hidden bg-white dark:bg-gray-800 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none">
-                      <a href={direct_url} class="btn-dropdown-item block" role="menuitem" tabindex="-1" id="menu-item-0" data-aw-direct-btn="" data-aw-id={title}>Direct</a>
-                      {srcforge_url && <a href={srcforge_url} class="btn-dropdown-item block" role="menuitem" tabindex="-1" id="menu-item-1">Sourceforge</a>}
-                      <a href={direct_url + '.sha256'} class="btn-dropdown-item block" role="menuitem" tabindex="-1" id="menu-item-2">Checksum</a>
-                    </ul>
+                    <DropdownMenu client:visible data={ {title, direct_url, srcforge_url} } />
                   }
                   {!direct_url && !srcforge_url &&
                     <div>
