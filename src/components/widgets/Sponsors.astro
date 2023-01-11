@@ -1,0 +1,32 @@
+---
+import { Image } from '@astrojs/image/components';
+import activeServersLogoSrc from '~/assets/images/active-servers.png';
+---
+
+<section class="py-20">
+  <div class="container px-4 mx-auto">
+    <div class="max-w-xl mx-auto mb-20 text-center">
+      <h2 class="mt-8 text-5xl lg:text-6xl font-bold font-heading">Our Sponsors</h2>
+    </div>
+    <div class="flex flex-wrap justify-center -m-4">
+      <div class="w-full md:w-1/2 lg:w-1/5 p-4">
+        <div class="flex w-full h-32 items-center justify-center bg-slate-900 dark:bg-slate-600 rounded-lg">
+          <div class="mb-6 max-w-max overflow-hidden">
+            <a href="https://www.active-servers.com">
+              <Image
+                src={activeServersLogoSrc}
+                class="transform hover:scale-105 transition ease-in-out duration-1000"
+                quality={90}
+                alt="KVM vServer von active-servers.com"
+                aspectRatio={230 / 171}
+                loading="eager"
+                width={230}
+                height={171}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
