@@ -7,20 +7,22 @@ import { MetaSEO } from '~/types';
 import { getCanonical, getAsset } from '~/utils/permalinks';
 import { getRelativeUrlByFilePath } from '~/utils/directories';
 
-import defaultImageSrc from '~/assets/images/logo.svg';
-
 import CustomStyles from '~/components/CustomStyles.astro';
 
 export interface Props extends MetaSEO {
   dontUseTitleTemplate?: boolean;
 }
 
-const { src: defaultImage } = await getImage({
-  src: defaultImageSrc,
-  alt: 'Default image',
-  width: 1200,
-  height: 628,
-});
+const defaultImage = SITE.defaultImage
+  ? (
+      await getImage({
+        src: SITE.defaultImage,
+        alt: 'Default image',
+        width: 1200,
+        height: 628,
+      })
+    ).src
+  : '';
 
 const {
   title = SITE.name,
