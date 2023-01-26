@@ -3,13 +3,23 @@ import Layout from '~/layouts/BaseLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 
+import { MetaSEO } from '~/types';
+
+export interface Props {
+  meta?: MetaSEO;
+}
+
 const { meta } = Astro.props;
 ---
 
 <Layout {meta}>
-  <Header />
+  <slot name="header">
+    <Header />
+  </slot>
   <main>
     <slot />
   </main>
-  <Footer />
+  <slot name="footer">
+    <Footer />
+  </slot>
 </Layout>

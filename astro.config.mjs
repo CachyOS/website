@@ -7,6 +7,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 import react from '@astrojs/react';
+import compress from 'astro-compress';
 
 import { SITE } from './src/config.mjs';
 
@@ -30,6 +31,18 @@ export default defineConfig({
     react(),
     image({
       serviceEntryPoint: '@astrojs/image/sharp',
+    }),
+
+    compress({
+      css: true,
+      html: {
+        removeAttributeQuotes: false,
+      },
+      img: false,
+      js: true,
+      svg: false,
+
+      logger: 1,
     }),
   ],
 

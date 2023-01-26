@@ -7,7 +7,7 @@ import Note from '~/components/widgets/EditionsNote.astro';
 import Editions from '~/components/widgets/Editions.astro';
 
 const meta = {
-  title: `Download — ${SITE.name}`,
+  title: `Download`,
   description: `Find a suitable ${SITE.name} edition for your hardware.`,
   canonical: getCanonical(getHomePermalink()),
 };
@@ -16,5 +16,4 @@ const meta = {
 <Layout {meta}>
   <Note />
   <Editions />
-  <!--div class="h-[calc(100vh)]">HELP ME!</div-->
 </Layout>

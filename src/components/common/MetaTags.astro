@@ -1,13 +1,19 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
 import { getImage } from '@astrojs/image';
+
+import { SITE } from '~/config.mjs';
+import { MetaSEO } from '~/types';
+import { getCanonical, getAsset } from '~/utils/permalinks';
 import { getRelativeUrlByFilePath } from '~/utils/directories';
 
 import defaultImageSrc from '~/assets/images/logo.svg';
 
-import { SITE } from '~/config.mjs';
-import Fonts from '../atoms/Fonts.astro';
-import ExtraMetaTags from '../atoms/ExtraMetaTags.astro';
+import CustomStyles from '~/components/CustomStyles.astro';
+
+export interface Props extends MetaSEO {
+  dontUseTitleTemplate?: boolean;
+}
 
 const { src: defaultImage } = await getImage({
   src: defaultImageSrc,
@@ -21,19 +27,22 @@ const {
   description = '',
   image: _image = defaultImage,
 
-  canonical,
+  canonical = getCanonical(String(Astro.url.pathname)),
   noindex = false,
   nofollow = false,
 
   ogTitle = title,
   ogType = 'website',
+
+  dontUseTitleTemplate = false,
 } = Astro.props;
 
 const image =
   typeof _image === 'string'
     ? new URL(_image, Astro.site)
     : _image && typeof _image['src'] !== 'undefined'
-    ? new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
+    ? // @ts-ignore
+      new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
     : null;
 ---
 
@@ -42,12 +51,13 @@ const image =
 
 <AstroSeo
   title={title}
+  titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
   description={description}
-  canonical={canonical}
+  canonical={String(canonical)}
   noindex={noindex}
   nofollow={nofollow}
   openGraph={{
-    url: canonical,
+    url: String(canonical),
     title: ogTitle,
     description: description,
     type: ogType,
@@ -68,6 +78,8 @@ const image =
   }}
 />
 
-<Fonts />
+<CustomStyles />
 
-<ExtraMetaTags />
+<link rel="shortcut icon" href={getAsset('/favicon.svg')} />
+<link rel="icon" type="image/svg+xml" href={getAsset('/favicon.svg')} />
+<link rel="mask-icon" href={getAsset('/favicon.svg')} color="#8D46E7" />

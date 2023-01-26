@@ -1,44 +1,65 @@
 ---
+import { SITE } from '~/config.mjs';
 ---
 
-<script is:inline>
-  //Set "light" theme as default
-  if (!localStorage.theme) {
-    localStorage.theme = 'dark';
+<script is:inline define:vars={{ defaultTheme: SITE.defaultTheme }}>
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }
 
-  if (
+  if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
+    applyTheme(defaultTheme.replace(':only', ''));
+  } else if (
     localStorage.theme === 'dark' ||
     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
-    document.documentElement.classList.add('dark');
+    applyTheme('dark');
   } else {
-    document.documentElement.classList.remove('dark');
+    applyTheme('light');
   }
 
   function attachEvent(selector, event, fn) {
-    const matches = document.querySelectorAll(selector);
+    const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
     if (matches && matches.length) {
       matches.forEach((elem) => {
-        elem.addEventListener(event, () => fn(elem), false);
+        elem.addEventListener(event, (e) => fn(e, elem), false);
       });
     }
   }
 
   window.onload = function () {
-    attachEvent('[data-aw-toggle-menu]', 'click', function (elem) {
+    let lastKnownScrollPosition = window.scrollY;
+    let ticking = true;
+
+    attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
       elem.classList.toggle('expanded');
       document.body.classList.toggle('overflow-hidden');
       document.getElementById('header')?.classList.toggle('h-screen');
+      document.getElementById('gradient')?.classList.toggle('hidden');
       document.querySelector('#header nav')?.classList.toggle('hidden');
     });
 
+    attachEvent('[data-aw-direct-btn]', 'click', function (elem) {
+      const data_id = elem.getAttribute('data-aw-id');
+      console.log(data_id);
+      //elem.classList.toggle('expanded');
+      //document.getElementById('editions-menu-list')?.classList.toggle('hidden');
+      //document.querySelector('# nav')?.classList.toggle('hidden');
+    });
+
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
+      if (defaultTheme.endsWith(':only')) {
+        return;
+      }
       document.documentElement.classList.toggle('dark');
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     });
 
-    attachEvent('[data-aw-social-share]', 'click', function (elem) {
+    attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
       const network = elem.getAttribute('data-aw-social-share');
       const url = encodeURIComponent(elem.getAttribute('data-aw-url'));
       const text = encodeURIComponent(elem.getAttribute('data-aw-text'));
@@ -70,8 +91,32 @@
       newlink.href = href;
       newlink.click();
     });
+
+    function appyHeaderStylesOnScroll() {
+      const header = document.getElementById('header');
+      if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
+        document.getElementById('header').classList.add('scroll');
+      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
+        document.getElementById('header').classList.remove('scroll');
+      }
+      ticking = false;
+    }
+    appyHeaderStylesOnScroll();
+
+    attachEvent([document], 'scroll', function () {
+      lastKnownScrollPosition = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          appyHeaderStylesOnScroll();
+        });
+        ticking = true;
+      }
+    });
   };
+
   window.onpageshow = function () {
+    document.documentElement.classList.add('motion-safe:scroll-smooth');
     const elem = document.querySelector('[data-aw-toggle-menu]');
     if (elem) {
       elem.classList.remove('expanded');
