@@ -1,0 +1,5 @@
+CREATE TABLE downloads (
+  id VARCHAR NOT NULL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL
+)

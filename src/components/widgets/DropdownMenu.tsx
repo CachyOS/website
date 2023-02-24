@@ -7,6 +7,30 @@ interface Props {
   srcforge_url: string,
 }
 
+const DOWNLOADS_API_ENDPOINT = "https://iso-stats.cachyos.org/api/download";
+
+async function getCountOfDownload(download_name: string) {
+  // Load data with fetch().
+  const allFilteredDownloads = await fetch(`${DOWNLOADS_API_ENDPOINT}/${download_name}`).then(response => response.json());
+  console.log(allFilteredDownloads);
+
+  // Return a amount of downloads for specific ISO edition.
+  return allFilteredDownloads.length;
+}
+
+async function handleDirectButton(edition_name: string) {
+  //const downloadCount = await getCountOfDownload(data_id);
+
+  fetch(DOWNLOADS_API_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: `{"name":"${edition_name}"}`,
+  })
+  .catch((e) => null);
+}
+
 const DropdownMenu = ({ data }: Props) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -31,9 +55,9 @@ const DropdownMenu = ({ data }: Props) => {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items id="editions-menu-list" className="dropdown-menu min-w-max absolute bg-white dark:bg-gray-800 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none">
-          <a href={data.direct_url} className="btn-dropdown-item block" data-aw-direct-btn="" data-aw-id={data.title}>Direct</a>
-          {data.srcforge_url && <a href={data.srcforge_url} className="btn-dropdown-item block">Sourceforge</a>}
-          <a href={data.direct_url + '.sha256'} className="btn-dropdown-item block">Checksum</a>
+          <Menu.Item as="a" key={data.direct_url} href={data.direct_url} className="btn-dropdown-item block" onClick={async () => await handleDirectButton(data.title)}>Direct</Menu.Item>
+          {data.srcforge_url && <Menu.Item as="a" key={data.srcforge_url} href={data.srcforge_url} className="btn-dropdown-item block">Sourceforge</Menu.Item>}
+          <Menu.Item as="a" key={data.direct_url + '.sha256'} href={data.direct_url + '.sha256'} className="btn-dropdown-item block">Checksum</Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>

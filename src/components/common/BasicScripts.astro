@@ -43,14 +43,6 @@ import { SITE } from '~/config.mjs';
       document.querySelector('#header nav')?.classList.toggle('hidden');
     });
 
-    attachEvent('[data-aw-direct-btn]', 'click', function (elem) {
-      const data_id = elem.getAttribute('data-aw-id');
-      console.log(data_id);
-      //elem.classList.toggle('expanded');
-      //document.getElementById('editions-menu-list')?.classList.toggle('hidden');
-      //document.querySelector('# nav')?.classList.toggle('hidden');
-    });
-
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
       if (defaultTheme.endsWith(':only')) {
         return;
