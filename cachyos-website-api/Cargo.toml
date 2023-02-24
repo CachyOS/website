@@ -13,3 +13,4 @@ uuid = { version = "1", features = ["v4", "serde"] }
 log = "0.4.17"
 env_logger = "0.10.0"
 chrono = { version = "0.4.23", features = ["serde"] }
+actix-cors = "0.6.4"

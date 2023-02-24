@@ -1,4 +1,5 @@
-use actix_web::{get, middleware, post, web, App, Error, HttpResponse, HttpServer, Result};
+use actix_cors::Cors;
+use actix_web::{get, http, middleware, post, web, App, Error, HttpResponse, HttpServer, Result};
 use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
 use std::env;
@@ -87,9 +88,20 @@ async fn main() -> std::io::Result<()> {
     log::info!("Starting HTTP server at http://{running_address}:{running_port}");
 
     HttpServer::new(move || {
+        let cors = Cors::default()
+            // Allow requests from the https://cachyos.org domain and from localhost
+            .allowed_origin("https://cachyos.org")
+            .allowed_origin("http://localhost:3000")
+            .allowed_origin_fn(|origin, _req_head| origin.as_bytes().ends_with(b".cachyos.org"))
+            .allowed_methods(vec!["GET", "POST"])
+            .allowed_headers(vec![http::header::AUTHORIZATION, http::header::ACCEPT])
+            .allowed_header(http::header::CONTENT_TYPE)
+            .max_age(3600);
+
         App::new()
             // set up DB pool to be used with web::Data<Pool> extractor
             .app_data(web::Data::new(pool.clone()))
+            .wrap(cors)
             .wrap(middleware::Logger::default())
             .service(
                 web::scope("/api")
