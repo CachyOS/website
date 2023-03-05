@@ -58,7 +58,7 @@ const DropdownMenu = ({ data }: Props) => {
           <Menu.Item as="a" key={data.direct_url} href={data.direct_url} className="btn-dropdown-item block" onClick={async () => await handleDirectButton(data.title)}>Direct</Menu.Item>
           {data.srcforge_url && <Menu.Item as="a" key={data.srcforge_url} href={data.srcforge_url} className="btn-dropdown-item block">Sourceforge</Menu.Item>}
           <Menu.Item as="a" key={data.direct_url + '.sha256'} href={data.direct_url + '.sha256'} className="btn-dropdown-item block">Checksum</Menu.Item>
-          <Menu.Item as="a" key={data.direct_url + '.sig'} href={data.direct_url + '.sha256'} className="btn-dropdown-item block">Signature</Menu.Item>
+          <Menu.Item as="a" key={data.direct_url + '.sig'} href={data.direct_url + '.sig'} className="btn-dropdown-item block">Signature</Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>
