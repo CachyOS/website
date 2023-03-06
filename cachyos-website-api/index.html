@@ -45,6 +45,7 @@
     <option value="7d">Last 7 Days</option>
     <option value="30d">Last 30 Days</option>
   </select>
+  <span>Overall downloads within selected period: <b id="overall-downloads">0</b></span>
   <div id="chart-container">
     <canvas id="myChart"></canvas>
   </div>
@@ -153,7 +154,7 @@
       chart.update();
     };
 
-    const updateChartData = (timePeriod, data, chart) => {
+    const updateChartData = (timePeriod, data, overallDownloads, chart) => {
       const kdeData = data.filter(d => d.name === "KDE PLASMA");
       const gnomeData = data.filter(d => d.name === "GNOME");
 
@@ -169,10 +170,14 @@
         case '7d':
           startTime = currentTime - (7 * 24 * 60 * 60 * 1000);
           break;
-        case '1m':
+        case '30d':
           startTime = currentTime - (30 * 24 * 60 * 60 * 1000);
           break;
         default:
+          const sum1 = getPreparedCounts(kdeData).values.reduce((partial_sum, x) => partial_sum + x, 0);
+          const sum2 = getPreparedCounts(gnomeData).values.reduce((partial_sum, x) => partial_sum + x, 0);
+          overallDownloads.innerHTML = sum1 + sum2;
+
           chart.data.labels = getPreparedCounts(data).labels;
           chart.data.datasets[0].data = getPreparedCounts(kdeData).values;
           chart.data.datasets[1].data = getPreparedCounts(gnomeData).values;
@@ -196,6 +201,9 @@
       let preparedCountsGnome = getPreparedCounts(filteredDataGnome);
 
       let labels = getPreparedCounts(filteredData).labels;
+      const sum1 = preparedCountsKde.values.reduce((partial_sum, x) => partial_sum + x, 0);
+      const sum2 = preparedCountsGnome.values.reduce((partial_sum, x) => partial_sum + x, 0);
+      overallDownloads.innerHTML = sum1 + sum2;
 
       // Update the chart data and options
       chart.data.labels = labels;
@@ -250,6 +258,12 @@
               }
             }
           };
+
+          const sum1 = preparedCountsKde.values.reduce((partial_sum, x) => partial_sum + x, 0);
+          const sum2 = preparedCountsGnome.values.reduce((partial_sum, x) => partial_sum + x, 0);
+
+          const overallDownloads = document.getElementById('overall-downloads');
+          overallDownloads.innerHTML = sum1 + sum2;
 
           let labels = getPreparedCounts(data).labels;
 
@@ -334,7 +348,7 @@
             let selectedPeriod = timePeriod.value;
 
             // Update the chart data based on the selected time period
-            updateChartData(selectedPeriod, data, chart);
+            updateChartData(selectedPeriod, data, overallDownloads, chart);
           });
       })
       .catch(error => console.error(error));
