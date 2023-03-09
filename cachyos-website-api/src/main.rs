@@ -72,6 +72,14 @@ async fn add_download(
     Ok(HttpResponse::Ok().json(user))
 }
 
+/// Shows visualize representation of stats.
+#[get("/")]
+async fn get_index_page() -> Result<HttpResponse> {
+    Ok(HttpResponse::Ok()
+        .content_type(http::header::ContentType::html())
+        .body(include_str!("../index.html")))
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     dotenv::dotenv().ok();
@@ -103,6 +111,7 @@ async fn main() -> std::io::Result<()> {
             .app_data(web::Data::new(pool.clone()))
             .wrap(cors)
             .wrap(middleware::Logger::default())
+            .service(get_index_page)
             .service(
                 web::scope("/api")
                 .service(get_downloads)
