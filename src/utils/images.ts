@@ -8,7 +8,7 @@ const load = async function () {
   return images;
 };
 
-let _images;
+let _images: any;
 
 /** */
 export const fetchLocalImages = async () => {

@@ -4,7 +4,7 @@ import React, { Fragment } from 'react'
 interface Props {
   title: string,
   direct_url: string,
-  srcforge_url: string,
+  srcforge_url?: string,
 }
 
 const DOWNLOADS_API_ENDPOINT = "https://iso-stats.cachyos.org/api/download";
@@ -31,7 +31,7 @@ async function handleDirectButton(edition_name: string) {
   .catch((e) => null);
 }
 
-const DropdownMenu = ({ data }: Props) => {
+const DropdownMenu = (data: Props) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>

@@ -2,6 +2,12 @@
 import { Image } from '@astrojs/image/components';
 import DropdownMenu from '~/components/widgets/DropdownMenu'
 
+interface DropdownMenuProps {
+  title: string;
+  direct_url: string;
+  srcforge_url?: string;
+}
+
 const items = [
   [
     {
@@ -42,7 +48,7 @@ const items = [
                 <p class="mb-10 text-lg text-gray-900 dark:text-slate-400 font-medium leading-relaxed md:max-w-md">{description}</p>
                 <div class="mb-11 md:inline-block rounded-xl shadow-4xl bg-primary-500 dark:bg-primary-700 dropdown">
                   {direct_url &&
-                    <DropdownMenu client:visible data={ {title, direct_url, srcforge_url} } />
+                    <DropdownMenu client:visible data={ {title, direct_url, srcforge_url} as DropdownMenuProps } />
                   }
                   {!direct_url && !srcforge_url &&
                     <div>
