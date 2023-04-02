@@ -73,7 +73,7 @@ import { SITE } from '~/config.mjs';
   }
 
   function init() {
-    applyTheme(defaultTheme.endsWith(':only') ? defaultTheme.replace(':only', '') : localStorage.theme || 'light');
+    applyTheme(defaultTheme.endsWith(':only') ? defaultTheme.replace(':only', '') : localStorage.theme || 'dark');
 
     attachEvent('[data-aw-toggle-menu]', 'click', toggleMenu);
     attachEvent('[data-aw-toggle-color-scheme]', 'click', toggleColorScheme);
