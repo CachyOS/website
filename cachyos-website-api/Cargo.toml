@@ -4,13 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-actix-web = "4"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-diesel = { version = "2", features = ["sqlite", "r2d2", "chrono"] }
+actix-web = {  version = "4", features = ["macros"], default-features = false }
+serde = { version = "1", features = ["serde_derive"], default-features = false }
+serde_json = { version = "1", default-features = false }
+diesel = { version = "2", features = ["chrono", "r2d2", "sqlite"], default-features = false }
 dotenv = "0.15"
-uuid = { version = "1", features = ["v4", "serde"] }
+uuid = { version = "1", features = ["v4"], default-features = false }
 log = "0.4.17"
-env_logger = "0.10.0"
-chrono = { version = "0.4.24", default-features = false, features = ["std", "serde"] }
+env_logger = { version = "0.10.0", default-features = false }
+chrono = { version = "0.4.24", features = ["serde"], default-features = false }
 actix-cors = "0.6.4"
