@@ -12,5 +12,5 @@ dotenv = "0.15"
 uuid = { version = "1", features = ["v4", "serde"] }
 log = "0.4.17"
 env_logger = "0.10.0"
-chrono = { version = "0.4.23", default-features = false, features = ["std", "serde"] }
+chrono = { version = "0.4.24", default-features = false, features = ["std", "serde"] }
 actix-cors = "0.6.4"
