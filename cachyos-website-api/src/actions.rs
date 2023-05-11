@@ -48,3 +48,42 @@ pub fn insert_new_download(
     diesel::insert_into(downloads).values(&new_download).execute(conn)?;
     Ok(new_download)
 }
+
+pub fn insert_new_update_msg(
+    conn: &mut SqliteConnection,
+    message_body: &str,
+) -> Result<models::UpdateMsg, DbError> {
+    // It is common when using Diesel with Actix Web to import schema-related
+    // modules inside a function's scope (rather than the normal module's scope)
+    // to prevent import collisions and namespace pollution.
+    use crate::schema::update_messages::dsl::*;
+
+    let new_update_message =
+        models::UpdateMsg { id: Uuid::new_v4().to_string(), body: message_body.to_owned() };
+
+    diesel::insert_into(update_messages).values(&new_update_message).execute(conn)?;
+    Ok(new_update_message)
+}
+
+pub fn find_last_update_msg(
+    conn: &mut SqliteConnection,
+) -> Result<Option<models::UpdateMsg>, DbError> {
+    use crate::schema::update_messages::dsl::*;
+
+    let matches = update_messages.load::<models::UpdateMsg>(conn).optional()?;
+
+    if let Some(matches_opt) = matches.clone() {
+        Ok(matches_opt.last().cloned())
+    } else {
+        Ok(None)
+    }
+}
+
+pub fn remove_all_update_msgs(conn: &mut SqliteConnection) -> Result<usize, DbError> {
+    // It is common when using Diesel with Actix Web to import schema-related
+    // modules inside a function's scope (rather than the normal module's scope)
+    // to prevent import collisions and namespace pollution.
+    use crate::schema::update_messages::dsl::*;
+
+    Ok(diesel::delete(update_messages).execute(conn)?)
+}

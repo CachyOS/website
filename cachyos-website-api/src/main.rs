@@ -4,9 +4,7 @@ use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
 use std::env;
 
-mod actions;
-mod models;
-mod schema;
+use cachyos_website_api::*;
 
 type DbPool = r2d2::Pool<ConnectionManager<SqliteConnection>>;
 
@@ -72,6 +70,25 @@ async fn add_download(
     Ok(HttpResponse::Ok().json(user))
 }
 
+/// Populate last update notice.
+#[get("/v2/last_update_notice")]
+async fn get_last_update_msg(pool: web::Data<DbPool>) -> Result<HttpResponse, Error> {
+    // use web::block to offload blocking Diesel code without blocking server thread
+    let last_update_notice = web::block(move || {
+        let mut conn = pool.get()?;
+        actions::find_last_update_msg(&mut conn)
+    })
+    .await?
+    .map_err(actix_web::error::ErrorInternalServerError)?;
+
+    if let Some(last_update_notice) = last_update_notice {
+        Ok(HttpResponse::Ok().json(last_update_notice))
+    } else {
+        let res = HttpResponse::NotFound().body("No notice found".to_string());
+        Ok(res)
+    }
+}
+
 /// Shows visualize representation of stats.
 #[get("/")]
 async fn get_index_page() -> Result<HttpResponse> {
@@ -116,7 +133,9 @@ async fn main() -> std::io::Result<()> {
                 web::scope("/api")
                 .service(get_downloads)
                 .service(add_download)
-                .service(get_downloads_by_name),
+                .service(get_downloads_by_name)
+
+                .service(get_last_update_msg),
             )
     })
     .bind((running_address, running_port))?

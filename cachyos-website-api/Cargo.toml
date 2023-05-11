@@ -14,3 +14,10 @@ log = "0.4.17"
 env_logger = { version = "0.10.0", default-features = false }
 chrono = { version = "0.4.24", features = ["serde"], default-features = false }
 actix-cors = "0.6.4"
+
+[[bin]]
+name = "write_update_msg"
+doc = false
+
+[lib]
+doc = false

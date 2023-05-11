@@ -1,0 +1,4 @@
+CREATE TABLE update_messages (
+  id VARCHAR NOT NULL PRIMARY KEY,
+  body VARCHAR NOT NULL
+)
