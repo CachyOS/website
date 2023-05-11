@@ -10,7 +10,7 @@ WORKDIR /app
 COPY . .
 
 ENV DATABASE_URL=website-api.db
-RUN diesel setup
+RUN diesel setup && diesel migration run
 
 ARG ARCH
 RUN __ARCH="$(dpkg --print-architecture)"; \
