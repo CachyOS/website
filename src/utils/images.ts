@@ -8,7 +8,7 @@ const load = async function () {
   return images;
 };
 
-let _images: any;
+let _images: Promise<Record<string, () => Promise<unknown>> | undefined>;
 
 /** */
 export const fetchLocalImages = async () => {
@@ -22,7 +22,7 @@ export const findImage = async (imagePath?: string) => {
     return null;
   }
 
-  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('/')) {
     return imagePath;
   }
 
@@ -33,5 +33,12 @@ export const findImage = async (imagePath?: string) => {
   const images = await fetchLocalImages();
   const key = imagePath.replace('~/', '/src/');
 
-  return typeof images[key] === 'function' ? (await images[key]())['default'] : null;
+  if (images !== undefined && typeof images[key] === 'function') {
+    let glob_obj = await images[key]();
+    if (glob_obj !== undefined && glob_obj !== null) {
+      return glob_obj['default'];
+    }
+  }
+
+  return null;
 };
