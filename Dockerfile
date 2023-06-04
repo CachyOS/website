@@ -1,14 +1,15 @@
 FROM node:latest as builder
 
 # Install app dependencies
-COPY package.json yarn.lock ./
-
-RUN yarn install
+#COPY package.json yarn.lock ./
 
 # Bundle app source
-COPY . .
+WORKDIR /app
+#COPY . .
 
-RUN yarn build
+#RUN yarn install
+
+#RUN yarn build
 
 # Production
 #FROM nginx:stable-alpine as production
@@ -19,5 +20,5 @@ RUN yarn build
 #CMD [ "nginx", "-g", "daemon off;" ]
 
 EXPOSE 3000
-CMD [ "yarn", "preview", "--host"]
-#CMD [ "yarn", "dev", "--host"]
+#CMD [ "yarn", "preview", "--host"]
+CMD [ "bash", "-c", "yarn install; yarn dev --host"]
