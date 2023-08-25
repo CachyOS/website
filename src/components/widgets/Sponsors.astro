@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
-import activeServersLogoSrc from '~/assets/images/active-servers.png';
+import cloudflareLogoSrc from '~/assets/images/CF_logo_stacked_whitetype.png';
 ---
 
 <section class="py-20">
@@ -11,17 +11,17 @@ import activeServersLogoSrc from '~/assets/images/active-servers.png';
     <div class="flex flex-wrap justify-center -m-4">
       <div class="w-full md:w-1/2 lg:w-1/5 p-4">
         <div class="flex w-full h-32 items-center justify-center bg-slate-900 dark:bg-slate-600 rounded-lg">
-          <div class="mb-6 max-w-max overflow-hidden">
-            <a href="https://www.active-servers.com">
+          <div class="mb-6 p-4 max-w-max overflow-hidden">
+            <a href="https://www.cloudflare.com/">
               <Image
-                src={activeServersLogoSrc}
+                src={cloudflareLogoSrc}
                 class="transform hover:scale-105 transition ease-in-out duration-1000"
                 quality={90}
-                alt="KVM vServer von active-servers.com"
-                aspectRatio={230 / 171}
+                alt="www.cloudflare.com"
+                aspectRatio={1277 / 432}
                 loading="eager"
-                width={230}
-                height={171}
+                width={1277}
+                height={432}
               />
             </a>
           </div>
