@@ -1,6 +1,6 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
-import { getImage } from '@astrojs/image';
+import { getImage } from 'astro:assets';
 
 import { SITE } from '~/config.mjs';
 import type { MetaSEO } from '~/types';
@@ -29,7 +29,7 @@ const {
   description = '',
   image: _image = defaultImage,
 
-  canonical = getCanonical(String(Astro.url.pathname)),
+  canonical = String(getCanonical(String(Astro.url.pathname))),
   noindex = false,
   nofollow = false,
 
@@ -85,3 +85,5 @@ const image =
 <link rel="shortcut icon" href={getAsset('/favicon.svg')} />
 <link rel="icon" type="image/svg+xml" href={getAsset('/favicon.svg')} />
 <link rel="mask-icon" href={getAsset('/favicon.svg')} color="#8D46E7" />
+
+<link rel="sitemap" href={getAsset('/sitemap-index.xml')} />

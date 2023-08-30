@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import Image from '~/components/common/Image.astro'
 import { Icon } from 'astro-icon';
 
 const items = [
@@ -7,19 +7,19 @@ const items = [
     {
       name: 'Peter Jung (ptr1337)',
       description: 'Founder, Developer',
-      avatar: import('~/assets/images/ptr1337_avatar.png'),
+      avatar: '~/assets/images/ptr1337_avatar.png',
       github_url: 'https://github.com/ptr1337',
     },
     {
       name: 'Vladislav Nepogodin (vnepogodin)',
       description: 'Founder, Developer',
-      avatar: import('~/assets/images/cpp_code.jpg'),
+      avatar: '~/assets/images/cpp_code.jpg',
       github_url: 'https://github.com/vnepogodin',
     },
     {
       name: 'Piotr Gorski (sir_lucjan)',
       description: 'Kernel maintainer, University lecturer from Poland',
-      avatar: import('~/assets/images/binary-code.jpg'),
+      avatar: '~/assets/images/binary-code.jpg',
       github_url: 'https://github.com/sirlucjan',
     },
   ],

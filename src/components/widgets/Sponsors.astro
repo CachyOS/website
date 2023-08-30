@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import cloudflareLogoSrc from '~/assets/images/CF_logo_stacked_whitetype.png';
 ---
 
@@ -18,7 +18,6 @@ import cloudflareLogoSrc from '~/assets/images/CF_logo_stacked_whitetype.png';
                 class="transform hover:scale-105 transition ease-in-out duration-1000"
                 quality={90}
                 alt="www.cloudflare.com"
-                aspectRatio={1277 / 432}
                 loading="eager"
                 width={1277}
                 height={432}

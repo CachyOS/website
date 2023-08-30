@@ -5,7 +5,6 @@ import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import image from '@astrojs/image';
 import react from '@astrojs/react';
 import compress from 'astro-compress';
 
@@ -18,7 +17,6 @@ export default defineConfig({
   site: SITE.origin,
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-  compressHTML: true,
 
   output: 'static',
 
@@ -30,9 +28,6 @@ export default defineConfig({
     }),
     sitemap(),
     react(),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-    }),
 
     compress({
       css: true,

@@ -1,5 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components';
+//import { Image } from 'astro:assets';
+import Image from '~/components/common/Image.astro'
 import DropdownMenu from '~/components/widgets/DropdownMenu';
 
 interface DropdownMenuProps {
@@ -17,20 +18,20 @@ const items = [
       direct_url: 'https://mirror.cachyos.org/ISO/kde/230813/cachyos-kde-linux-230813.iso',
       srcforge_url:
         'https://sourceforge.net/projects/cachyos-arch/files/gui-installer/kde/230813/cachyos-kde-linux-230813.iso/download',
-      preview: import('~/assets/images/kde.png'),
+      preview: '~/assets/images/kde.png',
     },
     {
       title: 'GNOME',
       description:
         'Elegant and User-Friendly: GNOME is a contemporary desktop environment that boasts a clean and attractive design, with a focus on ease of use.',
       direct_url: 'https://mirror.cachyos.org/ISO/gnome/230813/cachyos-gnome-linux-230813.iso',
-      preview: import('~/assets/images/gnome.png'),
+      preview: '~/assets/images/gnome.png',
     },
     {
       title: 'XFCE',
       description:
         'Lightweight and Efficient: XFCE is a desktop environment designed for Unix-like operating systems that prioritizes speed and low system usage, without sacrificing visual appeal and user-friendliness.',
-      preview: import('~/assets/images/xfce.png'),
+      preview: '~/assets/images/xfce.png',
     },
   ],
 ];
@@ -52,7 +53,7 @@ const items = [
                 </p>
                 <div class="mb-11 md:inline-block rounded-xl shadow-4xl bg-primary-500 dark:bg-primary-700 dropdown">
                   {direct_url && (
-                    <DropdownMenu client:visible data={{ title, direct_url, srcforge_url } as DropdownMenuProps} />
+                    <DropdownMenu client:load data={{ title, direct_url, srcforge_url } as DropdownMenuProps} />
                   )}
                   {!direct_url && !srcforge_url && (
                     <div>

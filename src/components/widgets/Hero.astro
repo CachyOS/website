@@ -1,6 +1,8 @@
 ---
 import { Icon } from 'astro-icon';
-import { Picture } from '@astrojs/image/components';
+import Image from '~/components/common/Image.astro';
+
+import heroImage from '~/assets/images/hero.jpg';
 
 //class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
 ---
@@ -65,8 +67,8 @@ import { Picture } from '@astrojs/image/components';
     </div>
     <div>
       <div class="relative m-auto max-w-4xl">
-        <Picture
-          src={import('~/assets/images/hero.jpg')}
+        <Image
+          src={heroImage}
           class="mx-auto rounded-md w-full"
           widths={[400, 768, 1480]}
           sizes="(max-width: 767px) 400px, (max-width: 1479px) 768px, 1480px"
@@ -75,6 +77,8 @@ import { Picture } from '@astrojs/image/components';
           loading="eager"
           width={1480}
           height={833}
+          loading="eager"
+          decoding="async"
         />
       </div>
     </div>
