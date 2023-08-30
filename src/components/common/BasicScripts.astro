@@ -11,16 +11,24 @@ import { SITE } from '~/config.mjs';
     }
   }
 
-  if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-    applyTheme(defaultTheme.replace(':only', ''));
-  } else if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    applyTheme('dark');
-  } else {
-    applyTheme('light');
+  function setThemeMode() {
+    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
+      applyTheme(defaultTheme.replace(':only', ''));
+    } else if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      applyTheme('dark');
+    } else {
+      applyTheme('light');
+    }
   }
+
+  // Runs on initial navigation
+  setThemeMode();
+
+  // Runs on initial navigation
+  document.addEventListener('astro:after-swap', setThemeMode);
 
   function attachEvent(selector, event, fn) {
     const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
@@ -31,7 +39,8 @@ import { SITE } from '~/config.mjs';
     }
   }
 
-  window.onload = function () {
+  document.addEventListener('astro:page-load', () => {
+    // This only runs once.
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
@@ -105,7 +114,7 @@ import { SITE } from '~/config.mjs';
         ticking = true;
       }
     });
-  };
+  }, { once: true });
 
   window.onpageshow = function () {
     document.documentElement.classList.add('motion-safe:scroll-smooth');

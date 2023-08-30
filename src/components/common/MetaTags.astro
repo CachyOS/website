@@ -1,6 +1,7 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
 import { getImage } from 'astro:assets';
+import { ViewTransitions } from 'astro:transitions';
 
 import { SITE } from '~/config.mjs';
 import type { MetaSEO } from '~/types';
@@ -87,3 +88,5 @@ const image =
 <link rel="mask-icon" href={getAsset('/favicon.svg')} color="#8D46E7" />
 
 <link rel="sitemap" href={getAsset('/sitemap-index.xml')} />
+
+<ViewTransitions fallback="swap" />
