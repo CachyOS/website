@@ -38,7 +38,6 @@ const DropdownMenu = ({ data }: Props) => {
       <div>
         <Menu.Button
           className="btn dropdown-toggle py-4 px-6"
-          id="menu-button"
           aria-label="menu"
           aria-expanded="true"
           aria-haspopup="true"
