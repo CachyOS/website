@@ -114,7 +114,7 @@ import { SITE } from '~/config.mjs';
         ticking = true;
       }
     });
-  }, { once: true });
+  });
 
   window.onpageshow = function () {
     document.documentElement.classList.add('motion-safe:scroll-smooth');
