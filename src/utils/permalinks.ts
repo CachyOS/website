@@ -20,6 +20,13 @@ export const cleanSlug = (text = '') =>
     .map((slug) => slugify(slug))
     .join('/');
 
+
+export const BLOG_BASE = cleanSlug('blog');
+export const CATEGORY_BASE = cleanSlug('category');
+export const TAG_BASE = cleanSlug('tag') || 'tag';
+
+export const POST_PERMALINK_PATTERN = trimSlash('/blog/%slug%' || `${BLOG_BASE}/%slug%`);
+
 /** */
 export const getCanonical = (path = ''): string | URL => new URL(path, SITE.origin);
 
@@ -28,6 +35,14 @@ export const getPermalink = (slug = '', type = 'page'): string => {
   let permalink: string;
 
   switch (type) {
+    case 'category':
+      permalink = createPath(CATEGORY_BASE, trimSlash(slug));
+      break;
+
+    case 'tag':
+      permalink = createPath(TAG_BASE, trimSlash(slug));
+      break;
+
     case 'post':
       permalink = createPath(trimSlash(slug));
       break;
@@ -43,6 +58,9 @@ export const getPermalink = (slug = '', type = 'page'): string => {
 
 /** */
 export const getHomePermalink = (): string => getPermalink('/');
+
+/** */
+export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
 
 /** */
 export const getAsset = (path: string): string =>

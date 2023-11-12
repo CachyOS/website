@@ -5,3 +5,13 @@ export const trim = (str = '', ch?: string) => {
   while (end > start && str[end - 1] === ch) --end;
   return start > 0 || end < str.length ? str.substring(start, end) : str;
 };
+
+const formatter: Intl.DateTimeFormat =
+  new Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+
+export const getFormattedDate = (date: Date): string => (date ? formatter.format(date) : '');

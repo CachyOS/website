@@ -1,0 +1,38 @@
+---
+import merge from 'lodash.merge';
+import type { ImageMetadata } from 'astro';
+
+import Layout from '~/layouts/PageLayout.astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+
+import { getCanonical, getPermalink } from '~/utils/permalinks';
+import { getStaticPathsBlogPost } from '~/utils/blog';
+import { findImage } from '~/utils/images';
+
+export async function getStaticPaths () {
+  return await getStaticPathsBlogPost();
+}
+
+const { post } = Astro.props;
+
+const url = getCanonical(getPermalink(post.permalink, 'post'));
+const image = (await findImage(post.image)) as ImageMetadata | undefined;
+
+const meta = merge(
+  {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      type: 'article',
+      ...(image ? { images: [{ url: image, width: image?.width, height: image?.height }] } : {}),
+    },
+  },
+  { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
+);
+---
+
+<Layout {meta}>
+  <SinglePost post={{ ...post, image: image }} url={url} />
+  <ToBlogLink />
+</Layout>
