@@ -1,5 +1,4 @@
 ---
-publishDate: 2023-11-12T00:00:00Z
 title: Test
 excerpt: Test
 category: Test
