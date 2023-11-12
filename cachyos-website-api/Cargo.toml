@@ -17,3 +17,10 @@ actix-cors = "0.6"
 
 [lib]
 doc = false
+
+[profile.release]
+strip = "symbols"
+panic = "abort"
+lto = true
+opt-level = 3
+codegen-units = 1
