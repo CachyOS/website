@@ -8,7 +8,7 @@ actix-web = {  version = "4", features = ["macros"], default-features = false }
 serde = { version = "1", features = ["serde_derive"], default-features = false }
 serde_json = { version = "1", default-features = false }
 diesel = { version = "2", features = ["chrono", "r2d2", "sqlite"], default-features = false }
-dotenv = "0.15"
+dotenvy = "0.15"
 uuid = { version = "1", features = ["v4"], default-features = false }
 log = "0.4"
 env_logger = { version = "0.10", default-features = false }
