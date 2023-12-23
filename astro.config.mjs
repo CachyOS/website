@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
-import compress from 'astro-compress';
+//import compress from 'astro-compress';
 
 import { SITE } from './src/config.mjs';
 
@@ -29,7 +29,7 @@ export default defineConfig({
     sitemap(),
     react(),
 
-    compress({
+    /*compress({
       css: true,
       html: {
         removeAttributeQuotes: false,
@@ -39,7 +39,7 @@ export default defineConfig({
       svg: false,
 
       logger: 1,
-    }),
+    }),*/
   ],
 
   vite: {

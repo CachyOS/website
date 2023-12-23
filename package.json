@@ -14,7 +14,7 @@
     "subfont": "subfont -ir --no-fallbacks --silent --root dist"
   },
   "devDependencies": {
-    "sharp": "^0.32.6",
+    "sharp": "^0.33.1",
     "subfont": "^6.12.5"
   },
   "engines": {
@@ -33,7 +33,6 @@
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "astro": "^4.0.7",
-    "astro-compress": "^2.2.5",
     "astro-icon": "^0.8.2",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.0",
