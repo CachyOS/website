@@ -64,6 +64,23 @@ The linux-cachyos kernel, CachyOS-Settings, and other components experienced exc
 - cachyos-bugreport.sh script for simplifying bug reports
 - zram-generator: ZRAM size set equal to RAM
 
+## BORE (Burst-Oriented Response Enhancer) CPU Scheduler Modification
+
+Through the year 2023 from BORE v1.7.5 to v3.6.1, it got gradually improved in 70+ consecutive update releases including:
+
+- Many performance improvements
+- Numerous bug fixes
+- Parameter optimizations
+- More precise burst tracking
+- Better fairness and response consistency
+- Better CPU cgroups compatibility
+- EEVDF scheduler support
+- Constant scheduling granularities
+- Burst "inheritance" feature with caching ability
+- Topological recursive task search
+- Better code readability
+- Architectural compatibility improvement
+
 ## New Team members joined
 
 Two new members joined the CachyOS team in 2023, bringing valuable expertise:
