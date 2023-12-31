@@ -18,7 +18,6 @@ export const getLastUpdated = ( entry: Post): Date | undefined => {
 
 export const getCreatedDate = ( entry: Post): Date | undefined => {
     const currentFilePath = `${getProjectRootDir()}/src/content/post/` + entry.id;
-    console.log(currentFilePath);
     let date = undefined;
     if (!date) {
         try {
