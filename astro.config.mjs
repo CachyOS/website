@@ -6,6 +6,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
+import icon from 'astro-icon';
 //import compress from 'astro-compress';
 
 import { SITE } from './src/config.mjs';
@@ -28,6 +29,7 @@ export default defineConfig({
     }),
     sitemap(),
     react(),
+    icon(),
 
     /*compress({
       css: true,
