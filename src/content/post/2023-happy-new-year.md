@@ -1,5 +1,5 @@
 ---
-title: Recap 2023, Plans for 2024 and Happy new year
+title: Happy new Year, CachyOS Recap 2023 and Plans for 2024
 excerpt: Happy new Year from CachyOS and thank you
 category: Information
 tags:
@@ -7,7 +7,6 @@ tags:
   - repository
 ---
 
-# Happy new Year, CachyOS Recap 2023 and Plans for 2024
 
 We wish you all a happy new year and hope you got well into 2024.
 2023 was a great year for CachyOS, marked by significant improvements, changes, and fixes across the board.
