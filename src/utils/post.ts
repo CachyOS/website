@@ -8,18 +8,24 @@ export const getLastUpdated = ( entry: Post): Date | undefined => {
     if (!date) {
         try {
             ({ date } = getFileCommitDate(currentFilePath, 'newest'));
-        } catch {}
+        } catch(e) {
+            console.log(e);
+
+        }
     }
     return date;
 };
 
 export const getCreatedDate = ( entry: Post): Date | undefined => {
     const currentFilePath = `${getProjectRootDir()}/src/content/post/` + entry.id;
+    console.log(currentFilePath);
     let date = undefined;
     if (!date) {
         try {
             ({ date } = getFileCommitDate(currentFilePath, 'oldest'));
-        } catch {}
+        } catch(e) {
+            console.log(e);
+        }
     }
     return date;
 }
