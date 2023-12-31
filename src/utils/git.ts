@@ -8,7 +8,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import path from 'node:path';
+import { basename, dirname } from 'node:path';
 import { execaSync } from 'execa';
 
 /** Custom error thrown when git is not found in `PATH`. */
@@ -28,69 +28,61 @@ class FileNotTrackedError extends Error {}
  * unexpected text.
  */
 export function getFileCommitDate(
-	file: string,
-	age: 'oldest' | 'newest' = 'oldest'
+    file: string,
+    age: 'oldest' | 'newest' = 'oldest'
 ): {
-	date: Date;
-	timestamp: number;
+    date: Date;
+    timestamp: number;
 } {
-	try {
-		const { stdout } = execaSync('which', ['git']);
-		if (!stdout) {
-			throw new GitNotFoundError(
-				`Failed to retrieve git history for "${file}" because git is not installed.`
-			);
-		}
-	} catch {}
+    let git_path = '';
+    {
+        const { stdout } = execaSync('which', ['git']);
+        if (!stdout) {
+            throw new GitNotFoundError(
+                `Failed to retrieve git history for "${file}" because git is not installed.`
+            );
+        }
+        git_path = stdout;
+    }
+    const result = execaSync(
+        git_path,
+        [
+            'log',
+            `--format=%ct`,
+            '--max-count=1',
+            ...(age === 'oldest' ? ['--follow', '--diff-filter=A'] : []),
+            '--',
+            basename(file),
+        ],
+        {
+            cwd: dirname(file),
+        }
+    );
+    if (result.exitCode !== 0) {
+        throw new Error(
+            `Failed to retrieve the git history for file "${file}" with exit code ${result.exitCode}: ${result.stderr}`
+        );
+    }
 
-	try {
-		const { stdout } = execaSync('test', ['-f', file]);
-		if (!stdout) {
-			throw new Error(
-				`Failed to retrieve git history for "${file}" because the file does not exist.`
-			);
-		}
-	} catch {}
+    const output = result.stdout.trim();
 
-	const result = execaSync(
-		'git',
-		[
-			'log',
-			`--format=%ct`,
-			'--max-count=1',
-			...(age === 'oldest' ? ['--follow', '--diff-filter=A'] : []),
-			'--',
-			path.basename(file),
-		],
-		{
-			cwd: path.dirname(file),
-		}
-	);
-	if (result.exitCode !== 0) {
-		throw new Error(
-			`Failed to retrieve the git history for file "${file}" with exit code ${result.exitCode}: ${result.stderr}`
-		);
-	}
-	const regex = /^(?<timestamp>\d+)$/;
+    if (!output) {
+        throw new FileNotTrackedError(
+            `Failed to retrieve the git history for file "${file}" because the file is not tracked by git.`
+        );
+    }
 
-	const output = result.stdout.trim();
+    const regex = /^(?<timestamp>\d+)$/;
+    const match = output.match(regex);
 
-	if (!output) {
-		throw new FileNotTrackedError(
-			`Failed to retrieve the git history for file "${file}" because the file is not tracked by git.`
-		);
-	}
+    if (!match) {
+        throw new Error(
+            `Failed to retrieve the git history for file "${file}" with unexpected output: ${output}`
+        );
+    }
 
-	const match = output.match(regex);
+    const timestamp = Number(match.groups!.timestamp);
+    const date = new Date(timestamp * 1000);
 
-	if (!match) {
-		throw new Error(
-			`Failed to retrieve the git history for file "${file}" with unexpected output: ${output}`
-		);
-	}
-
-	const timestamp = Number(match.groups!.timestamp);
-	const date = new Date(timestamp * 1000);
-
-	return { date, timestamp };
+    return { date, timestamp };
 }
