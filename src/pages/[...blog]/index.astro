@@ -1,4 +1,6 @@
 ---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
 import merge from 'lodash.merge';
 import type { ImageMetadata } from 'astro';
 
@@ -10,14 +12,18 @@ import { getCanonical, getPermalink } from '~/utils/permalinks';
 import { getStaticPathsBlogPost } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 
-export async function getStaticPaths () {
-  return await getStaticPathsBlogPost();
-}
+import type { MetaData } from '~/types';
 
-const { post } = Astro.props;
+export const getStaticPaths = (async () => {
+  return await getStaticPathsBlogPost();
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props as Props;
 
 const url = getCanonical(getPermalink(post.permalink, 'post'));
-const image = (await findImage(post.image)) as ImageMetadata | undefined;
+const image = (await findImage(post.image)) as ImageMetadata | string | undefined;
 
 const meta = merge(
   {
@@ -25,11 +31,11 @@ const meta = merge(
     description: post.excerpt,
     openGraph: {
       type: 'article',
-      ...(image ? { images: [{ url: image, width: image?.width, height: image?.height }] } : {}),
+      ...(image ? { images: [{ url: image, width: (image as ImageMetadata)?.width, height: (image as ImageMetadata)?.height }] } : {}),
     },
   },
   { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
-);
+) as MetaData;
 ---
 
 <Layout {meta}>
