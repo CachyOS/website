@@ -71,7 +71,7 @@ export function getFileCommitDate(
 			`Failed to retrieve the git history for file "${file}" with exit code ${result.exitCode}: ${result.stderr}`
 		);
 	}
-	let regex = /^(?<timestamp>\d+)$/;
+	const regex = /^(?<timestamp>\d+)$/;
 
 	const output = result.stdout.trim();
 
