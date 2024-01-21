@@ -20,18 +20,17 @@ Starting with this release, xwayland is now patched with explicit sync patches t
 
 **Default kernel with sched-ext scheduler framework**
 
-The default kernel now includes the sched-ext scheduler framework, which allows you to dynamically switch between different schedulers at runtime. This gives you more flexibility in fine-tuning your system performance. There are a bunch of example schedulers, like scx_rusty, scx_nest and scx_rustland.
-Here you can find more about the sched-ext framework:
-https://github.com/sched-ext/scx
+The default kernel now includes the sched-ext scheduler framework, which allows you to dynamically switch between [different schedulers](https://github.com/sched-ext/scx) at runtime. This gives you more flexibility in fine-tuning your system performance. There are several example schedulers such as scx_rusty, scx_nest and scx_rustland.
 
 **Additional package updates**
 
-We've also updated a number of other packages, including mesa to 23.3.3, the Linux kernel to 6.7.1, gcc to 13.2.1, mkinitcpio 37.2 and xorg-xwayland to 23.2.4.
+We've also updated a number of other packages, including mesa 23.3.3, the Linux kernel 6.7.1, gcc 13.2.1, mkinitcpio 37.2, and xorg-xwayland 23.2.4.
 
 **Bug fixes**
 
 We've also fixed a bug that was affecting Ada Lovelace NVIDIA cards. Now, the NVIDIA modules are directly packed into the initramfs to avoid issues with the early KMS.
-mkinitcio got also a bugfix, because it has issues with the 6.7 kernel which resulted into a really big initramfs image.
+
+mkinitcio also got a bugfix: solved issues with the 6.7 kernel, which resulted into a really big initramfs image.
 
 **Download and support**
 
