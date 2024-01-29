@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.9",
+    "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "@astrolib/seo": "^1.0.0-beta.5",
