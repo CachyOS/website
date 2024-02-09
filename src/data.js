@@ -45,7 +45,7 @@ export const footerData = {
   socialLinks: [
     { arialabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/cachyos' },
     { arialabel: 'Telegram', icon: 'tabler:brand-telegram', href: 'https://t.me/+oR-kWT47vRdmMDli' },
-    { arialabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/qJqj94uFwE' },
+    { arialabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/cachyos-862292009423470592' },
     { arialabel: 'Reddit', icon: 'tabler:brand-reddit', href: 'https://www.reddit.com/r/cachyos' },
     { arialabel: 'Patreon', icon: 'tabler:brand-patreon', href: 'https://www.patreon.com/CachyOS' },
     { arialabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/cachyos' },
