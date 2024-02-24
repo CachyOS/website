@@ -6,11 +6,11 @@ services:
     container_name: cachyos-website-api
     hostname: cachyoswebsiteapi
     environment:
-      - DATABASE_URL=website-api.db
+      - DATABASE_URL=/db/website-api.db
       - RUNNING_ADDRESS=0.0.0.0
       - RUNNING_PORT=8088 # Defaults to 39764
     volumes:
-      - ./website-api.db:/website-api.db
+      - ./db:/db:rw
     ports:
       - 8088:8088
     restart: always

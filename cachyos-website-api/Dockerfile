@@ -9,7 +9,7 @@ RUN cargo install diesel_cli --no-default-features --features sqlite
 WORKDIR /app
 COPY . .
 
-ENV DATABASE_URL=website-api.db
+ENV DATABASE_URL=./db/website-api.db
 RUN diesel setup && diesel migration run
 
 ARG ARCH
@@ -35,7 +35,7 @@ RUN cargo clean
 #COPY --from=builder /usr/local/cargo/bin/cachyos-website-api .
 
 ENV RUNNING_ADDRESS=0.0.0.0
-ENV DATABASE_URL=website-api.db
+ENV DATABASE_URL=/db/website-api.db
 EXPOSE 39764
 
 CMD ["/usr/local/cargo/bin/cachyos-website-api"]
