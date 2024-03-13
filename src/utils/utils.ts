@@ -26,7 +26,7 @@ export const enum ISOEdition {
   Gnome = 'gnome',
 }
 
-const direct_base_link = 'https://mirror.cachyos.org/ISO';
+const direct_base_link = 'https://cdn.cachyos.org/ISO';
 const sourceforge_base_link = 'https://sourceforge.net/projects/cachyos-arch/files/gui-installer';
 
 export const generateDownloadLink = (edition: ISOEdition, release: string, source: ISOSource): string => {
