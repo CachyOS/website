@@ -3,7 +3,7 @@ import { getFileCommitDate } from './git';
 import { getProjectRootDir } from './directories';
 
 export const getLastUpdated = ( entry: Post): Date | undefined => {
-    const currentFilePath = `${getProjectRootDir()}/src/content/post/` + entry.id;
+    const currentFilePath = `src/content/post/` + entry.id;
     let date = undefined;
     if (!date) {
         try {
@@ -17,7 +17,7 @@ export const getLastUpdated = ( entry: Post): Date | undefined => {
 };
 
 export const getCreatedDate = ( entry: Post): Date | undefined => {
-    const currentFilePath = `${getProjectRootDir()}/src/content/post/` + entry.id;
+    const currentFilePath = `src/content/post/` + entry.id;
     let date = undefined;
     if (!date) {
         try {
