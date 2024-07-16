@@ -43,7 +43,7 @@ export const footerData = {
     { text: 'Privacy Policy', href: '#' },
   ],
   socialLinks: [
-    { arialabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/cachyos' },
+    { arialabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/cachyos' },
     { arialabel: 'Telegram', icon: 'tabler:brand-telegram', href: 'https://t.me/+oR-kWT47vRdmMDli' },
     { arialabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/cachyos-862292009423470592' },
     { arialabel: 'Reddit', icon: 'tabler:brand-reddit', href: 'https://www.reddit.com/r/cachyos' },
