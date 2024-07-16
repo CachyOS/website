@@ -1,24 +1,3 @@
-FROM node:latest as builder
+FROM oven/bun:alpine
 
-# Install app dependencies
-#COPY package.json yarn.lock ./
-
-# Bundle app source
-WORKDIR /app
-#COPY . .
-
-#RUN yarn install
-
-#RUN yarn build
-
-# Production
-#FROM nginx:stable-alpine as production
-
-#COPY --from=builder dist/* /var/www/html/
-
-#EXPOSE 3000
-#CMD [ "nginx", "-g", "daemon off;" ]
-
-EXPOSE 3000
-#CMD [ "yarn", "preview", "--host"]
-CMD [ "bash", "-c", "yarn install; yarn dev --host"]
+RUN apk add git
