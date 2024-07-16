@@ -35,7 +35,10 @@ export const footerData = {
     },
     {
       title: 'Distribution',
-      links: [{ text: 'About', href: getPermalink('/about/#distribution') }],
+      links: [
+        { text: 'About', href: getPermalink('/about/#distribution') },
+        { text: 'Packages', href: 'https://mirror.cachyos.org/repo/' },
+      ],
     },
   ],
   secondaryLinks: [
