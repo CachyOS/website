@@ -1,6 +1,6 @@
 ---
 title: CachyOS October 2024 Release
-excerpt: amdgpu, chwd, sddm
+excerpt: amdgpu, chwd, SDDM
 category: release
 tags:
   - release
@@ -11,7 +11,7 @@ tags:
 This is our 11th release this year, which is intended as a fixing release.
 
 There has been an increased amount of reports, that people with RDNA3 and AMD iGPU's were not able to get a graphical session on the ISO, this has been fixed with adding xf86-video-amdgpu.
-Besides that there are some fixes for the sddm wayland session for KDE, which should be now fully resolved. There are some more fixes with the upcoming Plasma 6.2 release, which should make the experience better.
+Besides that there are some fixes for the SDDM wayland session for KDE, which should be now fully resolved. There are some more fixes with the upcoming Plasma 6.2 release, which should make the experience better.
 
 Also, we have fixed reinstalling profiles with our hardware detection, this helps if users are changing their hardware or want to reinstall the driver packages.
 
@@ -24,7 +24,7 @@ Besides that we had some common package updates, like the kernel, mesa, python a
 - Package Updates: linux-cachyos 6.11.1, mesa 24.2.4, scx-scheds 1.0.5, python 3.12.7
 
 **Bug Fixes:**
-- sddm: Pulled in newer sddm to fix wayland session logins
+- SDDM: Pulled in newer SDDM to fix wayland session logins
 - ISO: Added xf86-video-amdgpu to fix graphical session loading on some setups
 - chwd: Fixed reinstallation of profiles
 
