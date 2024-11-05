@@ -150,3 +150,11 @@ Additionally we want to work out a way to integrate AutoFDO into our default pro
 I looked a bit into virtme-ng and this could be a possible solution. Otherwise I could also imagine, that the kernel gets compiled in chroot, installed on a test machine and then the profile uploaded to the source of the PKGBUILD and then used at compilation time.
 
 This would further improve the performance of CachyOS out of the box.
+
+## Update
+
+The root issue for the packaging problem with the default "linux-cachyos" has been identified.
+The issue is that strip fails, and therefore the packaging can not proceed. This regression has been introduced in binutils 2.43.
+The packaging with binutils 2.42 works without problems. We will report the issue soon and hope that we can integrate AutoFDO into the CachyOS Kernel soon!
+
+More info: https://lore.kernel.org/lkml/CAF1bQ=SbeR3XhFc7JYGOh69JZfAwQV8nupAQM+ZxpzNEFUFxJw@mail.gmail.com/
