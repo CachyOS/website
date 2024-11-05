@@ -34,7 +34,7 @@ Here you can find more detailed changes for this release:
 
 **Bug-Fixes:**
 
-- Autologin: Fixed the autologin option when used together with sddm
+- Autologin: Fixed the autologin option when used together with SDDM
 - xz: Provide a patched xz package
 - libarchive: Mitigate commit from malicious xz actor
 - cachyos-settings: udev-rule: don't set watermark_scale_factor to 125, since it siginificantly increases RAM usage

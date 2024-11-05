@@ -14,7 +14,7 @@ We have started to optimize more packages with PGO. In the case of LLVM and Clan
 
 The repository sync is now happening more often, which means there will be even less delay between the Arch repository and our optimized packages. Also, starting from 27.09.24, we are applying `-fno-semantic-interposition` automatically to -fpic compiled packages. This can significantly improve many shared packages. We have also started to replace `zlib` with `zlib-ng` and its compat layer. `zlib-ng` is a more modern alternative to `zlib`, which provides better performance and more modern techniques.
 
-The `cachyos-kde-settings` package now installs an sddm config, which enables Wayland by default for sddm. This has the benefit that refresh rates, resolution, and other settings can be applied to it, providing a better experience.
+The `cachyos-kde-settings` package now installs an SDDM config, which enables Wayland by default for SDDM. This has the benefit that refresh rates, resolution, and other settings can be applied to it, providing a better experience.
 GPUs that do not support Wayland (legacy NVIDIA) need to manually remove this config. We may introduce hardware detection integration for this in the future, but this has not been done yet.
 
 In `cachyos-settings`, we have added changes to the handling of NetworkManager. NetworkManager will now use systemd-resolved as the backend, which helps fix issues with download speed in Steam due to its massive DNS requests. Enabling DNS caching massively improves that. Also, we are now adding an NTP Server for systemd-timesyncd, which will default to time.google.com. There have been increased reports in Arch Linux, as well as CachyOS, that the timeservers provided as default are not working correctly. The previously used timeservers will still be used as fallbacks.
@@ -32,7 +32,7 @@ Together with this release the **old ISO** will **not work** anymore, due the ch
 - Repository: Starting from 27.09.2024, packages compiled with -fpic will automatically enable -fno-semantic-interposition. This can provide a performance improvement for many packages.
 - zlib-ng: Is now used as a replacement for zlib
 - Mirrors: New Mirror in Austria, hosted by Soulharsh007.
-- sddm: On the KDE Installation, sddm will now default to Wayland as the compositor. # Provide Migration changes in release post
+- SDDM: On the KDE Installation, SDDM will now default to Wayland as the compositor. # Provide Migration changes in release post
 - cachyos-settings: NetworkManager now uses systemd-resolved as the backend, which helps with DNS caching
 - cachyos-settings: Use time.google.com as the timesync server to avoid issues with timesync on some setups
 - gcc: Added fixes for the tuning of znver5

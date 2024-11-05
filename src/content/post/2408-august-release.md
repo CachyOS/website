@@ -1,6 +1,6 @@
 ---
 title: CachyOS August 2024 Release
-excerpt: NVIDIA Open Module, Cosmic, Secure-Boot, Ally X, CDN
+excerpt: NVIDIA Open Module, COSMIC, Secure-Boot, Ally X, CDN
 category: release
 tags:
   - release
@@ -14,7 +14,7 @@ Starting with this release, the hardware detection will automatically use the op
 
 We've also included the latest NVIDIA Beta driver (560) after extensive testing. This driver appears to be in a stable state following its second beta release.
 
-The Cosmic Desktop Environment is now available for installation. We'll follow the upstream release (Alpha 1) for packaging. Packages based on the latest commit are available, though these won't be used for installation. Existing users can install Cosmic on their current setup with the command: `sudo pacman -S cosmic-session`. This installs the base packages for running Cosmic. Additional packages like cosmic-text-editor, cosmic-terminal, and cosmic-store are also available.
+The COSMIC Desktop Environment is now available for installation. We'll follow the upstream release (Alpha 1) for packaging. Packages based on the latest commit are available, though these won't be used for installation. Existing users can install COSMIC on their current setup with the command: `sudo pacman -S cosmic-session`. This installs the base packages for running COSMIC. Additional packages like cosmic-text-editor, cosmic-terminal, and cosmic-store are also available.
 
 Our infrastructure has seen significant improvements:
 We're proud to announce that CDN77 is sponsoring us with a worldwide cache CDN. This greatly enhances connection speeds for users, especially in regions we previously couldn't serve effectively with our existing mirrors. This CDN has been tested for about 3 weeks by us and the community, receiving positive feedback.
@@ -40,7 +40,7 @@ KWin's libei is now used for Wayland Input Emulation instead of libextest. Fixes
 **Features:**
 
 - chwd: NVIDIA now uses the open module as default for supported cards
-- Desktop: Added Cosmic Desktop Environment to the installation options
+- Desktop: Added COSMIC Desktop Environment to the installation options
 - NVIDIA: Latest 560 Beta driver is now the default; egl-wayland patched to fix crashes in Firefox and other applications
 - mirrors: CDN77 sponsored CachyOS with Object Storage featuring a worldwide cache, significantly improving connection speeds for users
 - mirrors: CachyOS now provides its own Arch Linux mirror to avoid syncing issues, set as default during installation along with fallback mirrors
