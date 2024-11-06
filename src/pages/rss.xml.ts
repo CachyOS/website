@@ -8,7 +8,7 @@ export const GET = async (context) => {
   const posts = await fetchPosts();
 
   const rss = await getRssString({
-    title: `${SITE.name}’s Blog`,
+    title: `${SITE.name}'s Blog`,
     description: SITE.description,
     site: context.site,
 
