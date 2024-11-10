@@ -48,6 +48,7 @@ Calamares has also received a bunch of fixes and has been updated to the latest 
 - kernel: Experimental AutoFDO optimized kernel in the repository under "linux-cachyos-autofdo"
 - ISO: Added check, if user running handheld edition and warn then, if they are starting the installation on an unsupported device
 - ISO: Added check, if the user is using the latest ISO, if not warn them
+- Package Updates: linux-cachyos 6.11.7, nvidia 565.57.01, mesa 24.2.6 and more
 
 **Bug Fixes:**
 - refind: partitioning: changed from 3 way partiton layout to 2 way
