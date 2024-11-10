@@ -8,7 +8,7 @@ tags:
 
 **Hello CachyOS Enthusiasts**,
 
-This is our 11th release this year, featuring performance improvement, changes to the partitioning, and more!
+This is our 12th release this year, featuring performance improvement, changes to the partitioning, and more!
 
 We have backported from the 6.13 Kernel the THP Shrinker, which allows splitting hugepages earlier, reducing memory usage when transparent_hugepages is set to "always", while maintaining the same performance.
 
