@@ -54,6 +54,7 @@ Calamares has also received a bunch of fixes and has been updated to the latest 
 - refind: partitioning: changed from 3 way partiton layout to 2 way
 - netinstall: added kdeplasma-addons to the Plasma installation
 - calamares: Fixed a issue, while partitioning with a swap partition
+- timesync: Switched from time.google.com to time.cloudflare.com
 
 **Changelog Handheld Edition:**
 - Rog Ally X Support should have been improved
