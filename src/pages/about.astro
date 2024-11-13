@@ -3,7 +3,6 @@ import { getCanonical, getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import Distribution from '~/components/widgets/AboutDistribution.astro';
 import Team from '~/components/widgets/Team.astro';
-import Contributors from '~/components/widgets/Contributors.astro';
 
 const meta = {
   title: `About us`,
@@ -15,5 +14,4 @@ const meta = {
 <Layout {meta}>
   <Distribution />
   <Team />
-  <Contributors />
 </Layout>

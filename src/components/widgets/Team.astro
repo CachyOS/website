@@ -3,76 +3,133 @@ import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 
 const items = [
-  [
-    {
-      name: 'Peter Jung (ptr1337)',
-      description: 'Founder, Developer',
-      avatar: '~/assets/images/ptr1337_avatar.png',
-      github_url: 'https://github.com/ptr1337',
-    },
-    {
-      name: 'Vladislav Nepogodin (vnepogodin)',
-      description: 'Founder, Developer',
-      avatar: '~/assets/images/cpp_code.jpg',
-      github_url: 'https://github.com/vnepogodin',
-    },
-    {
-      name: 'Piotr Gorski (sir_lucjan)',
-      description: 'Kernel maintainer, University lecturer from Poland',
-      avatar: '~/assets/images/binary-code.jpg',
-      github_url: 'https://github.com/sirlucjan',
-    },
-  ],
+  {
+    name: 'Peter Jung (ptr1337)',
+    description: 'Founder, Developer',
+    avatar: '~/assets/images/ptr1337_avatar.png',
+    github_url: 'https://github.com/ptr1337',
+  },
+  {
+    name: 'Vladislav Nepogodin (vnepogodin)',
+    description: 'Founder, Developer',
+    avatar: '~/assets/images/cpp_code.jpg',
+    github_url: 'https://github.com/vnepogodin',
+  },
+  {
+    name: 'Piotr Gorski (sir_lucjan)',
+    description: 'Kernel maintainer, University lecturer from Poland',
+    avatar: '~/assets/images/binary-code.jpg',
+    github_url: 'https://github.com/sirlucjan',
+  },
+  {
+    name: 'Vasiliy Stelmachenok (ventureoo)',
+    description: 'Developer, Maintainer of ARU, CHWD, CachyOS-Settings, Nvidia Tweaks',
+    avatar: '~/assets/images/logo.svg',
+    github_url: 'https://github.com/ventureoo',
+  },
+  {
+    name: 'Eric Naim (naim)',
+    description: 'Package and Kernel Maintainer',
+    avatar: '~/assets/images/logo.svg',
+    github_url: 'https://github.com/1Naim',
+  },
+  {
+    name: 'Harsh Peshwani (SoulHarsh007)',
+    description: 'Developer, Maintainer of Cachy Chroot, Website, Builder Dashboard',
+    avatar: '~/assets/images/soulharsh007_avatar.png',
+    github_url: 'https://github.com/SoulHarsh007',
+  },
+  {
+    name: 'Nekoh',
+    description: 'Developer, Maintainer of CachyOS Handheld Edition',
+    avatar: '~/assets/images/logo.svg',
+    github_url: 'https://github.com/Pogogo007',
+  },
+  {
+    name: 'Stelios Tsampas (loathingKernel)',
+    description: 'Developer, Maintainer of CachyOS Wine & Proton',
+    avatar: '~/assets/images/loathingkernel_avatar.png',
+    github_url: 'https://github.com/loathingKernel',
+  },
+  {
+    name: 'Vědomil Vildomec (Vilda)',
+    description: 'Contributor, Wiki, Documentation, Tutorials',
+    avatar: '~/assets/images/vilda_avatar.png',
+    github_url: 'https://github.com/SoongVilda',
+  },
+  {
+    name: 'firelzrd',
+    description: 'BORE Scheduler',
+    avatar: '~/assets/images/logo.svg',
+    github_url: 'https://github.com/firelzrd',
+  },
+  {
+    name: 'Luca Paglia (NextWorks)',
+    description: 'GFX, ART',
+    avatar: '~/assets/images/nextworks_avatar.png',
+    github_url: 'https://github.com/NextWork123',
+  },
+  {
+    name: 'Matias (Shendisx)',
+    description: 'Contributor, Tester, CachyOS Ricer',
+    avatar: '~/assets/images/shendisx_avatar.png',
+    github_url: 'https://github.com/Shendisx',
+  },
 ];
 ---
 
 <section class="py-28 overflow-hidden" id="team">
-  <div class="container px-4 mx-auto">
-    <h2
-      class="mb-20 text-6xl md:text-8xl xl:text-10xl text-center font-bold font-heading tracking-px-n leading-none"
-      data-config-id="auto-txt-1-6"
-    >
-      Meet our team!
-    </h2>
-    {
-      items.map((subitems) => (
-        <div class="max-w-5xl mx-auto">
-          <div class="flex flex-wrap -m-3">
-            {subitems.map(({ name, description, avatar, github_url }) => (
-              <div class="w-full md:w-1/3 p-3">
-                <div class="max-w-max mx-auto">
-                  <div class="mb-6 max-w-max overflow-hidden rounded-3xl">
-                    <Image
-                      src={avatar}
-                      class="transform hover:scale-105 transition ease-in-out duration-1000"
-                      quality={100}
-                      alt="Avatar"
-                      aspectRatio={512 / 512}
-                      loading="eager"
-                      width={512}
-                      height={512}
-                    />
-                  </div>
-                  <h3 class="mb-1 text-lg font-bold font-heading leading-snug">{name}</h3>
-                  <p
-                    class="font-medium text-gray-600 dark:text-gray-400"
-                    data-config-id="auto-txt-3-6"
-                  >
-                    {description}
-                  </p>
-                  <a
-                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                    aria-label="Github"
-                    href={github_url}
-                  >
-                    <Icon name="tabler:brand-github" class="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-            ))}
+  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+    <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+        Meet our team!
+      </h2>
+      <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        Meet the people behind CachyOS!
+      </p>
+    </div>
+    <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {
+        items.map(({ name, description, avatar, github_url }) => (
+          <div class="text-center text-gray-500 dark:text-gray-400 flex flex-col rounded-lg h-96">
+            <div class="flex flex-row justify-center">
+              <Image
+                src={avatar}
+                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square hidden md:block"
+                alt={`Avatar of ${name}`}
+                aspectRatio={1}
+                loading="eager"
+                width={512}
+                height={512}
+              />
+              <Image
+                src={avatar}
+                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square md:hidden"
+                alt={`Avatar of ${name}`}
+                aspectRatio={1}
+                loading="eager"
+                width={256}
+                height={256}
+              />
+            </div>
+            <ul class="flex justify-center mt-2 space-x-4">
+              <li>
+                <a
+                  class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  aria-label="Github"
+                  href={github_url}
+                >
+                  <Icon name="tabler:brand-github" class="w-5 h-5" />
+                </a>
+              </li>
+            </ul>
+            <h3 class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {name}
+            </h3>
+            <p class="mb-4 text-sm font-medium">{description}</p>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </section>
