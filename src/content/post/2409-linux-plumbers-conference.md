@@ -12,11 +12,11 @@ We are pretty excited to announce, that CachyOS will be on this year's Linux Plu
 We will have a talk about the integration of sched-ext into CachyOS and about the process as well as the problems we faced and the solution we have found.
 
 The general content will be:
+
 - Short introduction about the CachyOS project and the team behind it
 - Integration with systemd
 - Improvements of sched-ext for the community (LAVD/bpfland)
 - scx_loader - scheduler manager via dbus
-
 
 Here you can find more info about the session:
 

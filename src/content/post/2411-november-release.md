@@ -33,10 +33,10 @@ Outside of this, we have added kdeplasma-addons to the Plasma installation, as t
 
 Calamares has also received a bunch of fixes and has been updated to the latest version.
 
-
 **Changelog for this Release:**
 
 **Features:**
+
 - thp-shrinker: Put max_ptes_none value to 80% for zero filled pages. This will reduce the memory usage for when THP always is used, while maintaining the same performance
 - NVIDIA: GSP Firmware gets now automatically disabled, if the users switches on their own to the closed driver
 - chwd: NVIDIA: nvidia-powerd services gets enabled for laptops, to reach the most available tdp
@@ -51,22 +51,26 @@ Calamares has also received a bunch of fixes and has been updated to the latest 
 - Package Updates: linux-cachyos 6.11.7, nvidia 565.57.01, mesa 24.2.6 and more
 
 **Bug Fixes:**
+
 - refind: partitioning: changed from 3 way partiton layout to 2 way
 - netinstall: added kdeplasma-addons to the Plasma installation
 - calamares: Fixed a issue, while partitioning with a swap partition
 - timesync: Switched from time.google.com to time.cloudflare.com
 
 **Changelog Handheld Edition:**
+
 - Rog Ally X Support should have been improved
 
 **Manual changes for existing users:**
 
 Users, which having laptops with nvidia dGPU (30xx and above) should enable the nvidia-powerd.service with following command:
+
 ```sh
 sudo systemctl enable nvidia-powerd
 ```
 
 Outside of this, just keep your system updated with following command:
+
 ```
 sudo pacman -Syu
 ```
@@ -77,24 +81,24 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/241110/cachyos-desktop-linux-241110.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/241110/cachyos-desktop-linux-241110.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/241110/cachyos-desktop-linux-241110.iso
-* USA: https://us.cachyos.org/ISO/241110/desktop/cachyos-desktop-linux-241110.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241110/cachyos-desktop-linux-241110.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/241110/cachyos-desktop-linux-241110.iso
+- CDN2: https://cdn77.cachyos.org/ISO/desktop/241110/cachyos-desktop-linux-241110.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/241110/cachyos-desktop-linux-241110.iso
+- USA: https://us.cachyos.org/ISO/241110/desktop/cachyos-desktop-linux-241110.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241110/cachyos-desktop-linux-241110.iso
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/241110/cachyos-handheld-linux-241110.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/241110/cachyos-handheld-linux-241110.iso
+- CDN: https://iso.cachyos.org/handheld/241110/cachyos-handheld-linux-241110.iso
+- CDN2: https://cdn77.cachyos.org/ISO/handheld/241110/cachyos-handheld-linux-241110.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 

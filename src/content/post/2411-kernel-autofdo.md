@@ -6,7 +6,6 @@ tags:
   - performance
 ---
 
-
 AutoFDO is an optimization technique that enhances code performance using profile-sampled optimization. AutoFDO works similarly to PGO (Profile-Guided Optimization) but uses CPU profiling data to optimize the resulting code. Like PGO, AutoFDO also requires two compilation steps.
 
 This guide demonstrates how to use the `make pacman-pkg` function to create a kernel that can be easily installed on an Arch Linux-based system. I attempted to integrate it into a standard PKGBUILD workflow, but encountered issues during packaging, which have been reported upstream. You can view the report here: https://lore.kernel.org/lkml/3183ab86-8f1f-4624-9175-31e77d773699@cachyos.org/
@@ -70,6 +69,7 @@ sudo sh -c "echo 0 > /proc/sys/kernel/perf_event_paranoid"
 
 Next, run a workload and profile the kernel. Personally, I compiled the CachyOS kernel using its PKGBUILD with the following commands:
 Note: This depends on having "libpfm" into perf compiled. In CachyOS this is provided as default. On archlinux please do following:
+
 ```sh
 paru -S libpfm devtools
 pkgctl repo clone --protocol=https linux-tools && cd linux-tools

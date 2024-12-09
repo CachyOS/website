@@ -17,17 +17,17 @@ Also, we have fixed reinstalling profiles with our hardware detection, this help
 
 Besides that we had some common package updates, like the kernel, mesa, python and scx-scheds.
 
-
 **Changelog for this Release:**
 
 **Features:**
+
 - Package Updates: linux-cachyos 6.11.1, mesa 24.2.4, scx-scheds 1.0.5, python 3.12.7
 
 **Bug Fixes:**
+
 - SDDM: Pulled in newer SDDM to fix wayland session logins
 - ISO: Added xf86-video-amdgpu to fix graphical session loading on some setups
 - chwd: Fixed reinstallation of profiles
-
 
 **Manual changes for existing users:**
 
@@ -41,19 +41,19 @@ Simply running: `sudo pacman -R cachyos-kde-settings` solves the issue.
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/241003/cachyos-desktop-linux-241003.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/241003/cachyos-desktop-linux-241003.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/241003/cachyos-desktop-linux-241003.iso
-* USA: https://us.cachyos.org/ISO/desktop/241003/cachyos-desktop-linux-241003.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241003/cachyos-desktop-linux-241003.iso
-* Sourceforge: https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/241003/cachyos-desktop-linux-241003.iso
+- CDN2: https://cdn77.cachyos.org/ISO/desktop/241003/cachyos-desktop-linux-241003.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/241003/cachyos-desktop-linux-241003.iso
+- USA: https://us.cachyos.org/ISO/desktop/241003/cachyos-desktop-linux-241003.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241003/cachyos-desktop-linux-241003.iso
+- Sourceforge: https://sourceforge.net/projects/cachyos-arch/files
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 
