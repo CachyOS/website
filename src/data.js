@@ -22,7 +22,7 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Features', href: 'https://wiki.cachyos.org/en/home/features' },
+        { text: 'Features', href: 'https://wiki.cachyos.org/cachyos_basic/why_cachyos/' },
         { text: 'Team', href: getPermalink('/about/#team') },
       ],
     },
