@@ -8,7 +8,7 @@ tags:
 
 **Hello CachyOS Enthusiasts**,
 
-This marks our 13th release of the year and likely the final one, packed with kernel optimizations, RustiCL changes, and numerous other improvements.
+This marks our 13th release of the year and likely the final one for this year, packed with kernel optimizations, RustiCL changes, and numerous other improvements.
 
 One of the most notable changes is that the default kernel is now optimized using AutoFDO. Profiling workloads are run through a diverse set of tests, including sysbench, CachyOS Benchmarker, Git operations, kernel compilation, and several miscellaneous benchmarks. Currently, the profiling is done on a Zen5 machine, but in the future, we plan to support merging multiple profiles for even broader optimization.
 
@@ -70,17 +70,17 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/241224/cachyos-desktop-linux-241224.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/241224/cachyos-desktop-linux-241224.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/241224/cachyos-desktop-linux-241224.iso
-* USA: https://us.cachyos.org/ISO/241224/desktop/cachyos-desktop-linux-241224.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241224/cachyos-desktop-linux-241224.iso
+* CDN: https://iso.cachyos.org/desktop/241221/cachyos-desktop-linux-241221.iso
+* CDN2: https://cdn77.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
+* Germany: https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
+* USA: https://us.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
+* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241221/cachyos-desktop-linux-241221.iso
 * https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/241224/cachyos-handheld-linux-241224.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/241224/cachyos-handheld-linux-241224.iso
+* CDN: https://iso.cachyos.org/handheld/241221/cachyos-handheld-linux-241221.iso
+* CDN2: https://cdn77.cachyos.org/ISO/handheld/241221/cachyos-handheld-linux-241221.iso
 
 **Support Us:**
 
