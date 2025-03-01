@@ -4,11 +4,13 @@ import { Image } from 'astro:assets';
 import DropdownMenu from '~/components/widgets/DropdownMenu';
 import { ISOEdition, ISOSource, generateDownloadLink } from '~/utils/utils';
 import versions from '~/versions';
+import magnetURLs from '~/magnetURLs';
 
 interface DropdownMenuProps {
   title: string;
   direct_url: string;
   srcforge_url?: string;
+  magenet_url?: string;
 }
 
 const items = [
@@ -27,6 +29,7 @@ const items = [
         versions.desktopISOVersion,
         ISOSource.SOURCEFORGE
       ),
+      magnet_url: magnetURLs.desktop,
       preview: import('~/assets/images/kde.png'),
     },
     {
@@ -43,6 +46,7 @@ const items = [
         versions.handheldISOVersion,
         ISOSource.SOURCEFORGE
       ),
+      magnet_url: magnetURLs.handheld,
       preview: import('~/assets/images/handheld.png'),
     },
   ],
@@ -54,7 +58,7 @@ const items = [
     {
       items.map((subitems) => (
         <div class="container sm:px-8 mx-auto">
-          {subitems.map(({ title, description, direct_url, srcforge_url, preview }) => (
+          {subitems.map(({ title, description, direct_url, srcforge_url, magnet_url, preview }) => (
             <div class="flex flex-wrap items-center -m-8 my-20 pb-[calc(20vh)]">
               <div class="w-full md:w-1/2 p-8">
                 <h2 class="mb-9 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">
@@ -67,7 +71,14 @@ const items = [
                   {direct_url && (
                     <DropdownMenu
                       client:load
-                      data={{ title, direct_url, srcforge_url } as DropdownMenuProps}
+                      data={
+                        {
+                          title,
+                          direct_url,
+                          srcforge_url,
+                          magnet_url,
+                        } as DropdownMenuProps
+                      }
                     />
                   )}
                   {!direct_url && !srcforge_url && (

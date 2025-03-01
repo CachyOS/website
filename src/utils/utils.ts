@@ -18,7 +18,9 @@ export const getFormattedDate = (date: Date): string => (date ? formatter.format
 export const enum ISOSource {
   DIRECT,
   SOURCEFORGE,
+  MAGNET,
 }
+
 export const enum ISOEdition {
   DESKTOP = 'desktop',
   GNOME = 'gnome',

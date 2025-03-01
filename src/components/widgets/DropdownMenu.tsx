@@ -6,6 +6,7 @@ interface Props {
     title: string;
     direct_url: string;
     srcforge_url?: string;
+    magnet_url?: string;
   };
 }
 
@@ -18,7 +19,7 @@ async function handleDirectButton(edition_name: string) {
       'Content-Type': 'application/json',
     },
     body: `{"name":"${edition_name}"}`,
-  }).catch((e) => null);
+  }).catch((_) => null);
 }
 
 const DropdownMenu = ({ data }: Props) => {
@@ -79,6 +80,16 @@ const DropdownMenu = ({ data }: Props) => {
               className="btn-dropdown-item block"
             >
               Sourceforge
+            </MenuItem>
+          )}
+          {data.magnet_url && (
+            <MenuItem
+              as="a"
+              key={data.magnet_url}
+              href={data.magnet_url}
+              className="btn-dropdown-item block"
+            >
+              Magnet
             </MenuItem>
           )}
           <MenuItem
