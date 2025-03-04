@@ -88,13 +88,13 @@ const social = [
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       <ul
-        class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4"
+        class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 md:rtl:ml-0 md:rtl:mr-4"
       >
         {
           social.map(({ label, href, icon }) => (
             <li>
               <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                 aria-label={label}
                 href={href}
               >
@@ -107,7 +107,7 @@ const social = [
 
       <div class="text-sm mr-4 dark:text-slate-400">
         <span
-          class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm bg-[url(~/assets/images/logo.svg)]"
+          class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-xs bg-[url(~/assets/images/logo.svg)]"
         >
         </span>
         Made by <a

@@ -150,7 +150,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                 <div className="absolute right-0 top-0 pr-3 pt-3">
                   <button
                     aria-label="Close"
-                    className="rounded-tremor-small p-2 text-tremor-content-subtle hover:bg-tremor-background-subtle hover:text-tremor-content dark:text-dark-tremor-content-subtle hover:dark:bg-dark-tremor-background-subtle hover:dark:text-tremor-content"
+                    className="rounded-tremor-small p-2 text-tremor-content-subtle hover:bg-tremor-background-subtle hover:text-tremor-content dark:text-dark-tremor-content-subtle dark:hover:bg-dark-tremor-background-subtle dark:hover:text-tremor-content"
                     onClick={() => onClose()}
                     type="button"
                     autoFocus={false}
