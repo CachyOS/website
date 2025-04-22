@@ -8,10 +8,13 @@ tags:
 
 **Hello CachyOS Enthusiasts**,
 
-Today we pushed out a new release, which is a fixing release for the previous one. There were some issues with the kernel, which have been resolved.
-Also, this now includes the tool "OCCT", which makes it possible to use the ISO as an isolated stress testing environment. Thanks to @kaitokariheddo for providing this excellent idea!
+Today we have released an update that serves as a bugfix release for the previous version. This update resolves certain issues related to the kernel that were identified.
 
-The handheld edition got also some nice updates, like audio profiles for the Ally X and Legion Go, aswell we have switched to the upstream gamescope, which should provide a better expierence.
+Additionally, this release now includes the OCCT tool, which enables the ISO to be used as an isolated stress testing environment. We'd like to thank @kaitokariheddo for this excellent suggestion!
+Our thanks also go out to the OCCT Developers for their effective collaboration in getting OCCT correctly packaged and running on CachyOS.
+
+The Handheld Edition has also received several nice updates. These include audio profiles for the Ally X and Legion Go, as well as a switch to the upstream Gamescope implementation, which is expected to provide a better experience.
+
 
 **Changelog for this Release:**
 
