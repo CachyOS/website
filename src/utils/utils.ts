@@ -19,6 +19,7 @@ export const enum ISOSource {
   DIRECT,
   SOURCEFORGE,
   MAGNET,
+  TORRENT,
 }
 
 export const enum ISOEdition {
@@ -30,12 +31,16 @@ export const enum ISOEdition {
 
 const direct_base_link = 'https://cdn77.cachyos.org/ISO';
 const sourceforge_base_link = 'https://sourceforge.net/projects/cachyos-arch/files/gui-installer';
+const torrent_base_link = 'https://torrents.soulharsh007-codewerkstatt.de/processed';
 
 export const generateDownloadLink = (
   edition: ISOEdition,
   release: string,
   source: ISOSource
 ): string => {
+  if (source === ISOSource.TORRENT) {
+    return `${torrent_base_link}/cachyos-${edition}-linux-${release}.torrent`;
+  }
   const base_link = source === ISOSource.DIRECT ? direct_base_link : sourceforge_base_link;
   const release_link = `${base_link}/${edition}/${release}/cachyos-${edition}-linux-${release}.iso`;
   return source === ISOSource.DIRECT ? release_link : `${release_link}/download`;

@@ -7,6 +7,7 @@ interface Props {
     direct_url: string;
     srcforge_url?: string;
     magnet_url?: string;
+    torrent_url?: string;
   };
 }
 
@@ -90,6 +91,16 @@ const DropdownMenu = ({ data }: Props) => {
               className="btn-dropdown-item block"
             >
               Magnet
+            </MenuItem>
+          )}
+          {data.torrent_url && (
+            <MenuItem
+              as="a"
+              key={data.torrent_url}
+              href={data.torrent_url}
+              className="btn-dropdown-item block"
+            >
+              Torrent
             </MenuItem>
           )}
           <MenuItem
