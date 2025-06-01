@@ -1,4 +1,4 @@
-CREATE TABLE update_messages (
+CREATE TABLE IF NOT EXISTS update_messages (
   id VARCHAR NOT NULL PRIMARY KEY,
   body VARCHAR NOT NULL
 )
