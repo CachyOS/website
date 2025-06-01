@@ -4,7 +4,6 @@ import { Image } from 'astro:assets';
 import DropdownMenu from '~/components/widgets/DropdownMenu';
 import { ISOEdition, ISOSource, generateDownloadLink } from '~/utils/utils';
 import versions from '~/versions';
-import magnetURLs from '~/magnetURLs';
 
 interface DropdownMenuProps {
   title: string;
@@ -30,7 +29,11 @@ const items = [
         versions.desktopISOVersion,
         ISOSource.SOURCEFORGE
       ),
-      magnet_url: magnetURLs.desktop,
+      magnet_url: generateDownloadLink(
+        ISOEdition.DESKTOP,
+        versions.desktopISOVersion,
+        ISOSource.MAGNET
+      ),
       torrent_url: generateDownloadLink(
         ISOEdition.DESKTOP,
         versions.desktopISOVersion,
@@ -52,7 +55,11 @@ const items = [
         versions.handheldISOVersion,
         ISOSource.SOURCEFORGE
       ),
-      magnet_url: magnetURLs.handheld,
+      magnet_url: generateDownloadLink(
+        ISOEdition.HANDHELD,
+        versions.desktopISOVersion,
+        ISOSource.MAGNET
+      ),
       torrent_url: generateDownloadLink(
         ISOEdition.HANDHELD,
         versions.handheldISOVersion,
