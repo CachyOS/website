@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 actix-cors = "0.7"
-actix-governor = "0.6"
+actix-governor = "0.8"
 actix-web = {  version = "4", features = ["macros"], default-features = false }
 chrono = { version = "0.4", features = ["serde"], default-features = false }
 diesel = { version = "2", features = ["chrono", "r2d2", "sqlite"], default-features = false }
