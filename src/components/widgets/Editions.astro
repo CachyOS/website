@@ -13,6 +13,17 @@ interface DropdownMenuProps {
   torrent_url?: string;
 }
 
+const [desktop_magnet, handheld_magnet] = await Promise.all(
+  [
+    generateDownloadLink(ISOEdition.DESKTOP, versions.desktopISOVersion, ISOSource.MAGNET),
+    generateDownloadLink(ISOEdition.HANDHELD, versions.handheldISOVersion, ISOSource.MAGNET),
+  ].map(async (url) =>
+    fetch(url)
+      .then((res) => res.text())
+      .catch(() => url)
+  )
+);
+
 const items = [
   [
     {
@@ -29,11 +40,7 @@ const items = [
         versions.desktopISOVersion,
         ISOSource.SOURCEFORGE
       ),
-      magnet_url: generateDownloadLink(
-        ISOEdition.DESKTOP,
-        versions.desktopISOVersion,
-        ISOSource.MAGNET
-      ),
+      magnet_url: desktop_magnet,
       torrent_url: generateDownloadLink(
         ISOEdition.DESKTOP,
         versions.desktopISOVersion,
@@ -55,11 +62,7 @@ const items = [
         versions.handheldISOVersion,
         ISOSource.SOURCEFORGE
       ),
-      magnet_url: generateDownloadLink(
-        ISOEdition.HANDHELD,
-        versions.desktopISOVersion,
-        ISOSource.MAGNET
-      ),
+      magnet_url: handheld_magnet,
       torrent_url: generateDownloadLink(
         ISOEdition.HANDHELD,
         versions.handheldISOVersion,
