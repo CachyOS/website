@@ -9,30 +9,14 @@
   --color-secondary: var(--cachyos-color-secondary);
   --color-accent: var(--cachyos-color-accent);
 
-  --font-sans: var(--cachyos-font-sans), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+  --font-sans:
+    var(--cachyos-font-sans), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-serif: var(--cachyos-font-serif), ui-serif, Georgia, Cambria, 'Times New Roman', Times,
-    serif;
-  --font-heading: var(--cachyos-font-heading), ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+  --font-serif:
+    var(--cachyos-font-serif), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-heading:
+    var(--cachyos-font-heading), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 @utility bg-dark {
@@ -40,7 +24,7 @@
 }
 
 @utility text-muted {
-  @apply text-gray-900/[.7] dark:text-gray-800/[.7];
+  @apply text-gray-900/70 dark:text-gray-800/70;
 }
 
 @utility btn {
