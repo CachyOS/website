@@ -32,44 +32,49 @@ The Handheld Edition **received** a bunch of new features and improvements. The 
 SteamOS-Manager has now been integrated, which is a replacement for "hhd." This will be integrated first into the MSI **Claw** and then **other devices**, like the Steam Deck and ROG Ally.
 
 **Features:**
--   **ISO**: Added automatic detection during ISO boot to identify the system's NVIDIA GPU and load the appropriate module (e.g., nvidia-open, nvidia), providing better support for 10xx series and older.
--   **Plymouth**: Added a new Plymouth animation.
-    -   Thanks to Eren ([https://github.com/erenyldz89](https://github.com/erenyldz89)) for working on this!
--   **Browser**: Cachy-Browser has been deprecated. We now provide Firefox as the default preinstalled browser. A guide to migrate profiles to Firefox (and its forks) can be found here: [https://wiki.cachyos.org/support/faq/#migrating-your-profile-from-cachy-browser-to-firefox](https://wiki.cachyos.org/support/faq/#migrating-your-profile-from-cachy-browser-to-firefox)
--   **netinstall**: Added kcalc, filelight, plymouth-kcm, and kio-admin to the KDE installation.
--   **mkinitcpio**: Disabled fallback initramfs by default. This will save a significant amount of space.
--   **Mirrors**: Added a new 10 Gbps mirror in Bangladesh. Thanks to Limda for hosting this!
--   **Proton**:
-    -   Rebased almost all patches from **Proton CachyOS 9.0**.
-    -   Enabled the Wayland driver for Steam Linux Runtime builds. Enable with `PROTON_ENABLE_WAYLAND=1`. Thanks to [GloriousEggroll](https://github.com/GloriousEggroll) for making it happen.
-    -   Added many Wayland-related patches from upstream Wine that were released after Wine 10.0.
-    -   Fixed various issues with the Wayland driver and Vulkan games. Thanks to [Etaash-mathamsetty](https://github.com/Etaash-mathamsetty) for all the hard work.
-    -   Added a stub implementation for `amdxc64.dll` to enable FSR4. Use `FSR4_UPGRADE=1` to upgrade FSR3.1 games to FSR4. Thanks again to [Etaash-mathamsetty](https://github.com/Etaash-mathamsetty). Instructions: [https://github.com/Etaash-mathamsetty/wine-builds/releases/tag/fsr4](https://github.com/Etaash-mathamsetty/wine-builds/releases/tag/fsr4)
-    -   Added DualSense-related patches for more complete audio device detection functionality for wired sound-based haptics. Some games that relied on that specific behaviour should now have that functionality. Thanks to [ClearlyClaire](https://github.com/ClearlyClaire) for the original patches and [Exotic0015](https://github.com/Exotic0015) for looking into it since **Proton CachyOS 9.0**. Upstream: [https://gitlab.winehq.org/wine/wine/-/merge_requests/7238](https://gitlab.winehq.org/wine/wine/-/merge_requests/7238)
-    -   Removed the Dragon Age Inquisition patch as it was not working. Please use **Proton CachyOS 9.0** for now with that game.
--   **GRUB**: Added a new GRUB theme. Thanks to [diegons490](https://github.com/diegons490/cachyos-grub-theme).
+
+- **ISO**: Added automatic detection during ISO boot to identify the system's NVIDIA GPU and load the appropriate module (e.g., nvidia-open, nvidia), providing better support for 10xx series and older.
+- **Plymouth**: Added a new Plymouth animation.
+  - Thanks to Eren ([https://github.com/erenyldz89](https://github.com/erenyldz89)) for working on this!
+- **Browser**: Cachy-Browser has been deprecated. We now provide Firefox as the default preinstalled browser. A guide to migrate profiles to Firefox (and its forks) can be found here: [https://wiki.cachyos.org/support/faq/#migrating-your-profile-from-cachy-browser-to-firefox](https://wiki.cachyos.org/support/faq/#migrating-your-profile-from-cachy-browser-to-firefox)
+- **netinstall**: Added kcalc, filelight, plymouth-kcm, and kio-admin to the KDE installation.
+- **mkinitcpio**: Disabled fallback initramfs by default. This will save a significant amount of space.
+- **Mirrors**: Added a new 10 Gbps mirror in Bangladesh. Thanks to Limda for hosting this!
+- **Proton**:
+  - Rebased almost all patches from **Proton CachyOS 9.0**.
+  - Enabled the Wayland driver for Steam Linux Runtime builds. Enable with `PROTON_ENABLE_WAYLAND=1`. Thanks to [GloriousEggroll](https://github.com/GloriousEggroll) for making it happen.
+  - Added many Wayland-related patches from upstream Wine that were released after Wine 10.0.
+  - Fixed various issues with the Wayland driver and Vulkan games. Thanks to [Etaash-mathamsetty](https://github.com/Etaash-mathamsetty) for all the hard work.
+  - Added a stub implementation for `amdxc64.dll` to enable FSR4. Use `FSR4_UPGRADE=1` to upgrade FSR3.1 games to FSR4. Thanks again to [Etaash-mathamsetty](https://github.com/Etaash-mathamsetty). Instructions: [https://github.com/Etaash-mathamsetty/wine-builds/releases/tag/fsr4](https://github.com/Etaash-mathamsetty/wine-builds/releases/tag/fsr4)
+  - Added DualSense-related patches for more complete audio device detection functionality for wired sound-based haptics. Some games that relied on that specific behaviour should now have that functionality. Thanks to [ClearlyClaire](https://github.com/ClearlyClaire) for the original patches and [Exotic0015](https://github.com/Exotic0015) for looking into it since **Proton CachyOS 9.0**. Upstream: [https://gitlab.winehq.org/wine/wine/-/merge_requests/7238](https://gitlab.winehq.org/wine/wine/-/merge_requests/7238)
+  - Removed the Dragon Age Inquisition patch as it was not working. Please use **Proton CachyOS 9.0** for now with that game.
+- **GRUB**: Added a new GRUB theme. Thanks to [diegons490](https://github.com/diegons490/cachyos-grub-theme).
 
 **Fixes:**
--   **Mirrors**: Fixed an issue where users from Russia could no longer install. This was mitigated by not using CDN77, which Russia had started to block.
--   **kde-settings**: Disabled the Discover icon in the taskbar.
--   **ddcutil**: Pushed the ddcutil 2.2.1 pre-release to fix an issue where AMD GPUs were freezing when watching YouTube videos.
+
+- **Mirrors**: Fixed an issue where users from Russia could no longer install. This was mitigated by not using CDN77, which Russia had started to block.
+- **kde-settings**: Disabled the Discover icon in the taskbar.
+- **ddcutil**: Pushed the ddcutil 2.2.1 pre-release to fix an issue where AMD GPUs were freezing when watching YouTube videos.
 
 **Changelog for Handheld Edition:**
--   **os-branch**: Game Mode now correctly shows that CachyOS Linux is being used.
--   **audio**: Updated convolver profiles.
--   **steamos-manager**: This is used for GPU clock and TDP management, BIOS/dock updates, storage device maintenance, external storage formatting, and battery charge limit for the Steam Deck.
--   **steamos-powerbuttond**: This component replaces the standard powerbuttond for a better sleep experience.
--   **jupiter-hw-support**: Updated to 20250501.
+
+- **os-branch**: Game Mode now correctly shows that CachyOS Linux is being used.
+- **audio**: Updated convolver profiles.
+- **steamos-manager**: This is used for GPU clock and TDP management, BIOS/dock updates, storage device maintenance, external storage formatting, and battery charge limit for the Steam Deck.
+- **steamos-powerbuttond**: This component replaces the standard powerbuttond for a better sleep experience.
+- **jupiter-hw-support**: Updated to 20250501.
 
 **Manual changes for existing users:**
 
 Nothing special to do. If you want to have the new bootanimation, you can do following:
+
 ```
 1. sudo pacman -Syu cachyos-plymouth-bootanimation
 2. sudo plymouth-set-default-theme -R cachyos-bootanimation
 ```
 
 Outside of that just run and update your system:
+
 ```
 sudo pacman -Syu
 ```
@@ -80,24 +85,24 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/250530/cachyos-desktop-linux-250530.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/250530/cachyos-desktop-linux-250530.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/250530/cachyos-desktop-linux-250530.iso
-* USA: https://us.cachyos.org/ISO/desktop/250530/cachyos-desktop-linux-250530.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250530/cachyos-desktop-linux-250530.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/250530/cachyos-desktop-linux-250530.iso
+- CDN2: https://cdn77.cachyos.org/ISO/desktop/250530/cachyos-desktop-linux-250530.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/250530/cachyos-desktop-linux-250530.iso
+- USA: https://us.cachyos.org/ISO/desktop/250530/cachyos-desktop-linux-250530.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250530/cachyos-desktop-linux-250530.iso
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/250530/cachyos-handheld-linux-250530.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/250530/cachyos-handheld-linux-250530.iso
+- CDN: https://iso.cachyos.org/handheld/250530/cachyos-handheld-linux-250530.iso
+- CDN2: https://cdn77.cachyos.org/ISO/handheld/250530/cachyos-handheld-linux-250530.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 

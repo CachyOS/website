@@ -30,6 +30,7 @@ chwd got a bunch of fixes for the T2 MacBook to not offload the brcmfmac driver,
 **Changelog for this Release:**
 
 **Features**:
+
 - **Bootloader**: Added support for Limine bootloader
 - **Bootloader**: Added support for automatic snapshots for Limine bootloader
 - **Samba**: Added `cachyos-samba-settings` package to easily set up a Samba mount
@@ -45,6 +46,7 @@ chwd got a bunch of fixes for the T2 MacBook to not offload the brcmfmac driver,
 - **Package Updates**: linux-cachyos 6.14.0, NVIDIA 570.133.07, Gnome 48, Plasma 6.3.3, mesa 25.0.2, linux-api-headers 6.14.0, linux-tools 6.14.0
 
 **Fixes**:
+
 - **initcpiocfg**: Removed `crc32c-intel` module adding to mkinitcpio - This has been deprecated and now defaults to the `crc32c` module
 - **chwd**: T2 MacBook disable offloading the brcmfmac
 - **chwd**: Do not install NVIDIA 390.xx driver for laptops
@@ -52,6 +54,7 @@ chwd got a bunch of fixes for the T2 MacBook to not offload the brcmfmac driver,
 **Manual changes for existing users:**
 
 If you have an Intel CPU remove the `crc32c-intel` module from your mkinitcpio.conf
+
 ```
 1. sudo micro /etc/mkinitcpio.conf
 2. Remove the "crc32c-intel" entry in the "MODULES=()" section
@@ -59,6 +62,7 @@ If you have an Intel CPU remove the `crc32c-intel` module from your mkinitcpio.c
 ```
 
 Outside of that just run and update your system:
+
 ```
 sudo pacman -Syu
 ```
@@ -69,24 +73,24 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/250330/cachyos-desktop-linux-250330.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/250330/cachyos-desktop-linux-250330.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/250330/cachyos-desktop-linux-250330.iso
-* USA: https://us.cachyos.org/ISO/desktop/250330/cachyos-desktop-linux-250330.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250330/cachyos-desktop-linux-250330.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/250330/cachyos-desktop-linux-250330.iso
+- CDN2: https://cdn77.cachyos.org/ISO/desktop/250330/cachyos-desktop-linux-250330.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/250330/cachyos-desktop-linux-250330.iso
+- USA: https://us.cachyos.org/ISO/desktop/250330/cachyos-desktop-linux-250330.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250330/cachyos-desktop-linux-250330.iso
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/250330/cachyos-handheld-linux-250330.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/250330/cachyos-handheld-linux-250330.iso
+- CDN: https://iso.cachyos.org/handheld/250330/cachyos-handheld-linux-250330.iso
+- CDN2: https://cdn77.cachyos.org/ISO/handheld/250330/cachyos-handheld-linux-250330.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 
