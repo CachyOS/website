@@ -28,6 +28,7 @@ The kernel manager now attempts to install the “nvidia” package for the defa
 **Changelog for this Release:**
 
 **Features**:
+
 - **Kernel**:
   - Propeller Optimization is now applied to the default **linux-cachyos** kernel for all available architectures.
     - **Note**: In combination with AutoFDO, this can improve performance by around 10%, depending on the workload.
@@ -42,18 +43,21 @@ The kernel manager now attempts to install the “nvidia” package for the defa
 - **Package Updates**: linux-cachyos 6.13.0, NVIDIA 570.86.16, LLVM 19, glibc 2.41, mesa 24.3.4.
 
 **Fixes**:
+
 - **chwd**: Fixed an issue where hybrid laptops with Intel and NVIDIA hardware could not use their GPU in DaVinci Resolve.
 - **glibc**: Added a fix for CVE-2025-0395.
 - **kernel-manager**: Attempted to install the prebuilt NVIDIA module, if available for the default Arch kernel.
 - **kernel-manager**: Added an extra check to avoid overwriting the value in case a module is not available.
 
 **Changelog for Handheld Edition:**
+
 - **hooks**: Allowed the use of natively compiled Proton again.
 - **misc**: Several updates and fixes.
 
 **Manual changes for existing users:**
 
 Nothing to do, outside the usual update process:
+
 ```
 sudo pacman -Syu
 ```
@@ -64,24 +68,24 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/250202/cachyos-desktop-linux-250202.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/250202/cachyos-desktop-linux-250202.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/250202/cachyos-desktop-linux-250202.iso
-* USA: https://us.cachyos.org/ISO/desktop/250202/cachyos-desktop-linux-250202.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250202/cachyos-desktop-linux-250202.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/250202/cachyos-desktop-linux-250202.iso
+- CDN2: https://cdn77.cachyos.org/ISO/desktop/250202/cachyos-desktop-linux-250202.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/250202/cachyos-desktop-linux-250202.iso
+- USA: https://us.cachyos.org/ISO/desktop/250202/cachyos-desktop-linux-250202.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250202/cachyos-desktop-linux-250202.iso
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/250202/cachyos-handheld-linux-250202.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/250202/cachyos-handheld-linux-250202.iso
+- CDN: https://iso.cachyos.org/handheld/250202/cachyos-handheld-linux-250202.iso
+- CDN2: https://cdn77.cachyos.org/ISO/handheld/250202/cachyos-handheld-linux-250202.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 

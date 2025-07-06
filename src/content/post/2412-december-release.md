@@ -17,6 +17,7 @@ RustiCL has replaced the default OpenCL driver in the Mesa stack, bringing impro
 We've also enabled Bluetooth support, enhancing the user experience for most users. Furthermore, **wireless-regdb** is now installed by default, improving Wi-Fi performance while adhering to regional regulations. Users can customize their region in the `/etc/conf.d/wireless-regdom` file to unlock additional Wi-Fi frequencies allowed in their area.
 
 Lastly, this release includes several important fixes:
+
 - The `umask` setting for `/boot` has been corrected to prevent unintended access.
 - The installer no longer spawns a terminal window with logs.
 - The internet connection check has been fixed to ensure smooth installation.
@@ -24,6 +25,7 @@ Lastly, this release includes several important fixes:
 **Changelog for this Release:**
 
 **Features**:
+
 - Kernel:
   - AutoFDO is now applied to the default `linux-cachyos` kernel for all available architectures
     - **Note**: Performance improvements are minimal for now due to current limitations. Merging profiles requires LLVM 19, and Propeller Optimization depends on it. We anticipate LLVM 19 and more optimized profiles to be available by the end of the year, following Arch Linux's adoption of LLVM 19
@@ -41,12 +43,14 @@ Lastly, this release includes several important fixes:
 - **Package Updates**: NVIDIA 565.77, linux-cachyos 6.12.6, mesa 24.3.2, scx-scheds 1.0.8, zfs 2.2.7
 
 **Bug Fixes**
+
 - Installer: Installation logs no longer spawn debug terminal windows
 - Partition Management:
   - Proper `umask` settings ensure `/boot` is inaccessible without sufficient permissions
 - Launch Installer: Internet connectivity checks have been fixed
 
 **Changelog Handheld Edition:**
+
 - Updated handheld related packages
 - Fixed issue with the power profile handling
 - Added support for WiFi 6
@@ -54,12 +58,14 @@ Lastly, this release includes several important fixes:
 **Manual changes for existing users:**
 
 Users, which are using wifi should install the wireless-regdb package and set their region in `/etc/conf.d/wireless-regdom`
+
 ```sh
 sudo pacman -S wireless-regdb
 sudo micro /etc/conf.d/wireless-regdom
 ```
 
 Outside of this, just keep your system updated with following command:
+
 ```
 sudo pacman -Syu
 ```
@@ -70,24 +76,24 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/241221/cachyos-desktop-linux-241221.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
-* USA: https://us.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241221/cachyos-desktop-linux-241221.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/241221/cachyos-desktop-linux-241221.iso
+- CDN2: https://cdn77.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
+- USA: https://us.cachyos.org/ISO/desktop/241221/cachyos-desktop-linux-241221.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/241221/cachyos-desktop-linux-241221.iso
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/241221/cachyos-handheld-linux-241221.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/241221/cachyos-handheld-linux-241221.iso
+- CDN: https://iso.cachyos.org/handheld/241221/cachyos-handheld-linux-241221.iso
+- CDN2: https://cdn77.cachyos.org/ISO/handheld/241221/cachyos-handheld-linux-241221.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 
