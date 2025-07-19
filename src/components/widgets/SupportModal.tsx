@@ -20,11 +20,6 @@ const supportOptions: SupportOption[] = [
     mode: 'text',
   },
   {
-    label: 'Paypal',
-    text: 'https://paypal.me/pttrr',
-    mode: 'link',
-  },
-  {
     label: 'Patreon',
     text: 'https://www.patreon.com/CachyOS',
     mode: 'link',
