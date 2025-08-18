@@ -5,8 +5,6 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
-
-//class="sticky top-0 z-40 flex-none mx-auto transition-colors w-full bg-white md:bg-white/90 duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/6 supports-backdrop-blur:bg-white/95 dark:bg-slate-900 dark:md:bg-slate-900/75 md:backdrop-blur-xs"
 ---
 
 <header
@@ -64,6 +62,12 @@ import { getHomePermalink } from '~/utils/permalinks';
             <a
               class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
               href="https://wiki.cachyos.org/">Wiki</a
+            >
+          </li>
+          <li>
+            <a
+              class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
+              href="https://packages.cachyos.org/">Packages</a
             >
           </li>
           <li class="md:hidden">
