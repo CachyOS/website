@@ -6,7 +6,14 @@ import ToggleMenu from '~/components/common/ToggleMenu.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
 
-//class="sticky top-0 z-40 flex-none mx-auto transition-colors w-full bg-white md:bg-white/90 duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/6 supports-backdrop-blur:bg-white/95 dark:bg-slate-900 dark:md:bg-slate-900/75 md:backdrop-blur-xs"
+const navItems = [
+  { href: '/download', text: 'Download' },
+  { href: '/about', text: 'About' },
+  { href: '/blog', text: 'Blog' },
+  { href: 'https://discuss.cachyos.org/', text: 'Forum' },
+  { href: 'https://wiki.cachyos.org/', text: 'Wiki' },
+  { href: 'https://packages.cachyos.org/', text: 'Packages' },
+];
 ---
 
 <header
@@ -36,41 +43,24 @@ import { getHomePermalink } from '~/utils/permalinks';
         <ul
           class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto text-xl md:text-base md:gap-x-8"
         >
-          <li>
-            <a
-              class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
-              href="/download">Download</a
-            >
-          </li>
-          <li>
-            <a
-              class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
-              href="/about">About</a
-            >
-          </li>
-          <li>
-            <a
-              class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
-              href="/blog">Blog</a
-            >
-          </li>
-          <li>
-            <a
-              class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
-              href="https://discuss.cachyos.org/">Forum</a
-            >
-          </li>
-          <li>
-            <a
-              class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
-              href="https://wiki.cachyos.org/">Wiki</a
-            >
-          </li>
+          {
+            navItems.map(({ href, text }) => (
+              <li>
+                <a
+                  class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out"
+                  href={href}
+                >
+                  {text}
+                </a>
+              </li>
+            ))
+          }
           <li class="md:hidden">
             <a
               class="font-bold hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
               href="https://github.com/cachyos"
-              >Github
+            >
+              Github
             </a>
           </li>
         </ul>
