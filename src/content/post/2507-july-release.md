@@ -39,7 +39,7 @@ The Handheld Edition now supports the Lenovo Legion Go and has been validated by
 
 **Fixes:**
 -   **Keyring**: Improved the handling of the keyring installation to avoid issues and do several retries.
--   **systemd-oomd**: Disabled systemd-oomd, since it had problems handling this together with le9 and killed applications way to early
+-   **systemd-oomd**: Disabled systemd-oomd, since it had problems handling this together with le9 and killed applications way too early.
 
 **Changelog for Handheld Edition:**
 -   **handheld-settings**: Imported several tweaks of SteamOS to the Handheld Edition
