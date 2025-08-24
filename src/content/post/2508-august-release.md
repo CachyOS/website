@@ -1,6 +1,6 @@
 ---
-title: CachyOS July 2025 Release
-excerpt: Shell, fuwpd, anti-lag
+title: CachyOS August 2025 Release
+excerpt: Packages, LTS, Cachy-Update
 category: release
 tags:
   - release
