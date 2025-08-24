@@ -1,7 +1,13 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
-import type { CallToAction } from '~/types';
+
+interface Props extends HTMLAttributes<'a'> {
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
+  text?: string;
+  icon?: string;
+}
 
 const {
   variant = 'secondary',
@@ -10,7 +16,7 @@ const {
   icon = '',
   class: className = '',
   ...rest
-} = Astro.props as CallToAction;
+} = Astro.props;
 
 const variants = {
   primary: 'btn-primary',

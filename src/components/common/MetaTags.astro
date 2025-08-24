@@ -1,7 +1,7 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
 import { getImage } from 'astro:assets';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 import { SITE } from '~/config.mjs';
 import type { MetaSEO } from '~/types';
@@ -44,7 +44,7 @@ const image =
   typeof _image === 'string'
     ? new URL(_image, Astro.site)
     : _image && typeof _image['src'] !== 'undefined'
-      ? // @ts-ignore
+      ? // @ts-expect-error src maybe can exist
         new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
       : null;
 ---
@@ -73,11 +73,8 @@ const image =
           },
         ]
       : undefined,
-    // site_name: 'SiteName',
   }}
   twitter={{
-    // handle: '@handle',
-    // site: '@site',
     cardType: image ? 'summary_large_image' : undefined,
   }}
 />
@@ -90,4 +87,4 @@ const image =
 
 <link rel="sitemap" href={getAsset('/sitemap-index.xml')} />
 
-<ViewTransitions fallback="swap" />
+<ClientRouter fallback="swap" />

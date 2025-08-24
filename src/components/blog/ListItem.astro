@@ -16,7 +16,7 @@ export interface Props {
 }
 
 const { post } = Astro.props;
-const createdDate = getCreatedDate(post);
+const createdDate = getCreatedDate(post.id);
 const image = (await findImage(post.image)) as ImageMetadata | undefined;
 
 const link = getPermalink(post.permalink, 'post');

@@ -62,9 +62,9 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     metadata = {},
   } = data;
 
-  const publishDate = getCreatedDate(post) as Date;
-  const updateDate = getLastUpdated(post) as Date;
-  const slug = cleanSlug(rawSlug); // cleanSlug(rawSlug.split('/').pop());
+  const publishDate = getCreatedDate(post.id);
+  const updateDate = getLastUpdated(post);
+  const slug = cleanSlug(rawSlug);
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
 
@@ -89,7 +89,6 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     metadata,
 
     Content: Content,
-    // or 'content' in case you consume from API
 
     readingTime: remarkPluginFrontmatter?.readingTime,
   };
@@ -110,7 +109,6 @@ const load = async function (): Promise<Array<Post>> {
 
 let _posts: Array<Post>;
 
-/** */
 export const isBlogEnabled = true;
 export const isBlogListRouteEnabled = true;
 export const isBlogPostRouteEnabled = true;
@@ -119,7 +117,6 @@ export const isBlogTagRouteEnabled = true;
 
 export const blogPostsPerPage = 6;
 
-/** */
 export const fetchPosts = async (): Promise<Array<Post>> => {
   if (!_posts) {
     _posts = await load();
@@ -128,7 +125,6 @@ export const fetchPosts = async (): Promise<Array<Post>> => {
   return _posts;
 };
 
-/** */
 export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {
   if (!Array.isArray(slugs)) return [];
 
@@ -142,7 +138,6 @@ export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post
   }, []);
 };
 
-/** */
 export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> => {
   if (!Array.isArray(ids)) return [];
 
@@ -156,7 +151,6 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
   }, []);
 };
 
-/** */
 export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
   const _count = count ?? 4;
   const posts = await fetchPosts();
@@ -164,7 +158,6 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
   return posts ? posts.slice(0, _count) : [];
 };
 
-/** */
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
   return paginate(await fetchPosts(), {
@@ -173,7 +166,6 @@ export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateF
   });
 };
 
-/** */
 export const getStaticPathsBlogPost = async () => {
   if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
   return (await fetchPosts()).flatMap((post) => ({
@@ -184,14 +176,15 @@ export const getStaticPathsBlogPost = async () => {
   }));
 };
 
-/** */
 export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
   const posts = await fetchPosts();
   const categories = new Set<string>();
-  posts.map((post: Post) => {
-    typeof post.category === 'string' && categories.add(post.category.toLowerCase());
+  posts.forEach((post: Post) => {
+    if (typeof post.category === 'string') {
+      categories.add(post.category.toLowerCase());
+    }
   });
 
   return Array.from(categories).flatMap((category: string) =>
@@ -209,14 +202,15 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
   );
 };
 
-/** */
 export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
 
   const posts = await fetchPosts();
   const tags = new Set<string>();
-  posts.map((post: Post) => {
-    Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
+  posts.forEach((post: Post) => {
+    if (Array.isArray(post.tags)) {
+      post.tags.forEach((tag) => tags.add(tag.toLowerCase()));
+    }
   });
 
   return Array.from(tags).flatMap((tag: string) =>

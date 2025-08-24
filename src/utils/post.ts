@@ -14,9 +14,9 @@ export const getLastUpdated = (entry: CollectionEntry<'post'>): Date | undefined
   return date;
 };
 
-export const getCreatedDate = (entry: CollectionEntry<'post'>): Date | undefined => {
-  const currentFilePath = `src/content/post/` + entry.id;
-  let date = undefined;
+export const getCreatedDate = (id: string): Date => {
+  const currentFilePath = `src/content/post/` + id;
+  let date = new Date();
   if (!date) {
     try {
       ({ date } = getFileCommitDate(currentFilePath, 'oldest'));

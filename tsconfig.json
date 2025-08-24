@@ -1,13 +1,19 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
     "jsx": "react-jsx",
-    "allowJs": true,
-    "checkJs": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
     },
-    "jsxImportSource": "react"
-  }
+    "jsxImportSource": "react",
+    "exactOptionalPropertyTypes": false
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "cachyos-website-api", "node_modules"]
 }
