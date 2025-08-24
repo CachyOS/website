@@ -71,17 +71,17 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/250825/cachyos-desktop-linux-250825.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/250825/cachyos-desktop-linux-250825.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/250825/cachyos-desktop-linux-250825.iso
-* USA: https://us.cachyos.org/ISO/desktop/250825/cachyos-desktop-linux-250825.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250825/cachyos-desktop-linux-250825.iso
+* CDN: https://iso.cachyos.org/desktop/250824/cachyos-desktop-linux-250824.iso
+* CDN2: https://cdn77.cachyos.org/ISO/desktop/250824/cachyos-desktop-linux-250824.iso
+* Germany: https://mirror.cachyos.org/ISO/desktop/250824/cachyos-desktop-linux-250824.iso
+* USA: https://us.cachyos.org/ISO/desktop/250824/cachyos-desktop-linux-250824.iso
+* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/250824/cachyos-desktop-linux-250824.iso
 * https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/250825/cachyos-handheld-linux-250825.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/250825/cachyos-handheld-linux-250825.iso
+* CDN: https://iso.cachyos.org/handheld/250824/cachyos-handheld-linux-250824.iso
+* CDN2: https://cdn77.cachyos.org/ISO/handheld/250824/cachyos-handheld-linux-250824.iso
 
 **Support Us:**
 
