@@ -16,7 +16,7 @@ Next, we’re focusing on **stability**. Recently, there have been frequent repo
 
 The **installation medium (ISO)** now also uses the **LTS kernel** instead of the latest stable kernel, since the ISO needs to boot reliably without graphics-related issues. Using the LTS kernel could cause future compatibility gaps — for example, when new **AMD** or **Intel GPUs** require a newer kernel. If needed, we’ll consider bundling a **second kernel** in the ISO to ensure users with the latest hardware can boot and install smoothly.
 
-We’ve added a new desktop option to the online installer: **Niri WM**. We maintain a small set of **dotfiles** to provide a good out-of-the-box experience. Learn more about keybindings and configuration here: [https://wiki.cachyos.org/configuration/desktop\_environments/niri/](https://wiki.cachyos.org/configuration/desktop_environments/niri/)
+We’ve added a new desktop option to the online installer: **Niri WM**. We maintain a small set of **dotfiles** to provide a good out-of-the-box experience. Learn more about keybindings and configuration here: [https://wiki.cachyos.org/configuration/desktop_environments/niri/](https://wiki.cachyos.org/configuration/desktop_environments/niri/)
 
 Choosing the **GRUB** bootloader with **Btrfs** as the filesystem will now automatically enable **bootable snapshots**, matching the behavior we already provide with **Limine**. This improves user experience and stability in case a package update doesn’t play nicely with your hardware.
 
@@ -30,37 +30,37 @@ On the fixes side, there are several improvements to the **Limine** bootloader a
 
 **Features:**
 
-* **Services:** Added **packages.cachyos.org**, a package search equivalent to Arch Linux’s website, with an option to exclude CachyOS packages.
-* **Kernel:** The installer now additionally installs **linux-cachyos-lts** as a secondary/backup kernel after installation. We still recommend using the Stable kernel.
-* **ISO:** Switched the live ISO’s kernel from Stable to LTS due to ongoing issues with the Stable kernel, improving boot reliability.
-* **Desktop:** Added **Niri** as a desktop option, including a few preconfigured dotfiles.
-* **NVIDIA:** Enabled **S0ix** sleep on supported hardware for modern low-power standby.
-* **GRUB:** Bootable snapshots are now automatically enabled and set up when the root filesystem uses **Btrfs**.
-* **Tweaks:** Integrated **Cachy-Update** into the Welcome app’s Tweaks page. Cachy-Update adds a timer and a system tray indicator to notify users about updates and lets them update with a click.
-* **Proton-CachyOS:**
-    - Added downloader for DLSS dlls (version **310.3.0**), similar to the FSR4 downloader. Use `PROTON_DLSS_UPGRADE=1` environment variable to enable it.
-    - Added `PROTON_DLSS_INDICATOR=1` environment variable to enable DLSS hud.
-    - Added downloader for XeSS dlls (version **2.1.0**), similar to the DLSS downloader. Use `PROTON_XESS_UPGRADE=1` environment variable to enable it.
-    - Added `PROTON_FSR4_RDNA3_UPGRADE` for RDNA3 GPUs. Does the same thing as `PROTON_FSR4_UPGRADE` but also sets some other necessary variables.
-    - Added completer implementations of Nvidia libraries missing from Proton. Should help with enabling options such as PhysX on games they were disabled before. You can also enable them individually using `PROTON_NVIDIA_NVCUDA`, `PROTON_NVIDIA_NVENC`, `PROTON_NVIDIA_NVML` and `PROTON_NVIDIA_NVOPTIX`.
-    - Added per-game shader cache, enabled by default, can be disabled with `PROTON_LOCAL_SHADER_CACHE=0`. Shaders will be cached under `<steamlibrary>/shadercache/<appid>` for each game, similarly to when shader pre-caching is enabled. You will get stuttering as the shader cache for each game is rebuilt but the cached shaders won't be evicted due to limited cache size.
-    - Added [dxvk-sarek](https://github.com/pythonlover02/DXVK-Sarek) as an optional DXVK replacement for older GPUs that don't properly support Vulkan 1.3. It is using the `async` branch, so it SHOULD NOT to be used with games using anti-cheat or multiplayer games in general. You have been warned. Use `PROTON_DXVK_SAREK=1` to enable.
-    - Added `PROTON_FSR3_UPGRADE` to upgrade FSR 3.1 DLLs to newer versions.
+- **Services:** Added **packages.cachyos.org**, a package search equivalent to Arch Linux’s website, with an option to exclude CachyOS packages.
+- **Kernel:** The installer now additionally installs **linux-cachyos-lts** as a secondary/backup kernel after installation. We still recommend using the Stable kernel.
+- **ISO:** Switched the live ISO’s kernel from Stable to LTS due to ongoing issues with the Stable kernel, improving boot reliability.
+- **Desktop:** Added **Niri** as a desktop option, including a few preconfigured dotfiles.
+- **NVIDIA:** Enabled **S0ix** sleep on supported hardware for modern low-power standby.
+- **GRUB:** Bootable snapshots are now automatically enabled and set up when the root filesystem uses **Btrfs**.
+- **Tweaks:** Integrated **Cachy-Update** into the Welcome app’s Tweaks page. Cachy-Update adds a timer and a system tray indicator to notify users about updates and lets them update with a click.
+- **Proton-CachyOS:**
+  - Added downloader for DLSS dlls (version **310.3.0**), similar to the FSR4 downloader. Use `PROTON_DLSS_UPGRADE=1` environment variable to enable it.
+  - Added `PROTON_DLSS_INDICATOR=1` environment variable to enable DLSS hud.
+  - Added downloader for XeSS dlls (version **2.1.0**), similar to the DLSS downloader. Use `PROTON_XESS_UPGRADE=1` environment variable to enable it.
+  - Added `PROTON_FSR4_RDNA3_UPGRADE` for RDNA3 GPUs. Does the same thing as `PROTON_FSR4_UPGRADE` but also sets some other necessary variables.
+  - Added completer implementations of Nvidia libraries missing from Proton. Should help with enabling options such as PhysX on games they were disabled before. You can also enable them individually using `PROTON_NVIDIA_NVCUDA`, `PROTON_NVIDIA_NVENC`, `PROTON_NVIDIA_NVML` and `PROTON_NVIDIA_NVOPTIX`.
+  - Added per-game shader cache, enabled by default, can be disabled with `PROTON_LOCAL_SHADER_CACHE=0`. Shaders will be cached under `<steamlibrary>/shadercache/<appid>` for each game, similarly to when shader pre-caching is enabled. You will get stuttering as the shader cache for each game is rebuilt but the cached shaders won't be evicted due to limited cache size.
+  - Added [dxvk-sarek](https://github.com/pythonlover02/DXVK-Sarek) as an optional DXVK replacement for older GPUs that don't properly support Vulkan 1.3. It is using the `async` branch, so it SHOULD NOT to be used with games using anti-cheat or multiplayer games in general. You have been warned. Use `PROTON_DXVK_SAREK=1` to enable.
+  - Added `PROTON_FSR3_UPGRADE` to upgrade FSR 3.1 DLLs to newer versions.
 
 **Fixes:**
 
-* **Limine:** 
-    - Fixed `limine bios-install /dev/sdaX` error when selecting the **/boot** mount point as the boot location on MBR systems.
-    - Fixed uninitialized value of the `bootLoader` path, which caused installation failures on MBR systems when the bootloader location wasn’t explicitly selected.
-    - Added a warning about using the **bios-grub** flag on the boot partition, which can cause a “Stage 3 file not found” error.
-    - Fixed out-of-the-box dual-boot with Windows for BIOS installations.
-    - Fixed Btrfs snapshots failing to boot when using **GNOME (GDM)**.
-* **Launch Installer:** Added fallback IPs for the online check if pinging **cachyos.org** fails.
-
+- **Limine:**
+  - Fixed `limine bios-install /dev/sdaX` error when selecting the **/boot** mount point as the boot location on MBR systems.
+  - Fixed uninitialized value of the `bootLoader` path, which caused installation failures on MBR systems when the bootloader location wasn’t explicitly selected.
+  - Added a warning about using the **bios-grub** flag on the boot partition, which can cause a “Stage 3 file not found” error.
+  - Fixed out-of-the-box dual-boot with Windows for BIOS installations.
+  - Fixed Btrfs snapshots failing to boot when using **GNOME (GDM)**.
+- **Launch Installer:** Added fallback IPs for the online check if pinging **cachyos.org** fails.
 
 **Manual changes for existing users:**
 
 Gnome and KDE User can enable Cachy-Update in the CachyOS-Hello Tweaks page and outside of this just update your system:
+
 ```
 sudo pacman -Syu
 ```
@@ -87,7 +87,7 @@ Grab your copy of the latest ISO from our mirrors on SourceForge:
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* Patreon: https://www.patreon.com/CachyOS
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 
