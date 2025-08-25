@@ -1,49 +1,46 @@
-# Welcome to [Astro](https://astro.build)
+# CachyOS Website
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+Static site for CachyOS, built with Astro. Origin: `https://cachyos.org/`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## About CachyOS
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+- Blazingly fast, customizable Linux distribution built on Arch Linux.
+- Optimized packages: compiled with `x86-64-v3`, `x86-64-v4`, and `Zen4` instruction sets and LTO; core packages use PGO or BOLT where applicable.
+- Kernels: includes the optimized `linux-cachyos` with the BORE scheduler; also offers EEVDF, sched-ext, ECHO, and RT options. Kernels are compiled with optimized instruction sets and LTO.
+- Desktop options: KDE Plasma, GNOME, XFCE, i3, Wayfire, LXQt, Openbox, Cinnamon, COSMIC, UKUI, LXDE, MATE, Budgie, Qtile, Hyprland, and Sway (select during online installation).
+- Installers: GUI (Calamares-based) and a CLI installer.
 
-## 🚀 Project Structure
+## Scripts
 
-Inside of your Astro project, you'll see the following folders and files:
+All commands run from the project root.
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- `dev`: start the Astro dev server.
+- `start`: alias of `dev`.
+- `build`: build the production site to `./dist`.
+- `preview`: preview a local production build.
+- `astro`: run Astro CLI commands (e.g., `astro add`, `astro check`).
+- `format`: format the repository with Prettier.
+- `lint:eslint`: run ESLint on the project.
+- `subfont`: subset and inline fonts for the built site in `dist`.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Examples using Bun:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `bun install`
+- `bun run dev`
+- `bun run build`
+- `bun run preview`
+- `bun run format`
+- `bun run lint:eslint`
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Tech Stack
 
-## 🧞 Commands
+- Astro 5
+- Tailwind CSS 4
+- React (optional components)
 
-All commands are run from the root of the project, from a terminal:
+## Development
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Install dependencies: `bun install`
+- Start dev server: `bun run dev` (defaults to `http://localhost:4321`)
+- Build: `bun run build`
+- Preview: `bun run preview`
