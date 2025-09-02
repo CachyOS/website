@@ -2,14 +2,6 @@
 
 Static site for CachyOS, built with Astro. Origin: `https://cachyos.org/`.
 
-## About CachyOS
-
-- Blazingly fast, customizable Linux distribution built on Arch Linux.
-- Optimized packages: compiled with `x86-64-v3`, `x86-64-v4`, and `Zen4` instruction sets and LTO; core packages use PGO or BOLT where applicable.
-- Kernels: includes the optimized `linux-cachyos` with the BORE scheduler; also offers EEVDF, sched-ext, ECHO, and RT options. Kernels are compiled with optimized instruction sets and LTO.
-- Desktop options: KDE Plasma, GNOME, XFCE, i3, Wayfire, LXQt, Openbox, Cinnamon, COSMIC, UKUI, LXDE, MATE, Budgie, Qtile, Hyprland, and Sway (select during online installation).
-- Installers: GUI (Calamares-based) and a CLI installer.
-
 ## Scripts
 
 All commands run from the project root.
