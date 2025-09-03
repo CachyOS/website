@@ -5,7 +5,7 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Layout = 'fixed' | 'constrained' | 'fullWidth' | 'cover' | 'responsive' | 'contained';
 
-export interface AttributesProps extends HTMLAttributes<'img'> {}
+export type AttributesProps = HTMLAttributes<'img'>;
 
 export interface ImageProps extends Omit<HTMLAttributes<'img'>, 'src'> {
   src?: string | ImageMetadata | null;
@@ -69,7 +69,7 @@ const parseAspectRatio = (aspectRatio: number | string | null | undefined): numb
 
     if (match) {
       const [, num, den] = match.map(Number);
-      if (den && !isNaN(num)) return num / den;
+      if (num && den && !isNaN(num)) return num / den;
     } else {
       const numericValue = parseFloat(aspectRatio);
       if (!isNaN(numericValue)) return numericValue;

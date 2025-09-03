@@ -1,12 +1,11 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
 import { getImage } from 'astro:assets';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 import { SITE } from '~/config.mjs';
 import type { MetaSEO } from '~/types';
 import { getCanonical, getAsset } from '~/utils/permalinks';
-import { getRelativeUrlByFilePath } from '~/utils/directories';
 
 import CustomStyles from '~/components/CustomStyles.astro';
 
@@ -40,13 +39,7 @@ const {
   dontUseTitleTemplate = false,
 } = Astro.props;
 
-const image =
-  typeof _image === 'string'
-    ? new URL(_image, Astro.site)
-    : _image && typeof _image['src'] !== 'undefined'
-      ? // @ts-ignore
-        new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
-      : null;
+const image = new URL(_image, Astro.site);
 ---
 
 <meta charset="UTF-8" />
@@ -73,11 +66,8 @@ const image =
           },
         ]
       : undefined,
-    // site_name: 'SiteName',
   }}
   twitter={{
-    // handle: '@handle',
-    // site: '@site',
     cardType: image ? 'summary_large_image' : undefined,
   }}
 />
@@ -90,4 +80,4 @@ const image =
 
 <link rel="sitemap" href={getAsset('/sitemap-index.xml')} />
 
-<ViewTransitions fallback="swap" />
+<ClientRouter fallback="swap" />

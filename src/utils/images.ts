@@ -9,6 +9,7 @@ const load = async function () {
       '~/assets/images/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,JPEG,JPG,PNG,TIFF,WEBP,GIF,SVG}'
     );
   } catch (e) {
+    console.error('Error loading images:', e);
     // continue regardless of error
   }
   return images;
@@ -16,22 +17,18 @@ const load = async function () {
 
 let _images: Record<string, () => Promise<unknown>> | undefined = undefined;
 
-/** */
 export const fetchLocalImages = async () => {
   _images = _images || (await load());
   return _images;
 };
 
-/** */
 export const findImage = async (
   imagePath?: string | ImageMetadata | null
 ): Promise<string | ImageMetadata | undefined | null> => {
-  // Not string
   if (typeof imagePath !== 'string') {
     return imagePath;
   }
 
-  // Absolute paths
   if (
     imagePath.startsWith('http://') ||
     imagePath.startsWith('https://') ||
@@ -40,7 +37,6 @@ export const findImage = async (
     return imagePath;
   }
 
-  // Relative paths or not "~/assets/"
   if (!imagePath.startsWith('~/assets/images')) {
     return imagePath;
   }
@@ -53,7 +49,6 @@ export const findImage = async (
     : null;
 };
 
-/** */
 export const adaptOpenGraphImages = async (
   openGraph: OpenGraph = {},
   astroSite: URL | undefined = new URL('')
@@ -86,8 +81,9 @@ export const adaptOpenGraphImages = async (
         if (typeof _image === 'object') {
           return {
             url: typeof _image.src === 'string' ? String(new URL(_image.src, astroSite)) : 'pepe',
-            width: typeof _image.options.width === 'number' ? _image.options.width : undefined,
-            height: typeof _image.options.height === 'number' ? _image.options.height : undefined,
+            width: typeof _image.options.width === 'number' ? _image.options.width : defaultWidth,
+            height:
+              typeof _image.options.height === 'number' ? _image.options.height : defaultHeight,
           };
         }
         return {
