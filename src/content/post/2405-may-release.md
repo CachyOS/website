@@ -13,7 +13,7 @@ We are now introducing the Bcachefs file system in our installer. This can be us
 Bcachefs is currently still in an experimental state but will improve lot with the next major kernel releases. The installer automatically detects which file system is installed and will correctly configure and install the required packages.
 
 The next new feature is an AI SDK Installation. This installation type automatically installs all required packages required to have a local AI Installation.
-This was done due to requests from an Local AI Enthusiasts group and will be further enhanced in the future. For now, this install method only works for CUDA and NVIDIA, but we are also working on introducing this for offical ROCm supported cards. ROCm support is planned to be released together with the next release.
+This was done due to requests from an Local AI Enthusiasts group and will be further enhanced in the future. For now, this install method only works for CUDA and NVIDIA, but we are also working on introducing this for official ROCm supported cards. ROCm support is planned to be released together with the next release.
 
 Last but not least, we are adding an experimental handheld Edition for CachyOS. The Handheld Edition automatically setups a Steam Deck like experience and installs all required Gaming Tools for it.
 We are also proud to announce that this version will use the LAVD Scheduler, which is funded by Valve and improves the Frametime and 1% lows on Handhelds dramatically.

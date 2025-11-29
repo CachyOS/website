@@ -10,9 +10,9 @@ Greetings, CachyOS enthusiasts!
 
 This is just a little fix release, due issues with Wayland and NVIDIA cards.
 Currently there is an issue going on, when fbdev=1 and drm.modeset=1 is used, that the ownership is taken to late and this results into a blackscreen.
-NVIDIA did provide a patch for this in the forum, which we have applied to our nvidia module. This does mitigate the issue and NVIDIA users will have good expierence.
+NVIDIA did provide a patch for this in the forum, which we have applied to our nvidia module. This does mitigate the issue and NVIDIA users will have good experience.
 
-We also did some little changes on the netinstall and removed the additonal kernel list, to avoid confusion by the users.
+We also did some little changes on the netinstall and removed the additional kernel list, to avoid confusion by the users.
 Also the new 6.8.1 Kernel is now included in the ISO.
 
 Here you can find the changes from this release:
@@ -28,7 +28,7 @@ Here you can find the changes from this release:
 
 - NVIDIA: patched nvidia module to take the owner ship of nvidia.drm.modeset earlier to avoid issues on nvidia graphics
 - Refind: Don't install the lts kernel to avoid issues
-- shellprocess: Remove the liveusers directory completly
+- shellprocess: Remove the liveusers directory completely
 
 Here you can find the changes from our last release:
 

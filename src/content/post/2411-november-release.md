@@ -52,7 +52,7 @@ Calamares has also received a bunch of fixes and has been updated to the latest 
 
 **Bug Fixes:**
 
-- refind: partitioning: changed from 3 way partiton layout to 2 way
+- refind: partitioning: changed from 3 way partition layout to 2 way
 - netinstall: added kdeplasma-addons to the Plasma installation
 - calamares: Fixed a issue, while partitioning with a swap partition
 - timesync: Switched from time.google.com to time.cloudflare.com

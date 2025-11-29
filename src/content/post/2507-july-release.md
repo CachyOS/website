@@ -24,7 +24,7 @@ The Handheld Edition now supports the Lenovo Legion Go and has been validated by
 
 
 **Features:**
--   **Shell**: The user shell can be now choosen at installation time between fish, zsh and bash. Fish still stays to be default enabled. 
+-   **Shell**: The user shell can be now chosen at installation time between fish, zsh and bash. Fish still stays to be default enabled.
 -   **chwd**: Install plasma-x11 for legacy NVIDIA Drivers
 -   **Netinstall**: Added fwupd to KDE Plasma and Gnome
 -   **mesa-git**: Added support for AMD Anti Lag

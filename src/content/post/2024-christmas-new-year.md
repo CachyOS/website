@@ -32,7 +32,7 @@ We had in 2024 a really good development track in bringing new features, upstrea
 - Added several new mirrors around the world
 - Added CDN's and World Wide Cache CDN's for the CachyOS Repository
 - Added an unstripped vmlinux of kernels into the repository
-- More Profile guided pptimization to more packages
+- More profile-guided optimizations for more packages
 - Kernels are now as default optimized with AutoFDO
 
 ### Installer
@@ -44,7 +44,7 @@ We had in 2024 a really good development track in bringing new features, upstrea
 - Added Plymouth support out of the box
 - Added bcachefs support
 - Added "AI-SDK" Installation type for out of the box CUDA/ROCm support
-- Added support for Game Mode (Steam) expierence on handheld devices
+- Added support for Game Mode (Steam) experience on handheld devices
 - Added T2 MacBook support
 - switched to BTRFS as default filesystem
 - Rebased on QT6
@@ -69,7 +69,7 @@ We had in 2024 a really good development track in bringing new features, upstrea
 #### cachyos-settings
 
 - MQ Deadline Scheduler for SSD/SD Cards
-- Dropped tuning for watermal values
+- Dropped tuning for watermark values
 - Added debuginfod URL to CachyOS user
 - Added support for NTSync
 - Added topmem tool to show the top 10 memory usage of processes
@@ -78,7 +78,7 @@ We had in 2024 a really good development track in bringing new features, upstrea
 - Added game-performance script to easily switch to the performance profile, when starting the game
 - Disabled zswap as default
 - Added Logo for gdm
-- Use syxstemd-resolved as default dns-resolver
+- Use systemd-resolved as default dns-resolver
 - Added support for thp shrinker
 
 #### cachy-chroot
