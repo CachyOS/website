@@ -128,6 +128,10 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
       startTime = currentTime - 30 * 24 * 60 * 60 * 1000;
       break;
     }
+    case '365d': {
+      startTime = currentTime - 365 * 24 * 60 * 60 * 1000;
+      break;
+    }
     case 'none':
     default: {
       const sum1 = getPreparedCounts(kdeData).values.reduce((partialSum, x) => partialSum + x, 0);
