@@ -78,7 +78,7 @@ KDE Plasma users with SDDM can now migrate to Plasma-Login-Manager. Please run:
 sudo pacman -Syu plasma-login-manager
 sudo systemctl disable sddm
 sudo systemctl enable plasmalogin
-sudo pacman -R sddm
+sudo pacman -R sddm-kcm cachyos-themes-sddm sddm
 ```
 
 After that you can use in Plasma Settings under the KCM "Apply Settings".
