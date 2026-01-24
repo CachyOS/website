@@ -77,7 +77,7 @@ KDE Plasma users with SDDM can now migrate to Plasma-Login-Manager. Please run:
 ```bash
 sudo pacman -Syu plasma-login-manager
 sudo systemctl disable sddm
-sudo pacman enable plasmalogin
+sudo systemctl enable plasmalogin
 sudo pacman -R sddm
 ```
 
@@ -103,11 +103,6 @@ Grab your copy of the latest ISO from our mirrors on SourceForge:
 * Russia: https://archlinux.gay/cachy/ISO/desktop/260124/cachyos-desktop-linux-260124.iso
 * Russia: https://mirror.yandex.ru/cachyos/ISO/desktop/260124/cachyos-desktop-linux-260124.iso
 * https://sourceforge.net/projects/cachyos-arch/files
-
-**Handheld Edition:**
-
-* CDN: https://iso.cachyos.org/handheld/260124/cachyos-handheld-linux-260124.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/260124/cachyos-handheld-linux-260124.iso
 
 **Support Us:**
 
