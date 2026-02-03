@@ -123,8 +123,14 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
     }
     case 'none':
     default: {
-      const sum1 = getPreparedCounts(desktopEdition).values.reduce((partialSum, x) => partialSum + x, 0);
-      const sum2 = getPreparedCounts(handheldEdition).values.reduce((partialSum, x) => partialSum + x, 0);
+      const sum1 = getPreparedCounts(desktopEdition).values.reduce(
+        (partialSum, x) => partialSum + x,
+        0,
+      );
+      const sum2 = getPreparedCounts(handheldEdition).values.reduce(
+        (partialSum, x) => partialSum + x,
+        0,
+      );
       overallDownloads.innerHTML = sum1 + sum2;
       chart.data.labels = getPreparedCounts(data).labels;
       chart.data.datasets[0].data = getPreparedCounts(desktopEdition).values;
@@ -150,17 +156,27 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
   const preparedCountsHandheld = getPreparedCounts(filteredDataHandheld);
 
   const labels = getPreparedCounts(filteredData).labels;
-  const sum1 = preparedCountsDesktop.values.reduce((partialSum, x) => partialSum + x, 0);
-  const sum2 = preparedCountsHandheld.values.reduce((partialSum, x) => partialSum + x, 0);
+  const sum1 = preparedCountsDesktop.values.reduce(
+    (partialSum, x) => partialSum + x,
+    0,
+  );
+  const sum2 = preparedCountsHandheld.values.reduce(
+    (partialSum, x) => partialSum + x,
+    0,
+  );
   overallDownloads.innerHTML = sum1 + sum2;
 
   // Update the chart data and options
   chart.data.labels = labels;
   chart.data.datasets[0].data = labels.map(
-    (label) => preparedCountsDesktop.values[preparedCountsDesktop.labels.indexOf(label)]
+    (label) =>
+      preparedCountsDesktop.values[preparedCountsDesktop.labels.indexOf(label)],
   );
   chart.data.datasets[1].data = labels.map(
-    (label) => preparedCountsHandheld.values[preparedCountsHandheld.labels.indexOf(label)]
+    (label) =>
+      preparedCountsHandheld.values[
+        preparedCountsHandheld.labels.indexOf(label)
+      ],
   );
   chart.update();
 };
