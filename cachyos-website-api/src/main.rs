@@ -3,12 +3,11 @@ mod security;
 use crate::security::SecurityHeader;
 
 use actix_cors::Cors;
-use actix_governor::{Governor, GovernorConfigBuilder, GovernorConfig};
 use actix_web::{get, http, middleware, post, web, App, Error, HttpResponse, HttpServer, Result};
+use cachyos_website_api::*;
 use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
 use std::env;
-use cachyos_website_api::*;
 
 type DbPool = r2d2::Pool<ConnectionManager<SqliteConnection>>;
 
@@ -44,17 +43,12 @@ async fn get_downloads(pool: web::Data<DbPool>) -> Result<HttpResponse, Error> {
     // use web::block to offload blocking Diesel code without blocking server thread
     let downloads = web::block(move || {
         let mut conn = pool.get()?;
-        actions::find_all_downloads(&mut conn)
+        actions::get_chart_data(&mut conn)
     })
     .await?
     .map_err(actix_web::error::ErrorInternalServerError)?;
 
-    if let Some(downloads) = downloads {
-        Ok(HttpResponse::Ok().json(downloads))
-    } else {
-        let res = HttpResponse::NotFound().body("No downloads found".to_string());
-        Ok(res)
-    }
+    Ok(HttpResponse::Ok().json(downloads))
 }
 
 /// Inserts new download with name defined in input json.
@@ -136,7 +130,7 @@ async fn main() -> std::io::Result<()> {
         let cors = Cors::default()
             // Allow requests from the https://cachyos.org domain and from localhost
             .allowed_origin("https://cachyos.org")
-            .allowed_origin("http://localhost:3000")
+            .allowed_origin("http://localhost:36764")
             .allowed_origin_fn(|origin, _req_head| origin.as_bytes().ends_with(b".cachyos.org"))
             .allowed_methods(["GET", "POST"])
             .allowed_headers([http::header::AUTHORIZATION, http::header::ACCEPT, http::header::CONTENT_TYPE])

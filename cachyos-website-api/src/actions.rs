@@ -1,7 +1,10 @@
-use diesel::prelude::*;
-use uuid::Uuid;
-
 use crate::models;
+use crate::models::{ChartData, Download};
+use cached::proc_macro::once;
+use diesel::prelude::*;
+use itertools::Itertools;
+use std::time::Duration;
+use uuid::Uuid;
 
 type DbError = Box<dyn std::error::Error + Send + Sync>;
 
@@ -18,15 +21,29 @@ pub fn find_all_downloads_by_name(
     Ok(matches)
 }
 
-/// Run query using Diesel to find all available downloads in the DB and return them.
-pub fn find_all_downloads(
-    conn: &mut SqliteConnection,
-) -> Result<Option<Vec<models::Download>>, DbError> {
+/// Run query using Diesel to get all download data for charting purposes.
+#[once(time = 3600, sync_writes = true, result = true)]
+pub fn get_chart_data(conn: &mut SqliteConnection) -> Result<Vec<models::ChartData>, DbError> {
     use crate::schema::downloads::dsl::*;
 
-    let matches = downloads.load::<models::Download>(conn).optional()?;
+    let matches = downloads.load::<models::Download>(conn)?;
+    let matches = aggregate_chart_data(matches);
 
     Ok(matches)
+}
+
+/// Aggregate download data for charting purposes.
+fn aggregate_chart_data(downloads: Vec<Download>) -> Vec<ChartData> {
+    let aggregated: Vec<ChartData> = downloads
+        .iter()
+        .map(|d| (d.name.clone(), d.timestamp.date()))
+        .counts()
+        .into_iter()
+        .map(|((name, date), count)| ChartData { name, date, count })
+        .sorted_by_key(|x| x.date)
+        .collect();
+
+    aggregated
 }
 
 /// Run query using Diesel to insert a new database row and return the result.

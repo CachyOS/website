@@ -27,3 +27,10 @@ pub struct UpdateMsg {
 pub struct NewUpdateMsg {
     pub body: String,
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ChartData {
+    pub name: String,
+    pub date: chrono::NaiveDate,
+    pub count: usize,
+}
