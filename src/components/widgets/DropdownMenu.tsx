@@ -80,7 +80,7 @@ const DropdownMenu = ({ data }: Props) => {
               href={data.srcforge_url}
               className="btn-dropdown-item block"
             >
-              Sourceforge
+              SourceForge
             </MenuItem>
           )}
           {data.magnet_url && (
