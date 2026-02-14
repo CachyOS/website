@@ -29,7 +29,7 @@ const items = [
     {
       title: 'Desktop Edition',
       description:
-        'Empower your computing with a modern, customizable desktop environment — browse the web, stay connected with friends and family, manage files, enjoy multimedia, and work efficiently in a visually stunning interface that adapts to your needs. Benefit from Free and Open Source Software with a focus on security, privacy, and peace of mind.',
+        'Empower your computing with a modern, customizable desktop environment — browse the web, stay connected with friends and family, manage files, enjoy multimedia, and work efficiently in a visually stunning interface that adapts to your needs. Benefit from Free and Open Source Software with a focus on security, privacy, and peace of mind. \n \n From the installer you will be able to choose between a range of Desktop Environments, Wayland Compositors and X11 Window Managers including KDE Plasma, GNOME, XFCE, i3, Wayfire, LXQt, Openbox, Cinnamon, COSMIC, UKUI, LXDE, Mate, Budgie, Qtile, Hyprland, Sway and Niri.',      
       direct_url: generateDownloadLink(
         ISOEdition.DESKTOP,
         versions.desktopISOVersion,
@@ -94,7 +94,7 @@ const items = [
                   <h2 class="mb-9 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">
                     {title}
                   </h2>
-                  <p class="mb-10 text-lg text-gray-900 dark:text-slate-400 font-medium leading-relaxed md:max-w-md">
+                  <p class="mb-10 text-lg text-gray-900 dark:text-slate-400 font-medium leading-relaxed md:max-w-md whitespace-pre-line">
                     {description}
                   </p>
                   <div class="mb-11 md:inline-block rounded-xl shadow-4xl bg-primary-500 dark:bg-primary-700 dropdown">
