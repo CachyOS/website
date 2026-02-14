@@ -130,7 +130,7 @@ async fn main() -> std::io::Result<()> {
         let cors = Cors::default()
             // Allow requests from the https://cachyos.org domain and from localhost
             .allowed_origin("https://cachyos.org")
-            .allowed_origin("http://localhost:36764")
+            .allowed_origin("http://localhost:3000")
             .allowed_origin_fn(|origin, _req_head| origin.as_bytes().ends_with(b".cachyos.org"))
             .allowed_methods(["GET", "POST"])
             .allowed_headers([http::header::AUTHORIZATION, http::header::ACCEPT, http::header::CONTENT_TYPE])
