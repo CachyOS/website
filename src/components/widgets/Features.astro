@@ -55,7 +55,7 @@ const items = [
         items.map((subitems) => (
           <div class="space-y-8 sm:px-8">
             {subitems.map(({ title, description, icon }) => (
-              <div class="flex flex-row max-w-md">
+              <div class="flex flex-row max-w-md rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-800/50 p-6">
                 <div class="mb-4 mr-4">
                   <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500 dark:bg-primary-700">
                     {icon && <Icon name={icon} class="w-6 h-6 icon-light" />}
