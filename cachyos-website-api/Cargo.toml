@@ -7,10 +7,12 @@ edition = "2021"
 actix-cors = "0.7"
 actix-governor = "0.10"
 actix-web = {  version = "4", features = ["macros"], default-features = false }
+cached = "0.56.0"
 chrono = { version = "0.4", features = ["serde"], default-features = false }
 diesel = { version = "2", features = ["chrono", "r2d2", "sqlite"], default-features = false }
 dotenvy = "0.15"
 env_logger = { version = "0.11", default-features = false }
+itertools = "0.14.0"
 log = "0.4"
 mime = "0.3"
 serde = { version = "1", features = ["serde_derive"], default-features = false }

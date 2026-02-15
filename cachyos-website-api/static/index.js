@@ -1,4 +1,3 @@
-// define gruvbox color palette
 const gruvboxColors = {
   light0: '#fbf1c7',
   light1: '#ebdbb2',
@@ -22,18 +21,16 @@ const gruvboxColors = {
 };
 
 const getPreparedCounts = (data) => {
-  // extract download counts by name
   const counts = {};
   data.forEach((obj) => {
-    const day = obj.timestamp.split('T')[0];
+    const day = obj.date;
     if (counts[day]) {
-      counts[day]++;
+      counts[day] += obj.count;
     } else {
-      counts[day] = 1;
+      counts[day] = obj.count;
     }
   });
 
-  // prepare chart data
   const labels = Object.keys(counts);
   const values = Object.values(counts);
 
@@ -91,10 +88,6 @@ const toggleChartColors = (theme, chart) => {
   chart.data.datasets[0].borderColor = colors.orange;
   chart.data.datasets[1].backgroundColor = colors.blue + '80';
   chart.data.datasets[1].borderColor = colors.blue;
-  chart.data.datasets[2].backgroundColor = colors.green + '80';
-  chart.data.datasets[2].borderColor = colors.green;
-  chart.data.datasets[3].backgroundColor = colors.purple + '80';
-  chart.data.datasets[3].borderColor = colors.purple;
   chart.options.legend.labels.fontColor = colors.light1;
   chart.options.scales.y.ticks.fontColor = colors.light1;
   chart.options.scales.x.ticks.fontColor = colors.light1;
@@ -105,15 +98,11 @@ const toggleChartColors = (theme, chart) => {
 };
 
 const updateChartData = (timePeriod, data, overallDownloads, chart) => {
-  const kdeData = data.filter((d) => d.name === 'KDE PLASMA');
-  const gnomeData = data.filter((d) => d.name === 'GNOME');
   const desktopEdition = data.filter((d) => d.name === 'Desktop Edition');
   const handheldEdition = data.filter((d) => d.name === 'Handheld Edition');
 
-  // Get the current time
   const currentTime = Date.now();
 
-  // Calculate the start time based on the selected time range
   let startTime;
   switch (timePeriod) {
     case '24h': {
@@ -134,66 +123,60 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
     }
     case 'none':
     default: {
-      const sum1 = getPreparedCounts(kdeData).values.reduce((partialSum, x) => partialSum + x, 0);
-      const sum2 = getPreparedCounts(gnomeData).values.reduce((partialSum, x) => partialSum + x, 0);
-      const sum3 = getPreparedCounts(desktopEdition).values.reduce((partialSum, x) => partialSum + x, 0);
-      const sum4 = getPreparedCounts(handheldEdition).values.reduce((partialSum, x) => partialSum + x, 0);
-      overallDownloads.innerHTML = sum1 + sum2 + sum3 + sum4;
+      const sum1 = getPreparedCounts(desktopEdition).values.reduce(
+        (partialSum, x) => partialSum + x,
+        0,
+      );
+      const sum2 = getPreparedCounts(handheldEdition).values.reduce(
+        (partialSum, x) => partialSum + x,
+        0,
+      );
+      overallDownloads.innerHTML = sum1 + sum2;
       chart.data.labels = getPreparedCounts(data).labels;
-      chart.data.datasets[0].data = getPreparedCounts(kdeData).values;
-      chart.data.datasets[1].data = getPreparedCounts(gnomeData).values;
-      chart.data.datasets[2].data = getPreparedCounts(desktopEdition).values;
-      chart.data.datasets[3].data = getPreparedCounts(handheldEdition).values;
+      chart.data.datasets[0].data = getPreparedCounts(desktopEdition).values;
+      chart.data.datasets[1].data = getPreparedCounts(handheldEdition).values;
       chart.update();
       return;
     }
   }
 
   const filteredData = data.filter((item) => {
-    const itemTime = new Date(item.timestamp).getTime();
-    return itemTime >= startTime && itemTime <= currentTime;
-  });
-  const filteredDataKde = kdeData.filter((item) => {
-    const itemTime = new Date(item.timestamp).getTime();
-    return itemTime >= startTime && itemTime <= currentTime;
-  });
-  const filteredDataGnome = gnomeData.filter((item) => {
-    const itemTime = new Date(item.timestamp).getTime();
+    const itemTime = new Date(item.date).getTime();
     return itemTime >= startTime && itemTime <= currentTime;
   });
   const filteredDataDesktop = desktopEdition.filter((item) => {
-    const itemTime = new Date(item.timestamp).getTime();
+    const itemTime = new Date(item.date).getTime();
     return itemTime >= startTime && itemTime <= currentTime;
   });
   const filteredDataHandheld = handheldEdition.filter((item) => {
-    const itemTime = new Date(item.timestamp).getTime();
+    const itemTime = new Date(item.date).getTime();
     return itemTime >= startTime && itemTime <= currentTime;
   });
-  const preparedCountsKde = getPreparedCounts(filteredDataKde);
-  const preparedCountsGnome = getPreparedCounts(filteredDataGnome);
   const preparedCountsDesktop = getPreparedCounts(filteredDataDesktop);
   const preparedCountsHandheld = getPreparedCounts(filteredDataHandheld);
 
   const labels = getPreparedCounts(filteredData).labels;
-  const sum1 = preparedCountsKde.values.reduce((partialSum, x) => partialSum + x, 0);
-  const sum2 = preparedCountsGnome.values.reduce((partialSum, x) => partialSum + x, 0);
-  const sum3 = preparedCountsDesktop.values.reduce((partialSum, x) => partialSum + x, 0);
-  const sum4 = preparedCountsHandheld.values.reduce((partialSum, x) => partialSum + x, 0);
-  overallDownloads.innerHTML = sum1 + sum2 + sum3 + sum4;
+  const sum1 = preparedCountsDesktop.values.reduce(
+    (partialSum, x) => partialSum + x,
+    0,
+  );
+  const sum2 = preparedCountsHandheld.values.reduce(
+    (partialSum, x) => partialSum + x,
+    0,
+  );
+  overallDownloads.innerHTML = sum1 + sum2;
 
   // Update the chart data and options
   chart.data.labels = labels;
   chart.data.datasets[0].data = labels.map(
-    (label) => preparedCountsKde.values[preparedCountsKde.labels.indexOf(label)]
+    (label) =>
+      preparedCountsDesktop.values[preparedCountsDesktop.labels.indexOf(label)],
   );
   chart.data.datasets[1].data = labels.map(
-    (label) => preparedCountsGnome.values[preparedCountsGnome.labels.indexOf(label)]
-  );
-  chart.data.datasets[2].data = labels.map(
-    (label) => preparedCountsDesktop.values[preparedCountsDesktop.labels.indexOf(label)]
-  );
-  chart.data.datasets[3].data = labels.map(
-    (label) => preparedCountsHandheld.values[preparedCountsHandheld.labels.indexOf(label)]
+    (label) =>
+      preparedCountsHandheld.values[
+        preparedCountsHandheld.labels.indexOf(label)
+      ],
   );
   chart.update();
 };
@@ -251,50 +234,6 @@ fetch('https://iso-stats.cachyos.org/api/downloads')
       data: {
         labels: labels,
         datasets: [
-          {
-            label: 'KDE Download Counts',
-            data: [],
-            backgroundColor: {
-              type: 'linear',
-              x0: 0,
-              x1: 0,
-              y0: 0,
-              y1: 1,
-              colorStops: [
-                {
-                  offset: 0,
-                  color: gruvboxColors.orange + '80',
-                },
-                {
-                  offset: 0.5,
-                  color: gruvboxColors.green + '80',
-                },
-                {
-                  offset: 1,
-                  color: gruvboxColors.blue + '80',
-                },
-              ],
-            },
-            borderColor: gruvboxColors.orange,
-            pointBackgroundColor: gruvboxColors.light1,
-            pointBorderColor: gruvboxColors.dark1,
-            pointBorderWidth: 1,
-            pointRadius: 3,
-            pointHitRadius: 10,
-            borderWidth: 2,
-          },
-          {
-            label: 'GNOME Download Counts',
-            data: [],
-            backgroundColor: gruvboxColors.blue + '80',
-            borderColor: gruvboxColors.blue,
-            pointBackgroundColor: gruvboxColors.light1,
-            pointBorderColor: gruvboxColors.dark1,
-            pointBorderWidth: 1,
-            pointRadius: 3,
-            pointHitRadius: 10,
-            borderWidth: 2,
-          },
           {
             label: 'Desktop Edition Download Counts',
             data: [],
