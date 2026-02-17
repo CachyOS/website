@@ -1,8 +1,8 @@
 ---
 version: '2.1'
 services:
-  basedbin:
-    image: cachyos-website-api:latest
+  cachyos-website-api:
+    build: .
     container_name: cachyos-website-api
     hostname: cachyoswebsiteapi
     environment:
