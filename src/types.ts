@@ -94,3 +94,12 @@ export interface SupportOption {
   text: string;
   mode: 'text' | 'link';
 }
+
+
+export interface CallToAction {
+  variant: string;
+  target: string;
+  text: Promise<string>;
+  icon: string;
+  class: string;
+}
