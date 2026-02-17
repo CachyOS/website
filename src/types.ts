@@ -95,7 +95,6 @@ export interface SupportOption {
   mode: 'text' | 'link';
 }
 
-
 export interface CallToAction {
   variant: string;
   target: string;
