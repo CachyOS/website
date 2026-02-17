@@ -29,7 +29,7 @@ export function getFileCommitDate(
   date: Date;
   timestamp: number;
 } {
-  let git_path = '';
+  let git_path: string;
   {
     const { stdout } = spawnSync('which', ['git'], {
       encoding: 'utf-8',

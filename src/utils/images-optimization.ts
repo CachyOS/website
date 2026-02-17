@@ -5,6 +5,8 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Layout = 'fixed' | 'constrained' | 'fullWidth' | 'cover' | 'responsive' | 'contained';
 
+export type AttributesProps = HTMLAttributes<'img'>;
+
 export interface ImageProps extends Omit<HTMLAttributes<'img'>, 'src'> {
   src?: string | ImageMetadata | null;
   width?: string | number | null;
@@ -20,17 +22,13 @@ export interface ImageProps extends Omit<HTMLAttributes<'img'>, 'src'> {
   layout?: Layout;
   widths?: number[] | null;
   aspectRatio?: string | number | null;
-  objectPosition?: string;
-
-  format?: string;
 }
 
 export type ImagesOptimizer = (
   image: ImageMetadata | string,
   breakpoints: number[],
   width?: number,
-  height?: number,
-  format?: string
+  height?: number
 ) => Promise<Array<{ src: string; width: number }>>;
 
 /* ******* */
@@ -220,30 +218,17 @@ const getBreakpoints = ({
 };
 
 /* ** */
-export const astroAssetsOptimizer: ImagesOptimizer = async (
-  image,
-  breakpoints,
-  _width,
-  _height,
-  format = undefined
-) => {
-  if (!image) {
+export const astroAsseetsOptimizer: ImagesOptimizer = async (image, breakpoints) => {
+  if (!image || typeof image === 'string') {
     return [];
   }
 
   return Promise.all(
     breakpoints.map(async (w: number) => {
-      const result = await getImage({
-        src: image,
-        width: w,
-        inferSize: true,
-        ...(format ? { format: format } : {}),
-      });
-
+      const url = (await getImage({ src: image, width: w })).src;
       return {
-        src: result?.src,
-        width: result?.attributes?.width ?? w,
-        height: result?.attributes?.height,
+        src: url,
+        width: w,
       };
     })
   );
@@ -258,15 +243,13 @@ export async function getImagesOptimized(
     height,
     sizes,
     aspectRatio,
-    objectPosition,
     widths,
     layout = 'constrained',
     style = '',
-    format,
     ...rest
   }: ImageProps,
   transform: ImagesOptimizer = () => Promise.resolve([])
-): Promise<{ src: string; attributes: HTMLAttributes<'img'> }> {
+): Promise<{ src: string; attributes: AttributesProps }> {
   if (typeof image !== 'string') {
     width ||= Number(image.width) || undefined;
     height ||=
@@ -307,13 +290,7 @@ export async function getImagesOptimized(
   breakpoints = [...new Set(breakpoints)].sort((a, b) => a - b);
 
   const srcset = (
-    await transform(
-      image,
-      breakpoints,
-      Number(width) || undefined,
-      Number(height) || undefined,
-      format
-    )
+    await transform(image, breakpoints, Number(width) || undefined, Number(height) || undefined)
   )
     .map(({ src, width }) => `${src} ${width}w`)
     .join(', ');
@@ -329,7 +306,6 @@ export async function getImagesOptimized(
         width: width,
         height: height,
         aspectRatio: aspectRatio,
-        objectPosition: objectPosition,
         layout: layout,
       })}${style ?? ''}`,
       ...rest,

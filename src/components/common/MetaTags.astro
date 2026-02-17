@@ -43,7 +43,7 @@ const image =
   typeof _image === 'string'
     ? new URL(_image, Astro.site)
     : _image && typeof _image['src'] !== 'undefined'
-      ? // @ts-ignore
+      ? // @ts-expect-error - TODO: Need to improve default image handling and types
         new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
       : null;
 ---
