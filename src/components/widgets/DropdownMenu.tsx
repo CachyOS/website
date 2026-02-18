@@ -28,7 +28,7 @@ const DropdownMenu = ({ data }: Props) => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <MenuButton
-          className="btn dropdown-toggle py-4 px-6"
+          className="btn btn-secondary py-4 px-6"
           aria-label="menu"
           aria-expanded="true"
           aria-haspopup="true"
