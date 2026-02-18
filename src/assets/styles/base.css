@@ -5,18 +5,17 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: var(--cachyos-color-primary);
-  --color-secondary: var(--cachyos-color-secondary);
-  --color-accent: var(--cachyos-color-accent);
+  --color-primary: #8b5cf6;
+  --color-secondary: #6366f1;
+  --color-accent: #2dd4bf;
 
   --font-sans:
-    var(--cachyos-font-sans), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-serif:
-    var(--cachyos-font-serif), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: 'Inter Variable', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-heading:
-    var(--cachyos-font-heading), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 @utility bg-dark {
