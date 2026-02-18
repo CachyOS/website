@@ -51,7 +51,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                 </div>
                 <DialogTitle
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 text-center"
+                  className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200 text-center"
                 >
                   Imprint
                 </DialogTitle>
@@ -68,7 +68,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                       href="mailto:ptr1337@cachyos.org"
                       target="_blank"
                       rel="noopener"
-                      className="dark:text-white font-bold decoration-slate-400 underline decoration-dotted"
+                      className="dark:text-white font-bold decoration-gray-400 underline decoration-dotted"
                     >
                       ptr1337@cachyos.org
                     </a>

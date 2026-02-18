@@ -40,7 +40,7 @@ const items = [
       <h2 class="text-2xl md:text-3xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
         Why CachyOS Is <span class="whitespace-nowrap">Different</span>
       </h2>
-      <p class="max-w-xl mx-auto sm:text-center text-lg text-gray-600 dark:text-slate-400">
+      <p class="max-w-xl mx-auto sm:text-center text-lg text-gray-600 dark:text-gray-400">
         Most Linux distributions ship generic binaries. CachyOS rebuilds the stack — from kernel to
         packages — with modern CPU optimizations, delivering measurable performance where it
         matters.
@@ -49,12 +49,12 @@ const items = [
     <div class="grid gap-6 md:grid-cols-2">
       {
         items.map(({ title, description, icon }) => (
-          <div class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-800/50 p-5">
+          <div class="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-800/50 p-5">
             <div class="flex items-center mb-3 space-x-2">
               {icon && <Icon name={icon} class="w-6 h-6 icon-light" />}
               <h3 class="text-sm font-bold">{title}</h3>
             </div>
-            <p class="text-gray-600 dark:text-slate-400">{description}</p>
+            <p class="text-gray-600 dark:text-gray-400">{description}</p>
           </div>
         ))
       }

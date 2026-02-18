@@ -29,7 +29,7 @@ const supportOptions: SupportOption[] = [
 const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
   const { copyToClipboard, isCopied } = useCopyToClipboard({ timeout: 2000 });
   return (
-    <div key={label} className="flex bg-gray-100 dark:bg-slate-800  p-2 text-wrap w-full h-full">
+    <div key={label} className="flex bg-gray-100 dark:bg-gray-800  p-2 text-wrap w-full h-full">
       <button
         className="flex pr-1 items-center data-[mode=link]:hidden"
         onClick={() => copyToClipboard(text)}
@@ -101,7 +101,7 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
               href={text}
               target="_blank"
               rel="noopener"
-              className="dark:text-white font-bold decoration-slate-400"
+              className="dark:text-white font-bold decoration-gray-400"
             >
               {text}
             </a>
@@ -164,7 +164,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                 </div>
                 <DialogTitle
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 text-center"
+                  className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200 text-center"
                 >
                   Support Options
                 </DialogTitle>
