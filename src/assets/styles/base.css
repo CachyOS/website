@@ -5,9 +5,45 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /* Generated using https://javisperez.github.io/tailwindcolorshades/ */
   --color-primary: #8b5cf6;
+  --color-primary-50: oklch(0.97 0.01 293);
+  --color-primary-100: oklch(0.94 0.04 293);
+  --color-primary-200: oklch(0.86 0.08 293);
+  --color-primary-300: oklch(0.78 0.12 293);
+  --color-primary-400: oklch(0.69 0.17 293);
+  --color-primary-500: oklch(0.61 0.22 293);
+  --color-primary-600: oklch(0.53 0.19 293);
+  --color-primary-700: oklch(0.46 0.16 293);
+  --color-primary-800: oklch(0.4 0.14 293);
+  --color-primary-900: oklch(0.3 0.11 293);
+  --color-primary-950: oklch(0.21 0.08 293);
+
   --color-secondary: #6366f1;
+  --color-secondary-50: oklch(0.97 0.01 277);
+  --color-secondary-100: oklch(0.93 0.03 277);
+  --color-secondary-200: oklch(0.86 0.07 277);
+  --color-secondary-300: oklch(0.77 0.11 277);
+  --color-secondary-400: oklch(0.68 0.16 277);
+  --color-secondary-500: oklch(0.59 0.2 277);
+  --color-secondary-600: oklch(0.51 0.17 277);
+  --color-secondary-700: oklch(0.44 0.15 277);
+  --color-secondary-800: oklch(0.39 0.13 277);
+  --color-secondary-900: oklch(0.29 0.1 277);
+  --color-secondary-950: oklch(0.21 0.07 277);
+
   --color-accent: #2dd4bf;
+  --color-accent-50: oklch(0.99 0.01 182);
+  --color-accent-100: oklch(0.96 0.02 182);
+  --color-accent-200: oklch(0.92 0.05 182);
+  --color-accent-300: oklch(0.88 0.07 182);
+  --color-accent-400: oklch(0.83 0.1 182);
+  --color-accent-500: oklch(0.78 0.13 182);
+  --color-accent-600: oklch(0.68 0.11 182);
+  --color-accent-700: oklch(0.58 0.1 182);
+  --color-accent-800: oklch(0.51 0.09 182);
+  --color-accent-900: oklch(0.38 0.06 182);
+  --color-accent-950: oklch(0.27 0.05 182);
 
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
