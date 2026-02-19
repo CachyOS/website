@@ -68,7 +68,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                       href="mailto:ptr1337@cachyos.org"
                       target="_blank"
                       rel="noopener"
-                      className="dark:text-white font-bold decoration-gray-400 underline decoration-dotted"
+                      className="dark:text-white font-bold decoration-2 decoration-gray-300 underline"
                     >
                       ptr1337@cachyos.org
                     </a>
