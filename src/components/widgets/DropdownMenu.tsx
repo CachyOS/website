@@ -28,7 +28,7 @@ const DropdownMenu = ({ data }: Props) => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <MenuButton
-          className="btn btn-secondary py-4 px-6"
+          className="btn btn-primary py-4 px-6"
           aria-label="menu"
           aria-expanded="true"
           aria-haspopup="true"
@@ -62,7 +62,7 @@ const DropdownMenu = ({ data }: Props) => {
       >
         <MenuItems
           id="editions-menu-list"
-          className="dropdown-menu min-w-max absolute bg-white dark:bg-gray-800 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none"
+          className="dropdown-menu min-w-max absolute bg-white dark:bg-gray-800 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none focus:outline-none"
         >
           <MenuItem
             as="a"

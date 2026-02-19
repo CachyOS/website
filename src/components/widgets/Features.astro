@@ -33,7 +33,7 @@ const items = [
   <div class="px-4 py-16 mx-auto max-w-4xl lg:px-8 lg:py-20">
     <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-xl">
       <p
-        class="text-base text-primary-600 dark:text-primary-200 font-semibold tracking-wide uppercase"
+        class="text-base text-primary-700 dark:text-primary-200 font-semibold tracking-wide uppercase"
       >
         Features
       </p>
@@ -49,12 +49,12 @@ const items = [
     <div class="grid gap-6 md:grid-cols-2">
       {
         items.map(({ title, description, icon }) => (
-          <div class="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-800/50 p-5">
+          <div class="rounded-xl border border-surface-200 dark:border-surface-700/50 bg-surface-50 dark:bg-surface-800/30 p-5">
             <div class="flex items-center mb-3 space-x-2">
               {icon && <Icon name={icon} class="w-6 h-6 icon-light" />}
               <h3 class="text-sm font-bold">{title}</h3>
             </div>
-            <p class="text-gray-600 dark:text-gray-400">{description}</p>
+            <p class="text-gray-800 dark:text-gray-200">{description}</p>
           </div>
         ))
       }

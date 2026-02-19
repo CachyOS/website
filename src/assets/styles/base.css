@@ -5,45 +5,70 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Generated using https://javisperez.github.io/tailwindcolorshades/ */
-  --color-primary: #8b5cf6;
-  --color-primary-50: oklch(0.97 0.01 293);
-  --color-primary-100: oklch(0.94 0.04 293);
-  --color-primary-200: oklch(0.86 0.08 293);
-  --color-primary-300: oklch(0.78 0.12 293);
-  --color-primary-400: oklch(0.69 0.17 293);
-  --color-primary-500: oklch(0.61 0.22 293);
-  --color-primary-600: oklch(0.53 0.19 293);
-  --color-primary-700: oklch(0.46 0.16 293);
-  --color-primary-800: oklch(0.4 0.14 293);
-  --color-primary-900: oklch(0.3 0.11 293);
-  --color-primary-950: oklch(0.21 0.08 293);
+  /* --- Primary: Bright Cyan (#00CCFF) --- */
+  --color-primary-50: #e6faff;
+  --color-primary-100: #ccf5ff;
+  --color-primary-200: #99ebff;
+  --color-primary-300: #66e0ff;
+  --color-primary-400: #33d6ff;
+  --color-primary-500: #00ccff; /* Base — #0cf from logo */
+  --color-primary-600: #00a3cc;
+  --color-primary-700: #007a99;
+  --color-primary-800: #005266;
+  --color-primary-900: #002933;
+  --color-primary-950: #001419;
 
-  --color-secondary: #6366f1;
-  --color-secondary-50: oklch(0.97 0.01 277);
-  --color-secondary-100: oklch(0.93 0.03 277);
-  --color-secondary-200: oklch(0.86 0.07 277);
-  --color-secondary-300: oklch(0.77 0.11 277);
-  --color-secondary-400: oklch(0.68 0.16 277);
-  --color-secondary-500: oklch(0.59 0.2 277);
-  --color-secondary-600: oklch(0.51 0.17 277);
-  --color-secondary-700: oklch(0.44 0.15 277);
-  --color-secondary-800: oklch(0.39 0.13 277);
-  --color-secondary-900: oklch(0.29 0.1 277);
-  --color-secondary-950: oklch(0.21 0.07 277);
+  /* --- Secondary: Muted Teal Green (#00AA88) --- */
+  --color-secondary-50: #e6fff9;
+  --color-secondary-100: #ccfff3;
+  --color-secondary-200: #99ffe7;
+  --color-secondary-300: #66ffdb;
+  --color-secondary-400: #33ffcf;
+  --color-secondary-500: #00aa88; /* Base — #0a8 from logo */
+  --color-secondary-600: #008870;
+  --color-secondary-700: #006654;
+  --color-secondary-800: #004438;
+  --color-secondary-900: #00221c;
+  --color-secondary-950: #00110e;
 
-  --color-accent: #2dd4bf;
-  --color-accent-50: oklch(0.99 0.01 182);
-  --color-accent-100: oklch(0.96 0.02 182);
-  --color-accent-200: oklch(0.92 0.05 182);
-  --color-accent-300: oklch(0.88 0.07 182);
-  --color-accent-400: oklch(0.83 0.1 182);
-  --color-accent-500: oklch(0.78 0.13 182);
-  --color-accent-600: oklch(0.68 0.11 182);
-  --color-accent-700: oklch(0.58 0.1 182);
-  --color-accent-800: oklch(0.51 0.09 182);
-  --color-accent-900: oklch(0.38 0.06 182);
-  --color-accent-950: oklch(0.27 0.05 182);
+  /* --- Accent: Neon Mint (#00FFCC) --- */
+  --color-accent-50: #e6fffb;
+  --color-accent-100: #ccfff7;
+  --color-accent-200: #99ffef;
+  --color-accent-300: #66ffe7;
+  --color-accent-400: #33ffdf;
+  --color-accent-500: #00ffcc; /* Base — #0fc from logo */
+  --color-accent-600: #00cca3;
+  --color-accent-700: #00997a;
+  --color-accent-800: #00664f;
+  --color-accent-900: #003329;
+  --color-accent-950: #001a14;
+
+  /* --- Background: Deep Dark Teal (#001313) --- */
+  --color-background-50: #e6f2f2;
+  --color-background-100: #cce5e5;
+  --color-background-200: #99cccc;
+  --color-background-300: #66b2b2;
+  --color-background-400: #339999;
+  --color-background-500: #008080;
+  --color-background-600: #006666;
+  --color-background-700: #004d4d;
+  --color-background-800: #003333;
+  --color-background-900: #001a1a;
+  --color-background-950: #001313; /* Base — #001313 from logo */
+
+  /* --- Surface Neutrals --- */
+  --color-surface-50: #f0fafa;
+  --color-surface-100: #d9f2f2;
+  --color-surface-200: #b3e5e5;
+  --color-surface-300: #8dd8d8;
+  --color-surface-400: #66cccc;
+  --color-surface-500: #40bfbf;
+  --color-surface-600: #2d8c8c;
+  --color-surface-700: #1a5959;
+  --color-surface-800: #0d2e2e;
+  --color-surface-900: #061717;
+  --color-surface-950: #020202; /* Base — #020202 from logo */
 
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -63,23 +88,47 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center rounded-md shadow-md border-gray-400 border bg-transparent font-medium text-center text-base text-gray-700 leading-snug transition py-3 px-6 md:px-8 ease-in duration-150 focus:ring-gray-500 focus:ring-offset-gray-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-gray-300 dark:border-gray-500 dark:hover:bg-gray-800 dark:hover:border-gray-800;
+  @apply inline-flex items-center justify-center rounded-md shadow-md
+         border border-surface-300 bg-surface-50
+         font-medium text-center text-base text-surface-700/90 leading-snug
+         transition py-3 px-6 md:px-8 ease-in duration-100
+         focus:ring-surface-500 focus:ring-offset-surface-200 focus:ring-2 focus:ring-offset-2
+         hover:bg-surface-100 hover:border-surface-600
+         dark:text-surface-300 dark:border-surface-500 dark:bg-transparent
+         dark:hover:bg-surface-500/20 dark:hover:border-surface-600;
 }
 
 @utility btn-ghost {
-  @apply border-none shadow-none text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+  @apply border-none shadow-none
+         text-surface-500 hover:text-surface-900
+         dark:text-surface-300 dark:hover:text-surface-100;
 }
 
 @utility btn-primary {
-  @apply font-semibold bg-primary-600 text-white border-primary-600 hover:bg-primary-700 hover:border-primary-700 hover:text-white dark:text-white dark:bg-primary-600 dark:border-primary-600 dark:hover:border-primary-700 dark:hover:bg-primary-700 focus:ring-primary-500 focus:ring-offset-primary-200;
+  @apply font-semibold
+         bg-surface-600 text-white border-surface-600
+         hover:bg-surface-600/80 hover:border-surface-600/80
+         dark:bg-surface-500 dark:text-surface-950 dark:border-surface-500
+         dark:hover:bg-surface-400 dark:hover:border-surface-400
+         focus:ring-surface-400 focus:ring-offset-surface-200;
 }
 
 @utility btn-secondary {
-  @apply font-semibold bg-secondary-700 text-white border-secondary-700 hover:bg-secondary-800 hover:border-secondary-800 hover:text-white dark:text-white dark:bg-secondary-700 dark:border-secondary-700 dark:hover:border-secondary-800 dark:hover:bg-secondary-800 focus:ring-secondary-600 focus:ring-offset-secondary-300;
+  @apply font-semibold
+         bg-primary-600 text-white border-primary-600
+         hover:bg-primary-500 hover:border-primary-500
+         dark:bg-primary-500 dark:text-primary-950 dark:border-primary-500
+         dark:hover:bg-primary-400 dark:hover:border-primary-400
+         focus:ring-primary-400 focus:ring-offset-primary-200;
 }
 
 @utility btn-accent {
-  @apply font-semibold bg-accent-700 text-white border-accent-700 hover:bg-accent-800 hover:border-accent-800 hover:text-white dark:text-white dark:bg-accent-700 dark:border-accent-700 dark:hover:border-accent-800 dark:hover:bg-accent-800 focus:ring-accent-600 focus:ring-offset-accent-300;
+  @apply font-semibold
+         bg-accent-500 text-background-950 border-accent-500
+         hover:bg-accent-400 hover:border-accent-400
+         dark:bg-accent-400 dark:text-background-950 dark:border-accent-400
+         dark:hover:bg-accent-300 dark:hover:border-accent-300
+         focus:ring-accent-400 focus:ring-offset-accent-200;
 }
 
 @utility btn-under-constuction {
@@ -87,7 +136,7 @@
 }
 
 @utility btn-dropdown-item {
-  @apply text-sm text-gray-700 hover:bg-gray-100 px-10 py-2 transition hover:ease-in hover:duration-75 ease-out duration-100 dark:text-gray-400 dark:hover:bg-gray-700;
+  @apply text-sm text-gray-800 hover:bg-gray-100 px-10 py-2 transition hover:ease-in hover:duration-75 ease-out duration-100 dark:text-gray-300 dark:hover:bg-gray-700 data-focus:bg-gray-100 dark:data-focus:bg-gray-700;
 }
 
 #header.scroll {

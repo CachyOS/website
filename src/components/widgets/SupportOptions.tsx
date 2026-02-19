@@ -10,7 +10,7 @@ const SupportOptions = ({ children }: Readonly<Props>) => {
   return (
     <>
       <SupportModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      <button className="btn btn-accent" onClick={() => setIsOpen(true)}>
+      <button className="btn" onClick={() => setIsOpen(true)}>
         {children}
       </button>
     </>

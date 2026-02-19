@@ -2,11 +2,12 @@
 import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
 
-import heroImage from '~/assets/images/hero.jpg';
+import heroLight from '~/assets/images/hero.png';
+import heroDark from '~/assets/images/hero_dark.png';
 ---
 
 <div
-  class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+  class="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
   id="gradient"
 >
   <svg
@@ -44,7 +45,7 @@ import heroImage from '~/assets/images/hero.jpg';
           <span class="sm:whitespace-nowrap">Performance-First</span> Linux,
           <span>Built on Arch</span>
         </h1>
-        <p class="mt-6 max-w-3xl text-lg text-gray-600 mb-8 text-center mx-auto dark:text-gray-400">
+        <p class="mt-6 max-w-3xl text-lg text-gray-600 mb-8 text-center mx-auto dark:text-gray-300">
           <span
             class="font-semibold underline decoration-1 decoration-primary-600 underline-offset-2"
             >CachyOS</span
@@ -71,8 +72,20 @@ import heroImage from '~/assets/images/hero.jpg';
     <div>
       <div class="relative m-auto max-w-4xl">
         <Image
-          src={heroImage}
-          class="mx-auto rounded-xl w-full border border-primary-500/20 shadow-lg shadow-violet-500/10"
+          src={heroLight}
+          class="mx-auto rounded-xl w-full shadow dark:hidden"
+          widths={[400, 768, 1480]}
+          sizes="(max-width: 767px) 400px, (max-width: 1479px) 768px, 1480px"
+          alt="Hero"
+          aspectRatio={1480 / 833}
+          width={1480}
+          height={833}
+          loading="eager"
+          decoding="async"
+        />
+        <Image
+          src={heroDark}
+          class="mx-auto rounded-xl w-full shadow hidden dark:block"
           widths={[400, 768, 1480]}
           sizes="(max-width: 767px) 400px, (max-width: 1479px) 768px, 1480px"
           alt="Hero"
