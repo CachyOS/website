@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import Image from '~/components/common/Image.astro';
+import HeroImg from '~/components/HeroImg.astro';
 
 import heroLight from '~/assets/images/hero.png';
 import heroDark from '~/assets/images/hero_dark.png';
@@ -67,31 +67,11 @@ import heroDark from '~/assets/images/hero_dark.png';
         </div>
       </div>
     </div>
-    <div>
-      <div class="relative m-auto max-w-4xl">
-        <Image
-          src={heroLight}
-          class="mx-auto rounded-xl w-full shadow block dark:hidden"
-          widths={[400, 768, 1060]}
-          sizes="(max-width: 767px) 400px, (max-width: 1059px) 768px, 1060px"
-          alt="Hero"
-          aspectRatio={1060 / 597}
-          width={1060}
-          height={597}
-          decoding="async"
-        />
-        <Image
-          src={heroDark}
-          class="mx-auto rounded-xl w-full shadow hidden dark:block"
-          widths={[400, 768, 1060]}
-          sizes="(max-width: 767px) 400px, (max-width: 1059px) 768px, 1060px"
-          alt="Hero"
-          aspectRatio={1060 / 597}
-          width={1060}
-          height={597}
-          decoding="async"
-        />
-      </div>
+    <div class="block dark:hidden">
+      <HeroImg src={heroLight} />
+    </div>
+    <div class="hidden dark:block">
+      <HeroImg src={heroDark} />
     </div>
   </div>
 </section>
