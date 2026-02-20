@@ -25,7 +25,7 @@ const { tags, class: className = 'text-sm', title = undefined, isCategory = fals
       </>
       <ul class={className}>
         {tags.map((tag) => (
-          <li class="bg-background-100 dark:bg-background-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
+          <li class="bg-surface-100 dark:bg-surface-700 rounded-xs inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
             <a
               href={getPermalink(tag, isCategory ? 'category' : 'tag')}
               class="text-muted text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-gray-200"
