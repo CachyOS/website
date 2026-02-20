@@ -71,26 +71,24 @@ import heroDark from '~/assets/images/hero_dark.png';
       <div class="relative m-auto max-w-4xl">
         <Image
           src={heroLight}
-          class="mx-auto rounded-xl w-full shadow dark:hidden"
-          widths={[400, 768, 1480]}
-          sizes="(max-width: 767px) 400px, (max-width: 1479px) 768px, 1480px"
+          class="mx-auto rounded-xl w-full shadow block dark:hidden"
+          widths={[400, 768, 1060]}
+          sizes="(max-width: 767px) 400px, (max-width: 1059px) 768px, 1060px"
           alt="Hero"
-          aspectRatio={1480 / 833}
-          width={1480}
-          height={833}
-          loading="eager"
+          aspectRatio={1060 / 597}
+          width={1060}
+          height={597}
           decoding="async"
         />
         <Image
           src={heroDark}
           class="mx-auto rounded-xl w-full shadow hidden dark:block"
-          widths={[400, 768, 1480]}
-          sizes="(max-width: 767px) 400px, (max-width: 1479px) 768px, 1480px"
+          widths={[400, 768, 1060]}
+          sizes="(max-width: 767px) 400px, (max-width: 1059px) 768px, 1060px"
           alt="Hero"
-          aspectRatio={1480 / 833}
-          width={1480}
-          height={833}
-          loading="eager"
+          aspectRatio={1060 / 597}
+          width={1060}
+          height={597}
           decoding="async"
         />
       </div>
