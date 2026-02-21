@@ -5,7 +5,6 @@ const CONFIG = {
 
   origin: 'https://cachyos.org/',
   basePathname: '/',
-  trailingSlash: false,
 
   title: 'CachyOS — Blazingly Fast OS based on Arch Linux',
   description:

@@ -1,16 +1,16 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import { findImage } from '~/utils/images';
 import {
   getImagesOptimized,
-  astroAsseetsOptimizer,
+  astroAssetsOptimizer,
   type ImageProps,
-  type AttributesProps,
 } from '~/utils/images-optimization';
 
 type Props = ImageProps;
 type ImageType = {
   src: string;
-  attributes: AttributesProps;
+  attributes: HTMLAttributes<'img'>;
 };
 
 const props = Astro.props;
@@ -39,11 +39,20 @@ const _image = await findImage(props.src);
 
 let image: ImageType | undefined = undefined;
 
-if (_image !== null && typeof _image === 'object') {
-  image = await getImagesOptimized(_image, props, astroAsseetsOptimizer);
-} else if (_image) {
-  image = await getImagesOptimized(_image, props);
+if (_image) {
+  image = await getImagesOptimized(_image, props, astroAssetsOptimizer);
 }
 ---
 
-{!image ? <Fragment /> : <img src={image.src} {...image.attributes} />}
+{
+  !image ? (
+    <Fragment />
+  ) : (
+    <img
+      src={image.src}
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      {...image.attributes}
+    />
+  )
+}

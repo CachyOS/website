@@ -18,7 +18,7 @@ const { prevUrl, nextUrl, prevText = 'Newer posts', nextText = 'Older posts' } =
     <div class="container flex">
       <div class="flex flex-row mx-auto container justify-between">
         <Button
-          variant="tertiary"
+          variant="ghost"
           class={`md:px-3 px-3 mr-2 ${!prevUrl ? 'invisible' : ''}`}
           href={getPermalink(prevUrl)}
         >
@@ -27,7 +27,7 @@ const { prevUrl, nextUrl, prevText = 'Newer posts', nextText = 'Older posts' } =
         </Button>
 
         <Button
-          variant="tertiary"
+          variant="ghost"
           class={`md:px-3 px-3 ${!nextUrl ? 'invisible' : ''}`}
           href={getPermalink(nextUrl)}
         >

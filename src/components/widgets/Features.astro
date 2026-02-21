@@ -2,34 +2,30 @@
 import { Icon } from 'astro-icon/components';
 
 const items = [
-  [
-    {
-      title: 'CPU-Optimized Package Repository',
-      description:
-        'Every package is compiled with x86-64-v3, x86-64-v4, and Zen4 instruction sets plus LTO. Core packages receive additional PGO and BOLT optimization — no manual rebuilds required.',
-      icon: 'tabler:package',
-    },
-    {
-      title: 'Advanced Kernel with Scheduler Choice',
-      description:
-        'The linux-cachyos kernel ships with tuned Scheduler for responsive interactivity, plus options for BORE, sched-ext, BMQ, and RT. All kernel builds are CPU-optimized with x86-64-v3/v4, Zen4 and LTO.',
-      icon: 'tabler:refresh',
-    },
-  ],
-  [
-    {
-      title: 'Install Your Way',
-      description:
-        'Two installers to match your workflow: a graphical Calamares-based installer for a guided setup, or a CLI installer for full control over every detail.',
-      icon: 'tabler:apps',
-    },
-    {
-      title: '17+ Desktop Environments & Window Managers',
-      description:
-        'Choose from KDE Plasma, GNOME, COSMIC, Hyprland, Sway, Niri, i3, XFCE, and more. Pick your preferred environment during installation — every option is fully supported out of the box.',
-      icon: 'tabler:rocket',
-    },
-  ],
+  {
+    title: 'CPU-Optimized Package Repository',
+    description:
+      'Every package is compiled with x86-64-v3, x86-64-v4, and Zen4 instruction sets plus LTO. Core packages receive additional PGO and BOLT optimization — no manual rebuilds required.',
+    icon: 'tabler:package',
+  },
+  {
+    title: 'Advanced Kernel with Scheduler Choice',
+    description:
+      'The linux-cachyos kernel ships with tuned Scheduler for responsive interactivity, plus options for BORE, sched-ext, BMQ, and RT. All kernel builds are CPU-optimized with x86-64-v3/v4, Zen4 and LTO.',
+    icon: 'tabler:refresh',
+  },
+  {
+    title: 'Install Your Way',
+    description:
+      'Two installers to match your workflow: a graphical Calamares-based installer for a guided setup, or a CLI installer for full control over every detail.',
+    icon: 'tabler:apps',
+  },
+  {
+    title: '17+ Desktop Environments & Window Managers',
+    description:
+      'Choose from KDE Plasma, GNOME, COSMIC, Hyprland, Sway, Niri, i3, XFCE, and more. Pick your preferred environment during installation — every option is fully supported out of the box.',
+    icon: 'tabler:rocket',
+  },
 ];
 ---
 
@@ -37,36 +33,28 @@ const items = [
   <div class="px-4 py-16 mx-auto max-w-4xl lg:px-8 lg:py-20">
     <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-xl">
       <p
-        class="text-base text-primary-600 dark:text-primary-200 font-semibold tracking-wide uppercase"
+        class="text-base text-primary-700 dark:text-primary-200 font-semibold tracking-wide uppercase"
       >
         Features
       </p>
       <h2 class="text-2xl md:text-3xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
         Why CachyOS Is <span class="whitespace-nowrap">Different</span>
       </h2>
-      <p class="max-w-xl mx-auto sm:text-center text-lg text-gray-600 dark:text-slate-400">
+      <p class="max-w-xl mx-auto sm:text-center text-lg text-gray-600 dark:text-gray-400">
         Most Linux distributions ship generic binaries. CachyOS rebuilds the stack — from kernel to
         packages — with modern CPU optimizations, delivering measurable performance where it
         matters.
       </p>
     </div>
-    <div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0">
+    <div class="grid gap-6 md:grid-cols-2">
       {
-        items.map((subitems) => (
-          <div class="space-y-8 sm:px-8">
-            {subitems.map(({ title, description, icon }) => (
-              <div class="flex flex-row max-w-md">
-                <div class="mb-4 mr-4">
-                  <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500 dark:bg-primary-700">
-                    {icon && <Icon name={icon} class="w-6 h-6 icon-light" />}
-                  </div>
-                </div>
-                <div>
-                  <h3 class="mb-3 text-sm font-bold">{title}</h3>
-                  <p class="text-gray-600 dark:text-slate-400">{description}</p>
-                </div>
-              </div>
-            ))}
+        items.map(({ title, description, icon }) => (
+          <div class="rounded-xl border border-surface-200 dark:border-surface-700/50 bg-surface-50 dark:bg-surface-800/30 p-5">
+            <div class="flex items-center mb-3 space-x-2">
+              {icon && <Icon name={icon} class="w-6 h-6 icon-light" />}
+              <h3 class="text-sm font-bold">{title}</h3>
+            </div>
+            <p class="text-gray-800 dark:text-gray-200">{description}</p>
           </div>
         ))
       }
