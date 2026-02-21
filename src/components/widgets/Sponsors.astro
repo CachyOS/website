@@ -1,16 +1,33 @@
 ---
 import { Image } from 'astro:assets';
 import cdn77Logo from '~/assets/images/cdn77_logo.svg';
+import cdn77LogoDark from '~/assets/images/cdn77_logo_dark.svg';
 import cloudflareLogo from '~/assets/images/cf_logo.svg';
+import cloudflareLogoDark from '~/assets/images/cf_logo_dark.svg';
 import frameworkLogo from '~/assets/images/framework_logo.svg';
+import frameworkLogoDark from '~/assets/images/framework_logo_dark.svg';
 
 const sponsors = [
-  { href: 'https://frame.work/', src: frameworkLogo, alt: 'frame.work' },
-  { href: 'https://www.cdn77.com/', src: cdn77Logo, alt: 'www.cdn77.com' },
   {
+    name: 'frame.work',
+    href: 'https://frame.work/',
+    src: frameworkLogoDark,
+    srcDark: frameworkLogo,
+    alt: 'frame.work logo',
+  },
+  {
+    name: 'cdn77',
+    href: 'https://www.cdn77.com/',
+    src: cdn77LogoDark,
+    srcDark: cdn77Logo,
+    alt: 'cdn77 logo',
+  },
+  {
+    name: 'cloudflare',
     href: 'https://www.cloudflare.com/',
-    src: cloudflareLogo,
-    alt: 'www.cloudflare.com',
+    src: cloudflareLogoDark,
+    srcDark: cloudflareLogo,
+    alt: 'cloudflare logo',
     imageClassName: 'mb-5',
   },
 ];
@@ -23,12 +40,20 @@ const sponsors = [
     </div>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-fr">
       {
-        sponsors.map(({ href, src, alt, imageClassName }) => (
-          <div class="px-4 py-2 md:py-6 bg-gray-800 dark:bg-gray-800/80 rounded-lg grid place-items-center">
+        sponsors.map(({ href, src, srcDark, alt, imageClassName }) => (
+          <div class="px-4 py-2 md:py-6 bg-white/40 shadow-md dark:shadow-none dark:bg-gray-800/80 rounded-lg grid place-items-center">
             <a href={href}>
               <Image
                 src={src}
-                class={`transform hover:scale-105 transition ease-in-out duration-1000 lg:w-60 ${imageClassName ?? ''}`}
+                class={`block dark:hidden transform hover:scale-105 transition ease-in-out duration-1000 lg:w-60 ${imageClassName ?? ''}`}
+                alt={alt}
+                width={300}
+                loading="lazy"
+                decoding="async"
+              />
+              <Image
+                src={srcDark}
+                class={`hidden dark:block transform hover:scale-105 transition ease-in-out duration-1000 lg:w-60 ${imageClassName ?? ''}`}
                 alt={alt}
                 width={300}
                 loading="lazy"
