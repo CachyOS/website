@@ -3,6 +3,17 @@ import { Image } from 'astro:assets';
 import cdn77LogoSrc from '~/assets/images/CDN77_Horizontal_logo-negative.png';
 import cloudflareLogoSrc from '~/assets/images/CF_logo_stacked_whitetype.png';
 import frameworkLogoSrc from '~/assets/images/framework_logo.svg';
+
+const sponsors = [
+  { href: 'https://frame.work/', src: frameworkLogoSrc, alt: 'frame.work' },
+  { href: 'https://www.cdn77.com/', src: cdn77LogoSrc, alt: 'www.cdn77.com' },
+  {
+    href: 'https://www.cloudflare.com/',
+    src: cloudflareLogoSrc,
+    alt: 'www.cloudflare.com',
+    imageClassName: 'mb-5',
+  },
+];
 ---
 
 <section class="py-20">
@@ -10,68 +21,24 @@ import frameworkLogoSrc from '~/assets/images/framework_logo.svg';
     <div class="max-w-xl mx-auto mb-20 text-center">
       <h2 class="mt-8 text-5xl lg:text-6xl font-bold font-heading">Our Sponsors</h2>
     </div>
-    <div class="flex flex-wrap justify-center -m-4">
-      <div class="flex w-full md:w-1/2 lg:w-1/5 p-4">
-        <div
-          class="flex w-full h-32 items-center justify-center bg-gray-800 dark:bg-gray-800/80 rounded-lg"
-        >
-          <div class="p-4 max-w-max overflow-hidden">
-            <a href="https://frame.work/">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-fr">
+      {
+        sponsors.map(({ href, src, alt, imageClassName }) => (
+          <div class="px-4 py-4 md:py-6 bg-gray-800 dark:bg-gray-800/80 rounded-lg grid place-items-center">
+            <a href={href}>
               <Image
-                src={frameworkLogoSrc}
-                class="transform hover:scale-105 transition ease-in-out duration-1000"
-                quality={90}
-                alt="frame.work"
-                width={1277}
-                height={432}
+                src={src}
+                class={`transform hover:scale-105 transition ease-in-out duration-1000 ${imageClassName ?? ''}`}
+                alt={alt}
                 loading="lazy"
                 decoding="async"
+                width={230}
+                layout="constrained"
               />
             </a>
           </div>
-        </div>
-      </div>
-
-      <div class="flex w-full md:w-1/2 lg:w-1/5 p-4">
-        <div
-          class="flex w-full h-32 items-center justify-center bg-gray-800 dark:bg-gray-800/80 rounded-lg"
-        >
-          <div class="p-4 max-w-max overflow-hidden">
-            <a href="https://www.cdn77.com/">
-              <Image
-                src={cdn77LogoSrc}
-                class="transform hover:scale-105 transition ease-in-out duration-1000"
-                quality={90}
-                alt="www.cdn77.com"
-                width={1277}
-                height={432}
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="flex w-full md:w-1/2 lg:w-1/5 p-4">
-        <div
-          class="flex w-full h-32 items-center justify-center bg-gray-800 dark:bg-gray-800/80 rounded-lg"
-        >
-          <div class="mb-6 p-4 max-w-max overflow-hidden">
-            <a href="https://www.cloudflare.com/">
-              <Image
-                src={cloudflareLogoSrc}
-                class="transform hover:scale-105 transition ease-in-out duration-1000"
-                quality={90}
-                alt="www.cloudflare.com"
-                width={1277}
-                height={432}
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>
