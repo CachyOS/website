@@ -24,16 +24,15 @@ const sponsors = [
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-fr">
       {
         sponsors.map(({ href, src, alt, imageClassName }) => (
-          <div class="px-4 py-4 md:py-6 bg-gray-800 dark:bg-gray-800/80 rounded-lg grid place-items-center">
+          <div class="px-4 py-2 md:py-6 bg-gray-800 dark:bg-gray-800/80 rounded-lg grid place-items-center">
             <a href={href}>
               <Image
                 src={src}
-                class={`transform hover:scale-105 transition ease-in-out duration-1000 ${imageClassName ?? ''}`}
+                class={`transform hover:scale-105 transition ease-in-out duration-1000 lg:w-60 ${imageClassName ?? ''}`}
                 alt={alt}
+                width={300}
                 loading="lazy"
                 decoding="async"
-                width={230}
-                layout="constrained"
               />
             </a>
           </div>
