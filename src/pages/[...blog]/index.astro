@@ -1,7 +1,5 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-
-import merge from 'lodash.merge';
 import type { ImageMetadata } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
@@ -20,6 +18,7 @@ export const getStaticPaths = (async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
+const merge = require('lodash/merge');
 const { post } = Astro.props as Props;
 
 const url = getCanonical(getPermalink(post.permalink, 'post'));
