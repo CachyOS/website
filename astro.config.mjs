@@ -13,7 +13,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   site: SITE.origin,
   base: SITE.basePathname,
-  trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'static',
   integrations: [sitemap(), icon(), react()],
   vite: {

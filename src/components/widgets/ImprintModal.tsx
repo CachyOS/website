@@ -32,7 +32,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                 <div className="absolute right-0 top-0 pr-3 pt-3">
                   <button
                     aria-label="Close"
-                    className="rounded-tremor-small p-2 text-tremor-content-subtle hover:bg-tremor-background-subtle hover:text-tremor-content dark:text-dark-tremor-content-subtle dark:hover:bg-dark-tremor-background-subtle dark:hover:text-tremor-content"
+                    className="rounded-tremor-small p-2 text-tremor-content-subtle hover:bg-tremor-surface-subtle hover:text-tremor-content dark:text-dark-tremor-content-subtle dark:hover:bg-dark-tremor-surface-subtle dark:hover:text-tremor-content"
                     onClick={() => onClose()}
                     type="button"
                     autoFocus={false}
@@ -51,7 +51,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                 </div>
                 <DialogTitle
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 text-center"
+                  className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200 text-center"
                 >
                   Imprint
                 </DialogTitle>
@@ -68,7 +68,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                       href="mailto:ptr1337@cachyos.org"
                       target="_blank"
                       rel="noopener"
-                      className="dark:text-white font-bold decoration-slate-400 underline decoration-dotted"
+                      className="dark:text-white font-bold decoration-2 decoration-gray-300 underline"
                     >
                       ptr1337@cachyos.org
                     </a>

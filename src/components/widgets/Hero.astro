@@ -1,14 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
-import Image from '~/components/common/Image.astro';
+import { Picture } from 'astro:assets';
 
-import heroImage from '~/assets/images/hero.jpg';
-
-//class="bg-slate-900 hover:bg-slate-700 focus:outline-hidden focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
+import heroLight from '~/assets/images/hero.png';
+import heroDark from '~/assets/images/hero_dark.png';
 ---
 
 <div
-  class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+  class="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
   id="gradient"
 >
   <svg
@@ -30,8 +29,8 @@ import heroImage from '~/assets/images/hero.jpg';
         y2="474.645"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#9089FC"></stop>
-        <stop offset="1" stop-color="#FF80B5"></stop>
+        <stop stop-color="#8B5CF6"></stop>
+        <stop offset="1" stop-color="#2DD4BF"></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -41,20 +40,16 @@ import heroImage from '~/assets/images/hero.jpg';
     <div class="py-12 md:py-20">
       <div class="text-center pb-10 md:pb-16 max-w-4xl mx-auto">
         <h1
-          class="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white font-heading"
+          class="text-gray-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white font-heading"
         >
           <span class="sm:whitespace-nowrap">Performance-First</span> Linux,
           <span>Built on Arch</span>
         </h1>
-        <p
-          class="mt-6 max-w-3xl text-lg text-slate-600 mb-8 text-center mx-auto dark:text-slate-400"
-        >
-          <span
-            class="font-semibold underline decoration-1 decoration-primary-600 underline-offset-2"
-            >CachyOS</span
-          > ships every package optimized for your CPU - compiled with x86-64-v3/v4 and Zen4 instructions,
-          LTO, and PGO - on top of a custom kernel with the tuned EEVDF scheduler. The result: a noticeably
-          faster Arch Linux experience with the same rolling-release flexibility you expect.
+        <p class="mt-6 max-w-3xl text-lg text-gray-600 mb-8 text-center mx-auto dark:text-gray-300">
+          <span class="font-semibold text-primary-700 dark:text-primary-300">CachyOS</span> ships every
+          package optimized for your CPU - compiled with x86-64-v3/v4 and Zen4 instructions, LTO, and
+          PGO - on top of a custom kernel with the tuned EEVDF scheduler. The result: a noticeably faster
+          Arch Linux experience with the same rolling-release flexibility you expect.
         </p>
         <div
           class="max-w-xs text-sm sm:mt-10 sm:max-w-md mt-6 m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4"
@@ -72,21 +67,23 @@ import heroImage from '~/assets/images/hero.jpg';
         </div>
       </div>
     </div>
-    <div>
-      <div class="relative m-auto max-w-4xl">
-        <Image
-          src={heroImage}
-          class="mx-auto rounded-md w-full"
-          widths={[400, 768, 1480]}
-          sizes="(max-width: 767px) 400px, (max-width: 1479px) 768px, 1480px"
-          alt="Hero"
-          aspectRatio={1480 / 833}
-          width={1480}
-          height={833}
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-    </div>
+    <Picture
+      src={heroLight}
+      class="rounded-xl shadow dark:hidden"
+      alt="Hero"
+      width={1060}
+      height={596}
+      loading="eager"
+      layout="constrained"
+    />
+    <Picture
+      src={heroDark}
+      class="rounded-xl shadow hidden dark:block"
+      alt="Hero"
+      width={1060}
+      height={596}
+      loading="eager"
+      layout="constrained"
+    />
   </div>
 </section>

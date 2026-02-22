@@ -7,7 +7,7 @@ export default function ImprintButton() {
     <>
       <ImprintModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <button
-        className="btn-ghost hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+        className="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
         onClick={() => setIsOpen(true)}
       >
         Imprint

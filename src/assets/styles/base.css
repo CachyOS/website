@@ -5,22 +5,69 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: var(--cachyos-color-primary);
-  --color-secondary: var(--cachyos-color-secondary);
-  --color-accent: var(--cachyos-color-accent);
+  /* --- Primary: Bright Cyan (#00CCFF) --- */
+  --color-primary-50: #e6faff;
+  --color-primary-100: #ccf5ff;
+  --color-primary-200: #99ebff;
+  --color-primary-300: #66e0ff;
+  --color-primary-400: #33d6ff;
+  --color-primary-500: #00ccff; /* Base — #0cf from logo */
+  --color-primary-600: #00a3cc;
+  --color-primary-700: #007a99;
+  --color-primary-800: #005266;
+  --color-primary-900: #002933;
+  --color-primary-950: #001419;
+
+  /* --- Secondary: Muted Teal Green (#00AA88) --- */
+  --color-secondary-50: #e6fff9;
+  --color-secondary-100: #ccfff3;
+  --color-secondary-200: #99ffe7;
+  --color-secondary-300: #66ffdb;
+  --color-secondary-400: #33ffcf;
+  --color-secondary-500: #00aa88; /* Base — #0a8 from logo */
+  --color-secondary-600: #008870;
+  --color-secondary-700: #006654;
+  --color-secondary-800: #004438;
+  --color-secondary-900: #00221c;
+  --color-secondary-950: #00110e;
+
+  /* --- Accent: Neon Mint (#00FFCC) --- */
+  --color-accent-50: #e6fffb;
+  --color-accent-100: #ccfff7;
+  --color-accent-200: #99ffef;
+  --color-accent-300: #66ffe7;
+  --color-accent-400: #33ffdf;
+  --color-accent-500: #00ffcc; /* Base — #0fc from logo */
+  --color-accent-600: #00cca3;
+  --color-accent-700: #00997a;
+  --color-accent-800: #00664f;
+  --color-accent-900: #003329;
+  --color-accent-950: #001a14;
+
+  /* --- Surface Neutrals --- */
+  --color-surface-50: #f0fafa;
+  --color-surface-100: #d9f2f2;
+  --color-surface-200: #b3e5e5;
+  --color-surface-300: #8dd8d8;
+  --color-surface-400: #66cccc;
+  --color-surface-500: #40bfbf;
+  --color-surface-600: #2d8c8c;
+  --color-surface-700: #1a5959;
+  --color-surface-800: #0d2e2e;
+  --color-surface-900: #061717;
+  --color-surface-950: #020202; /* Base — #020202 from logo */
 
   --font-sans:
-    var(--cachyos-font-sans), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-serif:
-    var(--cachyos-font-serif), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: 'Inter Variable', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-heading:
-    var(--cachyos-font-heading), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 @utility bg-dark {
-  @apply bg-slate-900;
+  @apply bg-gray-950;
 }
 
 @utility text-muted {
@@ -28,15 +75,47 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center rounded-md shadow-md border-gray-400 border bg-transparent font-medium text-center text-base text-gray-700 leading-snug transition py-3 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800;
+  @apply inline-flex items-center justify-center rounded-md shadow-md
+         border border-surface-400 bg-surface-300/10
+         font-medium text-center text-base text-surface-600 leading-snug
+         transition py-3 px-6 md:px-8 duration-100
+         focus:ring-surface-500 focus:ring-offset-surface-200 focus:ring-2 focus:ring-offset-2
+         hover:bg-surface-100 hover:border-surface-600
+         dark:text-surface-300 dark:border-surface-500
+         dark:hover:bg-surface-500/20 dark:hover:border-surface-600;
 }
 
 @utility btn-ghost {
-  @apply border-none shadow-none text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+  @apply border-none shadow-none
+         text-surface-500 hover:text-surface-900
+         dark:text-surface-300 dark:hover:text-surface-100;
 }
 
 @utility btn-primary {
-  @apply font-semibold bg-blue-600 text-white border-blue-600 hover:bg-blue-800 hover:border-blue-800 hover:text-white dark:text-white dark:bg-blue-700 dark:border-blue-700 dark:hover:border-blue-900 dark:hover:bg-blue-900;
+  @apply font-semibold
+         bg-surface-600 text-white border-surface-600
+         hover:bg-surface-600/80 hover:border-surface-600/80
+         dark:bg-surface-500 dark:text-surface-950 dark:border-surface-500
+         dark:hover:bg-surface-400 dark:hover:border-surface-400
+         focus:ring-surface-400 focus:ring-offset-surface-200;
+}
+
+@utility btn-secondary {
+  @apply font-semibold
+         bg-primary-600 text-white border-primary-600
+         hover:bg-primary-500 hover:border-primary-500
+         dark:bg-primary-500 dark:text-primary-950 dark:border-primary-500
+         dark:hover:bg-primary-400 dark:hover:border-primary-400
+         focus:ring-primary-400 focus:ring-offset-primary-200;
+}
+
+@utility btn-accent {
+  @apply font-semibold
+         bg-accent-500 text-surface-950 border-accent-500
+         hover:bg-accent-400 hover:border-accent-400
+         dark:bg-accent-400 dark:text-surface-950 dark:border-accent-400
+         dark:hover:bg-accent-300 dark:hover:border-accent-300
+         focus:ring-accent-400 focus:ring-offset-accent-200;
 }
 
 @utility btn-under-constuction {
@@ -44,11 +123,11 @@
 }
 
 @utility btn-dropdown-item {
-  @apply text-sm text-gray-700 hover:bg-gray-100 px-10 py-2 transition hover:ease-in hover:duration-75 ease-out duration-100 dark:text-slate-400 dark:hover:bg-slate-700;
+  @apply text-sm text-gray-800 hover:bg-surface-100 px-10 py-2 transition hover:ease-in hover:duration-75 ease-out duration-100 dark:text-gray-100 dark:hover:bg-surface-700 data-focus:bg-surface-100 dark:data-focus:bg-surface-700;
 }
 
 #header.scroll {
-  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-xs dark:bg-slate-900 dark:md:bg-slate-900/90;
+  @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-xs dark:bg-gray-950 dark:md:bg-gray-950/90;
 }
 
 .dropdown:hover .dropdown-menu {

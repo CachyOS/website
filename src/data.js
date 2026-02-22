@@ -55,6 +55,6 @@ export const footerData = {
   ],
   footNote: `
     <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 float-left rounded-xs bg-[url(~/assets/images/logo.svg)]"></span>
-    Made by <a class="text-blue-600 dark:text-white font-bold decoration-slate-400 decoration-dotted underline" href="https://cachyos.org/"> CachyOS</a> · All rights reserved.
+    Made by <a class="text-primary-600 dark:text-white font-bold decoration-gray-400 decoration-dotted underline" href="https://cachyos.org/"> CachyOS</a> · All rights reserved.
   `,
 };

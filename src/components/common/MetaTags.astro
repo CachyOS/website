@@ -7,8 +7,7 @@ import { SITE } from '~/config.mjs';
 import type { MetaSEO } from '~/types';
 import { getCanonical, getAsset } from '~/utils/permalinks';
 import { getRelativeUrlByFilePath } from '~/utils/directories';
-
-import CustomStyles from '~/components/CustomStyles.astro';
+import '@fontsource-variable/inter';
 
 export interface Props extends MetaSEO {
   dontUseTitleTemplate?: boolean;
@@ -52,6 +51,7 @@ const image =
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="generator" content={Astro.generator} />
+<meta name="darkreader-lock" />
 
 <AstroSeo
   title={title}
@@ -81,8 +81,6 @@ const image =
     cardType: image ? 'summary_large_image' : undefined,
   }}
 />
-
-<CustomStyles />
 
 <link rel="shortcut icon" href={getAsset('/favicon.svg')} />
 <link rel="icon" type="image/svg+xml" href={getAsset('/favicon.svg')} />
