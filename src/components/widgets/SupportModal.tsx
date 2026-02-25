@@ -122,7 +122,7 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
           onClick={() => copyToClipboard(text)}
           aria-label={`Copy ${label} address to clipboard`}
         >
-          {isCopied ? <CopiedSuccessIcon /> : <ClipboardIcon />}
+          {isCopied ? <ClipboardSuccessIcon /> : <ClipboardIcon />}
         </button>
       )}
       <p>
@@ -142,51 +142,61 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
 const ExternalLinkIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
     className="w-6 h-6"
   >
     <path
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+      strokeWidth="2"
+      d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5"
     />
   </svg>
 );
 
-const CopiedSuccessIcon = () => (
+const ClipboardSuccessIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
+    className="w-6 h-6 text-green-500"
   >
-    <path
+    <g
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-    />
+      strokeWidth="2"
+    >
+      <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+      <path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2m0 9l2 2l4-4" />
+    </g>
   </svg>
 );
 
 const ClipboardIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
     className="w-6 h-6"
   >
-    <path
+    <g
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
-    />
+      strokeWidth="2"
+    >
+      <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+      <path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2" />
+    </g>
   </svg>
 );
 
