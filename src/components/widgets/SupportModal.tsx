@@ -106,11 +106,22 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
   return (
     <div className="flex items-center space-x-2 bg-gray-100/90 dark:bg-surface-900/90 rounded-lg p-2 md:p-3">
       {isLink ? (
-        <a href={text} className="btn btn-icon" target="_blank" rel="noopener">
+        <a
+          href={text}
+          className="btn btn-icon"
+          target="_blank"
+          rel="noopener"
+          aria-label={`Open ${label} in new tab`}
+        >
           <ExternalLinkIcon />
         </a>
       ) : (
-        <button className="btn btn-icon" onClick={() => copyToClipboard(text)}>
+        <button
+          type="button"
+          className="btn btn-icon"
+          onClick={() => copyToClipboard(text)}
+          aria-label={`Copy ${label} address to clipboard`}
+        >
           {isCopied ? <CopiedSuccessIcon /> : <ClipboardIcon />}
         </button>
       )}
