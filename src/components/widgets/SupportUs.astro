@@ -1,38 +1,69 @@
 ---
 import { Icon } from 'astro-icon/components';
 import SupportOptions from './SupportOptions';
+
+const features = [
+  {
+    icon: 'tabler:server',
+    title: 'Infrastructure Costs',
+    description:
+      'Keeping high-speed mirrors, build servers and website hosting operational involves recurring monthly costs.',
+  },
+  {
+    icon: 'tabler:code',
+    title: 'Active Development',
+    description:
+      'Donations allow our core team to spend more time optimizing the kernel, packaging software, and building new features.',
+  },
+  {
+    icon: 'tabler:device-desktop',
+    title: 'Hardware Testing',
+    description:
+      'Getting different hardware components helps us ensure CachyOS runs smoothly across many architectures and setups.',
+  },
+];
 ---
 
 <section>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 overflow-hidden">
-    <div class="py-12 md:py-20">
-      <div class="py-4 sm:py-6 lg:py-8">
-        <div class="flex flex-wrap md:-mx-8">
-          <div class="w-full lg:w-1/2 px-0 sm:px-8">
-            <div class="mb-12 lg:mb-0 pb-12 lg:pb-0 border-b lg:border-b-0">
-              <div class="flex flex-row gap-x-2">
-                <div
-                  class="w-11 h-11 flex items-center justify-center p-0.75 rounded-full ring-1 ring-gray-900/10 shadow-sm overflow-hidden dark:bg-gray-800/80 dark:highlight-white/10"
-                >
-                  <Icon class="aspect-w-1 w-6 h-6 aspect-h-1 bg-size-[100%]" name="tabler:cash" />
-                </div>
-                <h2 class="mt-0.5 mb-4 text-3xl lg:text-4xl font-bold font-heading">
-                  Help Us Keep CachyOS Free
-                </h2>
-              </div>
-
-              <p class="mb-8 text-xl text-gray-600 dark:text-gray-400">
-                CachyOS is built and maintained by a small team of open-source contributors. Your
-                support helps cover infrastructure costs and keeps development going.
-              </p>
-
-              <div class="flex w-full sm:w-auto space-x-4">
-                <SupportOptions client:load>
-                  <Icon name="tabler:arrow-up-right" class="w-5 h-5 mr-1 -ml-1.5" /> Donate
-                </SupportOptions>
-              </div>
-            </div>
+  <div class="px-6 sm:px-10 py-16 mx-auto max-w-4xl lg:max-w-6xl">
+    <div class="flex flex-wrap space-y-20">
+      <div class="w-full lg:w-1/2">
+        <div class="flex flex-row gap-x-3">
+          <div
+            class="shrink-0 w-11 h-11 flex items-center justify-center p-0.75 rounded-full ring-1 ring-gray-900/10 dark:ring-gray-900/30 shadow-sm overflow-hidden dark:bg-gray-800/80"
+          >
+            <Icon class="w-6 h-6" name="tabler:heart-handshake" />
           </div>
+          <h2 class="mt-0.5 mb-4 text-3xl lg:text-4xl font-bold font-heading">Support CachyOS</h2>
+        </div>
+        <p class="mb-8 text-xl text-gray-600 dark:text-gray-400">
+          CachyOS is an independent, community-driven project. Your financial support directly
+          contributes to our infrastructure, development, and the continuous improvement of the
+          operating system.
+        </p>
+        <div class="flex w-full sm:w-auto space-x-4">
+          <SupportOptions client:load>
+            <Icon name="tabler:heart" class="w-5 h-5 mr-1 -ml-1.5" /> Donate Now
+          </SupportOptions>
+        </div>
+      </div>
+      <div class="w-full sm:w-3/4 lg:w-1/2 px-0 lg:px-8">
+        <div class="space-y-8">
+          {
+            features.map(({ icon, title, description }) => (
+              <div class="flex space-x-4">
+                <div class="shrink-0">
+                  <div class="flex items-center justify-center w-11 h-11 rounded-full ring-1 ring-gray-900/10 shadow-sm dark:bg-gray-800/80">
+                    <Icon name={icon} class="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium leading-6 dark:text-white">{title}</h3>
+                  <p class="mt-2 text-gray-600 dark:text-gray-400">{description}</p>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
