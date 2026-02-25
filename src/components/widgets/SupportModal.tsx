@@ -121,7 +121,7 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
             {text}
           </a>
         ) : (
-          <>{text}</>
+          text
         )}
       </p>
     </div>
