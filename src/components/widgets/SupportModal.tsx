@@ -110,7 +110,7 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
           <ExternalLinkIcon />
         </a>
       ) : (
-        <button className="btn btn-icon flex items-center" onClick={() => copyToClipboard(text)}>
+        <button className="btn btn-icon" onClick={() => copyToClipboard(text)}>
           {isCopied ? <CopiedSuccessIcon /> : <ClipboardIcon />}
         </button>
       )}
