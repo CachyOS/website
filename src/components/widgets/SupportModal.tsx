@@ -141,7 +141,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-dark p-4 text-left align-middle shadow-xl transition-all">
+              <DialogPanel className="relative w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-dark p-4 text-left align-middle shadow-xl transition-all">
                 <div className="absolute right-0 top-0 pr-3 pt-3">
                   <button
                     aria-label="Close"
