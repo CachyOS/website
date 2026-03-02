@@ -118,7 +118,7 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
       ) : (
         <button
           type="button"
-          className="btn btn-icon"
+          className="btn btn-icon cursor-pointer" 
           onClick={() => copyToClipboard(text)}
           aria-label={`Copy ${label} address to clipboard`}
         >
