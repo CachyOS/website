@@ -71,7 +71,7 @@ Finally, we are happy to announce **new mirrors** in Russia (jura12), Sweden (Zy
 
 
 **Manual changes for existing users:**
-
+No manual changes needed. Just the usual updating:
 ```
 sudo pacman -Syu
 ```
@@ -92,3 +92,16 @@ Grab your copy of the latest ISO from our mirrors on SourceForge:
 * <https://sourceforge.net/projects/cachyos-arch/files>
 
 **Handheld Edition:**
+
+* CDN: <https://iso.cachyos.org/handheld/260308/cachyos-handheld-linux-260308.iso>
+* CDN2: <https://cdn77.cachyos.org/ISO/handheld/260308/cachyos-handheld-linux-260308.iso>
+
+**Support Us:**
+
+Your contributions help us maintain our servers. Consider supporting CachyOS through:
+
+* Patreon: <https://www.patreon.com/CachyOS>
+
+Thank you for your continued support!
+
+**The CachyOS Team**
