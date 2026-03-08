@@ -12,6 +12,10 @@ This is our **second release** of the year, bringing animated desktop previews i
 
 First, the installer now shows **animated GIF/WebP previews** in the Desktop Selection to showcase each desktop environment. This is currently enabled for Plasma, GNOME, Niri and COSMIC, giving users a much better idea of what to expect before making their choice. And also, added support for JPEG XL in the Desktop Selection to reduce image sizes. The Desktop Environment list has also been sorted from easy and accessible setups to more advanced ones like window managers. **Cachy-Update** is now enabled by default for GNOME and KDE installations. The microcode installation logic has been improved - it will now detect the hardware and install the proper microcode instead of installing both and then removing the unneeded one. The error message when the EFI partition is too small has also been improved.
 
+<video controls width="100%" preload="metadata">
+  <source src="https://1016613440.rsc.cdn77.org/videos/installer-desktop-preview.mp4" type="video/mp4" />
+</video>
+
 **CachyOS-Welcome** now includes a button to easily install and enable **Winboat** for a seamless Windows Docker VM experience. We have also added support for keyboard navigation to improve accessibility.
 
 On the kernel side, **linux-cachyos** now publishes tagged releases in a dedicated Linux repository, replacing the previous single-patch (`0001-cachyos-base-all.patch`) workflow. **chwd** has massively decreased the initramfs size for NVIDIA dGPU configurations. We have also improved the experience for users in China with **cachyos-rate-mirrors**, which now includes a proper check before rating the mirrors. In **cachyos-settings**, the wireless regulatory domain is now automatically set based on the user's timezone. The **website** design has been reworked and improved to follow more modern standards.
