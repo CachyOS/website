@@ -129,7 +129,7 @@
          focus:ring-accent-400 focus:ring-offset-accent-200;
 }
 
-@utility btn-under-constuction {
+@utility under-construction {
   @apply inline-flex items-center justify-center rounded-md shadow-md text-gray-900 border-red-800 bg-yellow-300 border font-medium text-center text-base;
 }
 

@@ -1,6 +1,7 @@
 ---
 import { getCanonical, getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
+import BackgroundGradient from '~/components/common/BackgroundGradient.astro';
 import Distribution from '~/components/widgets/AboutDistribution.astro';
 import Team from '~/components/widgets/Team.astro';
 
@@ -12,6 +13,7 @@ const meta = {
 ---
 
 <Layout {meta}>
+  <BackgroundGradient position="center" rotate="rotate-230" />
   <Distribution />
   <Team />
 </Layout>

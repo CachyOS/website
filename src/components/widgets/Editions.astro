@@ -1,19 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-//import Image from '~/components/common/Image.astro';
 import DropdownMenu from '~/components/widgets/DropdownMenu';
 import { ISOEdition, ISOSource, generateDownloadLink } from '~/utils/utils';
 import versions from '~/versions';
 
-interface DropdownMenuProps {
-  title: string;
-  direct_url: string;
-  srcforge_url?: string;
-  magenet_url?: string;
-  torrent_url?: string;
-}
-
-const [desktop_magnet, handheld_magnet] = await Promise.all(
+const [desktop_magnet = '', handheld_magnet = ''] = await Promise.all(
   [
     generateDownloadLink(ISOEdition.DESKTOP, versions.desktopISOVersion, ISOSource.MAGNET),
     generateDownloadLink(ISOEdition.HANDHELD, versions.handheldISOVersion, ISOSource.MAGNET),
@@ -28,8 +19,7 @@ const items = [
   [
     {
       title: 'Desktop Edition',
-      description:
-        'A fully optimized Arch Linux desktop with CPU-specific package builds, a tuned kernel, and your choice of desktop environment. Browse, develop, create, and game on a system built for speed — powered entirely by free and open-source software.',
+      description: `A fully optimized Arch Linux desktop with CPU-specific package builds, a tuned kernel, and your choice of desktop environment. Browse, develop, create, and game on a system built for speed - powered entirely by free and open-source software. <br/><br/> Many Desktop Environments Available: The online installer lets you choose from 17+ environments, including KDE Plasma, GNOME, COSMIC, Hyprland, Niri, Sway, i3, XFCE, <a class="underline decoration-2 underline-offset-2 text-surface-700 dark:text-primary-500/90" href="https://wiki.cachyos.org/installation/desktop_environments/">and more</a>.`,
       direct_url: generateDownloadLink(
         ISOEdition.DESKTOP,
         versions.desktopISOVersion,
@@ -46,12 +36,11 @@ const items = [
         versions.desktopISOVersion,
         ISOSource.TORRENT
       ),
-      preview: import('~/assets/images/kde.png'),
+      preview: import('~/assets/images/desktop_dark.png'),
     },
     {
       title: 'Handheld Edition',
-      description:
-        'The CachyOS Handheld Edition provides a GameMode-like experience and comes with preinstalled gaming tools. It officially supports the ROG Ally, Steam Deck OLED and LCD, Legion Go, and Lenovo Legion Go S. At the moment, only KDE Plasma is supported.',
+      description: `The CachyOS Handheld Edition provides a GameMode-like experience and comes with preinstalled gaming tools. It officially supports the ROG Ally, Steam Deck OLED and LCD, Legion Go, and Lenovo Legion Go S. At the moment, only KDE Plasma is supported.`,
       direct_url: generateDownloadLink(
         ISOEdition.HANDHELD,
         versions.handheldISOVersion,
@@ -74,70 +63,70 @@ const items = [
 ];
 ---
 
-<section class="scroll-mt-16">
-  <div class="flex x-auto space-y-6 justify-center md:space-y-0 p-9">
+<section class="py-12 md:py-18">
+  <div class="container mx-auto grid gap-12 md:gap-18 px-6">
     {
-      items.map((subitems) => (
-        <div class="container sm:px-8 mx-auto">
-          {subitems.map(
-            ({
-              title,
-              description,
-              direct_url,
-              srcforge_url,
-              magnet_url,
-              torrent_url,
-              preview,
-            }) => (
-              <div class="flex flex-wrap items-center -m-8 my-20 pb-[calc(20vh)]">
-                <div class="w-full md:w-1/2 p-8">
-                  <h2 class="mb-9 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">
-                    {title}
-                  </h2>
-                  <p class="mb-10 text-lg text-gray-900 dark:text-gray-400 font-medium leading-relaxed md:max-w-md">
-                    {description}
-                  </p>
-                  <div class="mb-11 md:inline-block rounded-xl shadow-4xl dropdown">
-                    {direct_url && (
-                      <DropdownMenu
-                        client:load
-                        data={
-                          {
-                            title,
-                            direct_url,
-                            srcforge_url,
-                            magnet_url,
-                            torrent_url,
-                          } as DropdownMenuProps
-                        }
-                      />
-                    )}
-                    {!direct_url && !srcforge_url && (
-                      <div>
-                        <button type="button" class="btn-under-constuction py-4 px-6">
-                          Under construction 🚧
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div class="w-full md:w-1/2 p-8">
-                  {preview && (
-                    <Image
-                      src={preview}
-                      class="transform hover:-translate-x-16 rounded-xl transition ease-in-out duration-1000"
-                      alt=""
-                      loading="eager"
-                      width={1920}
-                      height={1080}
+      items.map((subitems) =>
+        subitems.map(
+          ({ title, description, direct_url, srcforge_url, magnet_url, torrent_url, preview }) => (
+            <div class="flex flex-wrap md:flex-nowrap items-center space-x-10">
+              <div class="w-full md:w-1/2">
+                <h2 class="mb-9 text-4xl md:text-6xl xl:text-8xl font-bold font-heading leading-none text-nowrap lg:text-wrap md:max-w-md">
+                  {title}
+                </h2>
+                <p
+                  class="mb-10 text-lg text-gray-900 dark:text-gray-400 font-medium leading-relaxed md:max-w-md whitespace-pre-line"
+                  set:html={description}
+                />
+                <div class="mb-11 md:inline-block rounded-xl shadow-4xl dropdown">
+                  {direct_url && (
+                    <DropdownMenu
+                      client:load
+                      data={{
+                        title,
+                        direct_url,
+                        srcforge_url,
+                        magnet_url,
+                        torrent_url,
+                      }}
                     />
+                  )}
+                  {!direct_url && !srcforge_url && (
+                    <div>
+                      <button type="button" class="under-construction py-4 px-6">
+                        Under construction 🚧
+                      </button>
+                    </div>
                   )}
                 </div>
               </div>
-            )
-          )}
-        </div>
-      ))
+              <div class="w-full md:w-1/2">
+                {preview && (
+                  <Image
+                    src={preview}
+                    class="transform lg:hover:-translate-x-8 rounded-xl transition ease-in-out duration-700 cursor-pointer"
+                    alt={`${title} preview`}
+                    decoding="async"
+                    loading="lazy"
+                    layout="constrained"
+                  />
+                )}
+              </div>
+            </div>
+          )
+        )
+      )
     }
   </div>
+  <script>
+    const images = document.querySelectorAll('img');
+    for (const img of images) {
+      img.addEventListener('click', () => {
+        const src = img.getAttribute('src');
+        if (src) {
+          window.open(src, '_blank');
+        }
+      });
+    }
+  </script>
 </section>

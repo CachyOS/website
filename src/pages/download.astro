@@ -3,7 +3,7 @@ import { SITE } from '~/config.mjs';
 
 import { getCanonical, getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
-import Note from '~/components/widgets/EditionsNote.astro';
+import BackgroundGradient from '~/components/common/BackgroundGradient.astro';
 import Editions from '~/components/widgets/Editions.astro';
 
 const meta = {
@@ -14,6 +14,6 @@ const meta = {
 ---
 
 <Layout {meta}>
-  <Note />
+  <BackgroundGradient position="center" rotate="rotate-30" />
   <Editions />
 </Layout>
