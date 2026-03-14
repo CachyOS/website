@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import { Fragment } from 'react';
 
-const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: () => void }>) => {
+const LegalNoticeModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: () => void }>) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -53,7 +53,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200 text-center"
                 >
-                  Imprint
+                  Legal Notice
                 </DialogTitle>
                 <div className="mt-2 space-y-0.5">
                   <p>Peter Jung</p>
@@ -83,4 +83,4 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
   );
 };
 
-export default ImprintModal;
+export default LegalNoticeModal;

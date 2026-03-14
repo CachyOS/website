@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { getHomePermalink, getAsset } from '~/utils/permalinks';
-import ImprintButton from './ImprintButton';
+import LegalNoticeButton from './LegalNoticeButton';
 
 const links = [
   {
@@ -60,7 +60,7 @@ const social = [
             class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
             href="https://wiki.cachyos.org/policy/privacy_policy/">Privacy Policy</a
           >
-          <ImprintButton client:load />
+          <LegalNoticeButton client:load />
         </div>
       </div>
       {
