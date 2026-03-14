@@ -63,13 +63,13 @@ const items = [
 ];
 ---
 
-<section class="py-12 md:py-18">
-  <div class="container mx-auto grid gap-12 md:gap-18 px-6">
+<section class="py-12 md:pt-24 md:pb-44">
+  <div class="container mx-auto grid gap-12 md:gap-18 px-6 md:space-y-40">
     {
       items.map((subitems) =>
         subitems.map(
           ({ title, description, direct_url, srcforge_url, magnet_url, torrent_url, preview }) => (
-            <div class="flex flex-wrap md:flex-nowrap items-center space-x-10">
+            <div class="flex flex-wrap md:flex-nowrap items-center md:space-x-10">
               <div class="w-full md:w-1/2">
                 <h2 class="mb-9 text-4xl md:text-6xl xl:text-8xl font-bold font-heading leading-none text-nowrap lg:text-wrap md:max-w-md">
                   {title}
