@@ -4,6 +4,7 @@ import { SITE } from '~/config.mjs';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 
+import BackgroundGradient from '~/components/common/BackgroundGradient.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
@@ -19,6 +20,7 @@ const meta = {
 ---
 
 <Layout {meta}>
+  <BackgroundGradient />
   <Hero />
   <Note />
   <Features />
