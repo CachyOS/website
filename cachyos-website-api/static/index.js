@@ -104,32 +104,45 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
   const currentTime = Date.now();
 
   let startTime;
+  let chartStartTime;
   switch (timePeriod) {
     case '24h': {
       startTime = currentTime - 24 * 60 * 60 * 1000;
+      const prevDay = new Date(startTime);
+      prevDay.setHours(0, 0, 0, 0);
+      chartStartTime = prevDay.getTime();
       break;
     }
     case '7d': {
       startTime = currentTime - 7 * 24 * 60 * 60 * 1000;
+      const prevDay = new Date(startTime);
+      prevDay.setHours(0, 0, 0, 0);
+      chartStartTime = prevDay.getTime();
       break;
     }
     case '30d': {
       startTime = currentTime - 30 * 24 * 60 * 60 * 1000;
+      const prevDay = new Date(startTime);
+      prevDay.setHours(0, 0, 0, 0);
+      chartStartTime = prevDay.getTime();
       break;
     }
     case '365d': {
       startTime = currentTime - 365 * 24 * 60 * 60 * 1000;
+      const prevDay = new Date(startTime);
+      prevDay.setHours(0, 0, 0, 0);
+      chartStartTime = prevDay.getTime();
       break;
     }
     case 'none':
     default: {
       const sum1 = getPreparedCounts(desktopEdition).values.reduce(
         (partialSum, x) => partialSum + x,
-        0,
+        0
       );
       const sum2 = getPreparedCounts(handheldEdition).values.reduce(
         (partialSum, x) => partialSum + x,
-        0,
+        0
       );
       overallDownloads.innerHTML = sum1 + sum2;
       chart.data.labels = getPreparedCounts(data).labels;
@@ -140,10 +153,21 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
     }
   }
 
-  const filteredData = data.filter((item) => {
+  // Chart shows data from start of the boundary day for visual context
+  const chartFilteredData = data.filter((item) => {
     const itemTime = new Date(item.date).getTime();
-    return itemTime >= startTime && itemTime <= currentTime;
+    return itemTime >= chartStartTime && itemTime <= currentTime;
   });
+  const chartFilteredDesktop = desktopEdition.filter((item) => {
+    const itemTime = new Date(item.date).getTime();
+    return itemTime >= chartStartTime && itemTime <= currentTime;
+  });
+  const chartFilteredHandheld = handheldEdition.filter((item) => {
+    const itemTime = new Date(item.date).getTime();
+    return itemTime >= chartStartTime && itemTime <= currentTime;
+  });
+
+  // Overall downloads count uses the strict time window (no extra day)
   const filteredDataDesktop = desktopEdition.filter((item) => {
     const itemTime = new Date(item.date).getTime();
     return itemTime >= startTime && itemTime <= currentTime;
@@ -152,31 +176,28 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
     const itemTime = new Date(item.date).getTime();
     return itemTime >= startTime && itemTime <= currentTime;
   });
-  const preparedCountsDesktop = getPreparedCounts(filteredDataDesktop);
-  const preparedCountsHandheld = getPreparedCounts(filteredDataHandheld);
 
-  const labels = getPreparedCounts(filteredData).labels;
-  const sum1 = preparedCountsDesktop.values.reduce(
+  const preparedCountsDesktop = getPreparedCounts(chartFilteredDesktop);
+  const preparedCountsHandheld = getPreparedCounts(chartFilteredHandheld);
+
+  const labels = getPreparedCounts(chartFilteredData).labels;
+  const sum1 = getPreparedCounts(filteredDataDesktop).values.reduce(
     (partialSum, x) => partialSum + x,
-    0,
+    0
   );
-  const sum2 = preparedCountsHandheld.values.reduce(
+  const sum2 = getPreparedCounts(filteredDataHandheld).values.reduce(
     (partialSum, x) => partialSum + x,
-    0,
+    0
   );
   overallDownloads.innerHTML = sum1 + sum2;
 
   // Update the chart data and options
   chart.data.labels = labels;
   chart.data.datasets[0].data = labels.map(
-    (label) =>
-      preparedCountsDesktop.values[preparedCountsDesktop.labels.indexOf(label)],
+    (label) => preparedCountsDesktop.values[preparedCountsDesktop.labels.indexOf(label)]
   );
   chart.data.datasets[1].data = labels.map(
-    (label) =>
-      preparedCountsHandheld.values[
-        preparedCountsHandheld.labels.indexOf(label)
-      ],
+    (label) => preparedCountsHandheld.values[preparedCountsHandheld.labels.indexOf(label)]
   );
   chart.update();
 };
