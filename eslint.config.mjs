@@ -7,7 +7,7 @@ import typescriptParser from '@typescript-eslint/parser';
 
 export default [
   js.configs.recommended,
-  ...eslintPluginAstro.configs['flat/recommended'],
+  ...eslintPluginAstro.configs.recommended,
   ...tseslint.configs.recommended,
   {
     languageOptions: {
