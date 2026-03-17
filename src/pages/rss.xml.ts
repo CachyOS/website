@@ -1,25 +1,23 @@
 import { getRssString } from '@astrojs/rss';
+import type { APIRoute } from 'astro';
 
 import { SITE } from '~/config.mjs';
 import { fetchPosts } from '~/utils/blog';
 import { getPermalink } from '~/utils/permalinks';
 
-export const GET = async (context) => {
+export const GET = (async (context) => {
   const posts = await fetchPosts();
 
   const rss = await getRssString({
     title: `${SITE.name}'s Blog`,
     description: SITE.description,
-    site: context.site,
-
+    site: context.site ?? SITE.origin,
     items: posts.map((post) => ({
       link: getPermalink(post.permalink, 'post'),
       title: post.title,
       description: post.excerpt,
       pubDate: post.publishDate,
     })),
-
-    trailingSlash: SITE.trailingSlash,
   });
 
   return new Response(rss, {
@@ -27,4 +25,4 @@ export const GET = async (context) => {
       'Content-Type': 'application/xml',
     },
   });
-};
+}) satisfies APIRoute;
