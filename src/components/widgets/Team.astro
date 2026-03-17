@@ -1,84 +1,94 @@
 ---
-import Image from '~/components/common/Image.astro';
+import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
+
+import ptr1337Avatar from '~/assets/images/ptr1337_avatar.png';
+import cppCode from '~/assets/images/cpp_code.jpg';
+import logo from '~/assets/images/logo.svg';
+import soulharsh007Avatar from '~/assets/images/soulharsh007_avatar.png';
+import loathingkernelAvatar from '~/assets/images/loathingkernel_avatar.png';
+import vildaAvatar from '~/assets/images/vilda_avatar.png';
+import nextworksAvatar from '~/assets/images/nextworks_avatar.png';
+import shendisxAvatar from '~/assets/images/shendisx_avatar.png';
+import azdanovAvatar from '~/assets/images/azdanov_avatar.png';
 
 const items = [
   {
     name: 'Peter Jung (ptr1337)',
     description: 'Founder, Developer',
-    avatar: '~/assets/images/ptr1337_avatar.png',
+    avatar: ptr1337Avatar,
     github_url: 'https://github.com/ptr1337',
   },
   {
     name: 'Vladislav Nepogodin (vnepogodin)',
     description: 'Founder, Developer',
-    avatar: '~/assets/images/cpp_code.jpg',
+    avatar: cppCode,
     github_url: 'https://github.com/vnepogodin',
   },
   {
     name: 'Piotr Gorski (sir_lucjan)',
     description: 'Kernel maintainer, scx contributor, University lecturer from Poland',
-    avatar: '~/assets/images/logo.svg',
+    avatar: logo,
     github_url: 'https://github.com/sirlucjan',
   },
   {
     name: 'Vasiliy Stelmachenok (ventureoo)',
     description: 'Developer, chwd and cachyos-settings, package maintainer',
-    avatar: '~/assets/images/logo.svg',
+    avatar: logo,
     github_url: 'https://github.com/ventureoo',
   },
   {
     name: 'Eric Naim (naim)',
     description: 'Package and Kernel Maintainer',
-    avatar: '~/assets/images/logo.svg',
+    avatar: logo,
     github_url: 'https://github.com/1Naim',
   },
   {
     name: 'Harsh Peshwani (SoulHarsh007)',
     description: 'Developer, Maintainer of Cachy Chroot, Website, Builder Dashboard',
-    avatar: '~/assets/images/soulharsh007_avatar.png',
+    avatar: soulharsh007Avatar,
     github_url: 'https://github.com/SoulHarsh007',
   },
   {
     name: 'Nekoh',
     description: 'Developer, Maintainer of CachyOS Handheld Edition',
-    avatar: '~/assets/images/logo.svg',
+    avatar: logo,
     github_url: 'https://github.com/Pogogo007',
   },
   {
     name: 'Stelios Tsampas (loathingKernel)',
     description: 'Developer, Maintainer of CachyOS Wine & Proton',
-    avatar: '~/assets/images/loathingkernel_avatar.png',
+    avatar: loathingkernelAvatar,
     github_url: 'https://github.com/loathingKernel',
   },
   {
     name: 'Vědomil Vildomec (Vilda)',
     description: 'Contributor, Wiki, Documentation, Tutorials',
-    avatar: '~/assets/images/vilda_avatar.png',
+    avatar: vildaAvatar,
     github_url: 'https://github.com/SoongVilda',
   },
   {
     name: 'firelzrd',
     description: 'BORE Scheduler',
-    avatar: '~/assets/images/logo.svg',
+    avatar: logo,
     github_url: 'https://github.com/firelzrd',
   },
   {
     name: 'Luca Paglia (NextWorks)',
     description: 'GFX, ART',
-    avatar: '~/assets/images/nextworks_avatar.png',
+    avatar: nextworksAvatar,
     github_url: 'https://github.com/NextWork123',
   },
   {
     name: 'Matias (Aarrayy)',
     description: 'Contributor, Wiki, Tester, CachyOS Ricer',
-    avatar: '~/assets/images/shendisx_avatar.png',
+    avatar: shendisxAvatar,
     github_url: 'https://github.com/Aarrayy',
   },
   {
     name: 'Anton Ždanov (azdanov)',
     description: 'Developer, Contributor, Wiki, Tester',
-    avatar: '~/assets/images/azdanov_avatar.png',
+    avatar: azdanovAvatar,
     github_url: 'https://github.com/azdanov',
   },
 ];
@@ -101,19 +111,15 @@ const items = [
             <div class="flex flex-row justify-center">
               <Image
                 src={avatar}
-                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square hidden md:block"
+                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square object-contain hidden md:block"
                 alt={`Avatar of ${name}`}
-                aspectRatio={1}
-                loading="eager"
                 width={512}
                 height={512}
               />
               <Image
                 src={avatar}
-                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square md:hidden"
+                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square object-contain md:hidden"
                 alt={`Avatar of ${name}`}
-                aspectRatio={1}
-                loading="eager"
                 width={256}
                 height={256}
               />
