@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-import Image from '~/components/common/Image.astro';
+import { Image } from 'astro:assets';
 import PostTags from '~/components/blog/Tags.astro';
 
 import { getPermalink } from '~/utils/permalinks';
@@ -26,7 +26,7 @@ const { Content } = post;
       >
         <p>
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(post.publishDate)} class="inline-block"
+          <time datetime={post.publishDate.toISOString()} class="inline-block"
             >{getFormattedDate(post.publishDate)}</time
           >
           {
@@ -61,7 +61,7 @@ const { Content } = post;
         post.image ? (
           <Image
             src={post.image}
-            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-gray-700"
+            class="max-w-full lg:max-w-225 mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-gray-700"
             widths={[400, 900]}
             sizes="(max-width: 900px) 400px, 900px"
             alt={post?.excerpt || ''}
@@ -78,7 +78,7 @@ const { Content } = post;
       }
     </header>
     <div
-      class="mx-auto px-6 sm:px-6 max-w-3xl prose lg:prose-lg dark:prose-invert dark:prose-headings:text-gray-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-primary-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px]"
+      class="mx-auto px-6 sm:px-6 max-w-3xl prose lg:prose-lg dark:prose-invert dark:prose-headings:text-gray-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-primary-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-20"
     >
       {Content ? <Content /> : <Fragment set:html={post.content || ''} />}
     </div>
