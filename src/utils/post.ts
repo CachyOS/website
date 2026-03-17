@@ -1,28 +1,17 @@
-import type { CollectionEntry } from 'astro:content';
 import { getFileCommitDate } from './git';
 
-export const getLastUpdated = (entry: CollectionEntry<'post'>): Date | undefined => {
-  const currentFilePath = `src/content/post/` + entry.id;
-  let date = undefined;
-  if (!date) {
-    try {
-      ({ date } = getFileCommitDate(currentFilePath, 'newest'));
-    } catch (e) {
-      console.log(e);
-    }
+const getCommitDate = (path: string | undefined, type: 'newest' | 'oldest'): Date => {
+  if (!path) {
+    throw new Error(`No path provided to get ${type} commit date`);
   }
-  return date;
+
+  try {
+    return getFileCommitDate(path, type).date;
+  } catch (e) {
+    throw new Error(`Failed to get ${type} commit date for path: ${path}`, { cause: e });
+  }
 };
 
-export const getCreatedDate = (entry: CollectionEntry<'post'>): Date | undefined => {
-  const currentFilePath = `src/content/post/` + entry.id;
-  let date = undefined;
-  if (!date) {
-    try {
-      ({ date } = getFileCommitDate(currentFilePath, 'oldest'));
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  return date;
-};
+export const getLastUpdated = (path?: string): Date => getCommitDate(path, 'newest');
+
+export const getCreatedDate = (path?: string): Date => getCommitDate(path, 'oldest');

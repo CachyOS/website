@@ -1,4 +1,4 @@
-import { getCollection } from 'astro:content';
+import { render, getCollection } from 'astro:content';
 import type { PaginateFunction } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
@@ -14,12 +14,10 @@ import { getCreatedDate, getLastUpdated } from './post';
 
 const generatePermalink = async ({
   id,
-  slug,
   publishDate,
   category,
 }: {
   id: string;
-  slug: string;
   publishDate: Date;
   category: string | undefined;
 }) => {
@@ -30,7 +28,7 @@ const generatePermalink = async ({
   const minute = String(publishDate.getMinutes()).padStart(2, '0');
   const second = String(publishDate.getSeconds()).padStart(2, '0');
 
-  const permalink = POST_PERMALINK_PATTERN.replace('%slug%', slug)
+  const permalink = POST_PERMALINK_PATTERN.replace('%slug%', id)
     .replace('%id%', id)
     .replace('%category%', category ?? '')
     .replace('%year%', year)
@@ -48,8 +46,8 @@ const generatePermalink = async ({
 };
 
 const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> => {
-  const { id, slug: rawSlug = '', data } = post;
-  const { Content, remarkPluginFrontmatter } = await post.render();
+  const { id, data } = post;
+  const { Content, remarkPluginFrontmatter } = await render(post);
 
   const {
     title,
@@ -62,35 +60,25 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     metadata = {},
   } = data;
 
-  const publishDate = getCreatedDate(post) as Date;
-  const updateDate = getLastUpdated(post) as Date;
-  const slug = cleanSlug(rawSlug); // cleanSlug(rawSlug.split('/').pop());
+  const publishDate = getCreatedDate(post.filePath);
+  const updateDate = getLastUpdated(post.filePath);
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
 
   return {
-    id: id,
-    slug: slug,
-    permalink: await generatePermalink({ id, slug, publishDate, category }),
-
-    publishDate: publishDate,
-    updateDate: updateDate,
-
-    title: title,
-    excerpt: excerpt,
-    image: image,
-
-    category: category,
-    tags: tags,
-    author: author,
-
-    draft: draft,
-
+    id,
+    permalink: await generatePermalink({ id, publishDate, category }),
+    publishDate,
+    updateDate,
+    title,
+    excerpt,
+    image,
+    category,
+    tags,
+    author,
+    draft,
     metadata,
-
-    Content: Content,
-    // or 'content' in case you consume from API
-
+    Content,
     readingTime: remarkPluginFrontmatter?.readingTime,
   };
 };
@@ -124,19 +112,6 @@ export const fetchPosts = async (): Promise<Array<Post>> => {
   }
 
   return _posts;
-};
-
-export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {
-  if (!Array.isArray(slugs)) return [];
-
-  const posts = await fetchPosts();
-
-  return slugs.reduce(function (r: Array<Post>, slug: string) {
-    posts.some(function (post: Post) {
-      return slug === post.slug && r.push(post);
-    });
-    return r;
-  }, []);
 };
 
 export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> => {
