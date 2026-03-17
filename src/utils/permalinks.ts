@@ -9,7 +9,7 @@ const createPath = (...params: string[]) => {
     .map((el) => trimSlash(el))
     .filter((el) => !!el)
     .join('/');
-  return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
+  return `/${paths}`;
 };
 
 const BASE_PATHNAME = SITE.basePathname;
@@ -26,7 +26,7 @@ export const TAG_BASE = cleanSlug('tag') || 'tag';
 
 export const POST_PERMALINK_PATTERN = trimSlash(`${BLOG_BASE}/%slug%`);
 
-export const getCanonical = (path = ''): string | URL => new URL(path, SITE.origin);
+export const getCanonical = (path = ''): URL => new URL(path, SITE.origin);
 
 export const getPermalink = (slug = '', type = 'page'): string => {
   let permalink: string;

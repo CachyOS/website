@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-interface clipRetType {
+interface ClipRetType {
   isCopied: boolean;
   copyToClipboard: (value: string) => void;
 }
 
-export const useCopyToClipboard = ({ timeout = 2000 }: { timeout?: number }): clipRetType => {
+export const useCopyToClipboard = ({ timeout = 2000 }: { timeout?: number }): ClipRetType => {
   const [isCopied, setIsCopied] = useState(false);
   const copyToClipboard = (value: string): void => {
-    if (typeof window === 'undefined' || !navigator.clipboard?.writeText) {
+    if (globalThis.window === undefined || !navigator.clipboard?.writeText) {
       return;
     }
     if (!value) {
@@ -22,5 +22,5 @@ export const useCopyToClipboard = ({ timeout = 2000 }: { timeout?: number }): cl
     });
   };
 
-  return { isCopied, copyToClipboard } as clipRetType;
+  return { isCopied, copyToClipboard } as ClipRetType;
 };

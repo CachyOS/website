@@ -1,5 +1,4 @@
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import type { ImageMetadata } from 'astro';
 
 export interface MetaSEO {
   title?: string;
@@ -19,7 +18,7 @@ export interface Post {
   updateDate?: Date;
   title: string;
   excerpt?: string;
-  image?: ImageMetadata | string;
+  image?: string;
   category?: string;
   tags?: Array<string>;
   author?: string;

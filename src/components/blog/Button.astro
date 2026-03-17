@@ -12,7 +12,7 @@ const {
   ...rest
 } = Astro.props as CallToAction;
 
-const variants = {
+const variants: Record<string, string> = {
   primary: 'btn btn-primary',
   secondary: 'btn btn-secondary',
   accent: 'btn btn-accent',

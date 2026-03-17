@@ -20,9 +20,9 @@ export const getStaticPaths = (async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post } = Astro.props as Props;
+const { post } = Astro.props satisfies Props;
 
-const url = getCanonical(getPermalink(post.permalink, 'post'));
+const url = getCanonical(getPermalink(post.permalink, 'post')).toString();
 const image = (await findImage(post.image)) as ImageMetadata | string | undefined;
 
 const meta = merge(
@@ -45,7 +45,7 @@ const meta = merge(
     },
   },
   { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
-) as MetaData;
+) satisfies MetaData;
 ---
 
 <Layout {meta}>
