@@ -27,9 +27,9 @@
     "typescript-eslint": "^8.56.0"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/react": "5.0.0",
+    "@astrojs/rss": "4.0.17",
+    "@astrojs/sitemap": "3.7.1",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inter": "^5.2.8",
     "@headlessui/react": "^2.2.9",
@@ -38,7 +38,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.17.2",
+    "astro": "6.0.5",
     "astro-icon": "^1.1.5",
     "limax": "^4.2.2",
     "lodash": "^4.17.23",
