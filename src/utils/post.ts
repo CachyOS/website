@@ -2,7 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getFileCommitDate } from './git';
 
 export const getLastUpdated = (entry: CollectionEntry<'post'>): Date | undefined => {
-  const currentFilePath = `src/content/post/` + entry.id;
+  const currentFilePath = `src/content/post/` + entry.id + '.md';
   let date = undefined;
   if (!date) {
     try {
@@ -15,7 +15,7 @@ export const getLastUpdated = (entry: CollectionEntry<'post'>): Date | undefined
 };
 
 export const getCreatedDate = (entry: CollectionEntry<'post'>): Date | undefined => {
-  const currentFilePath = `src/content/post/` + entry.id;
+  const currentFilePath = `src/content/post/` + entry.id + '.md';
   let date = undefined;
   if (!date) {
     try {
