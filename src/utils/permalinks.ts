@@ -4,15 +4,6 @@ import { SITE } from '~/config.mjs';
 import { trim } from '~/utils/utils';
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
-const createPath = (...params: string[]) => {
-  const paths = params
-    .map((el) => trimSlash(el))
-    .filter((el) => !!el)
-    .join('/');
-  return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
-};
-
-const BASE_PATHNAME = SITE.basePathname;
 
 export const cleanSlug = (text = '') =>
   trimSlash(text)
@@ -22,14 +13,12 @@ export const cleanSlug = (text = '') =>
 
 export const BLOG_BASE = cleanSlug('blog');
 export const CATEGORY_BASE = cleanSlug('category');
-export const TAG_BASE = cleanSlug('tag') || 'tag';
+export const TAG_BASE = cleanSlug('tag');
 
-export const POST_PERMALINK_PATTERN = trimSlash('/blog/%slug%' || `${BLOG_BASE}/%slug%`);
+export const POST_PERMALINK_PATTERN = trimSlash(`${BLOG_BASE}/%slug%`);
 
-/** */
-export const getCanonical = (path = ''): string | URL => new URL(path, SITE.origin);
+export const getCanonical = (path = ''): URL => new URL(path, SITE.origin);
 
-/** */
 export const getPermalink = (slug = '', type = 'page'): string => {
   let permalink: string;
 
@@ -37,15 +26,12 @@ export const getPermalink = (slug = '', type = 'page'): string => {
     case 'category':
       permalink = createPath(CATEGORY_BASE, trimSlash(slug));
       break;
-
     case 'tag':
       permalink = createPath(TAG_BASE, trimSlash(slug));
       break;
-
     case 'post':
       permalink = createPath(trimSlash(slug));
       break;
-
     case 'page':
     default:
       permalink = createPath(slug);
@@ -55,19 +41,23 @@ export const getPermalink = (slug = '', type = 'page'): string => {
   return definitivePermalink(permalink);
 };
 
-/** */
 export const getHomePermalink = (): string => getPermalink('/');
 
-/** */
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
 
-/** */
 export const getAsset = (path: string): string =>
   '/' +
-  [BASE_PATHNAME, path]
+  [SITE.basePathname, path]
     .map((el) => trimSlash(el))
     .filter((el) => !!el)
     .join('/');
 
-/** */
-const definitivePermalink = (permalink: string): string => createPath(BASE_PATHNAME, permalink);
+const createPath = (...params: string[]) => {
+  const paths = params
+    .map((el) => trimSlash(el))
+    .filter((el) => !!el)
+    .join('/');
+  return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
+};
+
+const definitivePermalink = (permalink: string): string => createPath(SITE.basePathname, permalink);
