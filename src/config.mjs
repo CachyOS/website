@@ -12,6 +12,8 @@ const CONFIG = {
   defaultImage: defaultImage,
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+
+  trailingSlash: false,
 };
 
 export const SITE = { ...CONFIG };
