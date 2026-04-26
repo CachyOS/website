@@ -81,19 +81,19 @@ sudo pacman -Syu
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: <https://iso.cachyos.org/desktop/260429/cachyos-desktop-linux-260429.iso>
-* CDN2: <https://cdn77.cachyos.org/ISO/desktop/260429/cachyos-desktop-linux-260429.iso>
-* Germany: <https://mirror.cachyos.org/ISO/desktop/260429/cachyos-desktop-linux-260429.iso>
-* USA: <https://us.cachyos.org/ISO/desktop/260429/cachyos-desktop-linux-260429.iso>
-* China: <https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/260429/cachyos-desktop-linux-260429.iso>
-* Russia: <https://archlinux.gay/cachy/ISO/desktop/260429/cachyos-desktop-linux-260429.iso>
-* Russia: <https://mirror.yandex.ru/cachyos/ISO/desktop/260429/cachyos-desktop-linux-260429.iso>
+* CDN: <https://iso.cachyos.org/desktop/260426/cachyos-desktop-linux-260426.iso>
+* CDN2: <https://cdn77.cachyos.org/ISO/desktop/260426/cachyos-desktop-linux-260426.iso>
+* Germany: <https://mirror.cachyos.org/ISO/desktop/260426/cachyos-desktop-linux-260426.iso>
+* USA: <https://us.cachyos.org/ISO/desktop/260426/cachyos-desktop-linux-260426.iso>
+* China: <https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/260426/cachyos-desktop-linux-260426.iso>
+* Russia: <https://archlinux.gay/cachy/ISO/desktop/260426/cachyos-desktop-linux-260426.iso>
+* Russia: <https://mirror.yandex.ru/cachyos/ISO/desktop/260426/cachyos-desktop-linux-260426.iso>
 * <https://sourceforge.net/projects/cachyos-arch/files>
 
 **Handheld Edition:**
 
-* CDN: <https://iso.cachyos.org/handheld/260429/cachyos-handheld-linux-260429.iso>
-* CDN2: <https://cdn77.cachyos.org/ISO/handheld/260429/cachyos-handheld-linux-260429.iso>
+* CDN: <https://iso.cachyos.org/handheld/260426/cachyos-handheld-linux-260426.iso>
+* CDN2: <https://cdn77.cachyos.org/ISO/handheld/260426/cachyos-handheld-linux-260426.iso>
 
 **Support Us:**
 
