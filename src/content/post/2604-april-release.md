@@ -14,7 +14,7 @@ First, the installer now ships **Shelly** as the GUI package manager, replacing 
 
 **CachyOS-Welcome** supports **DNS over HTTPS** for better privacy. The redesigned DNS page lets you test connection speeds, auto-select the fastest server, or add custom ones. We also added a **VRAM Management** toggle to optimize graphics memory on AMD and Intel GPUs, full keyboard navigation, and sharper, dark-mode-friendly icons.
 
-**chwd** automatically configures **fingerprint readers** for `sudo` prompts, detects specific Intel CPUs for better power saving, and correctly handle laptop edge cases. Firmware update fixes for the Legion Go. Additionally AI-SDK profile added support for more **AMD RDNA4** graphics.
+**chwd** automatically configures **fingerprint readers** for `sudo` prompts, detects specific Intel CPUs for better power saving, and correctly handle laptop edge cases. Firmware update fixes for the Legion Go.
 
 In **cachyos-settings**, the default NVMe I/O scheduler was switched from `none` to `kyber` for better overall responsiveness under mixed workloads.
 
@@ -43,7 +43,6 @@ On the fixes side, the installer now prints the chosen partition method to the d
   * Added native USB device detection (via libusb/sysfs) and chassis type detection
   * Added support for fingerprint (`fprint`) sudo integration
   * Added CPU family/model detection to support `intel-lpmd`
-  * **AI-SDK:** Added support for AMD RDNA4 and updated ROCM products
   * **Handhelds:** Added exact patterns for Xbox ROG Ally; conditionally install `fwupd` on Lenovo Legion Go devices for Steam UI updates
   * **Network:** Added Marvell AVASTAR 88W8897 Wi-Fi profile (Surface Pro 4)
   * Split NVIDIA profiles for laptops and desktop environments
