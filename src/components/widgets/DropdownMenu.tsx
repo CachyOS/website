@@ -62,6 +62,7 @@ const DropdownMenu = ({ data }: Props) => {
       >
         <MenuItems
           id="editions-menu-list"
+          modal={false}
           className="dropdown-menu min-w-max absolute bg-white dark:bg-surface-900 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none focus:outline-none"
         >
           <MenuItem
