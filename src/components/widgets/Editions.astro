@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import DropdownMenu from '~/components/widgets/DropdownMenu';
 import { ISOEdition, ISOSource, generateDownloadLink } from '~/utils/utils';
 import versions from '~/versions';
+import desktopImage from '~/assets/images/desktop_dark.png';
+import handheldImage from '~/assets/images/handheld.png';
 
 const [desktop_magnet = '', handheld_magnet = ''] = await Promise.all(
   [
@@ -36,7 +38,7 @@ const items = [
         versions.desktopISOVersion,
         ISOSource.TORRENT
       ),
-      preview: import('~/assets/images/desktop_dark.png'),
+      preview: desktopImage,
     },
     {
       title: 'Handheld Edition',
@@ -57,7 +59,7 @@ const items = [
         versions.handheldISOVersion,
         ISOSource.TORRENT
       ),
-      preview: import('~/assets/images/handheld.png'),
+      preview: handheldImage,
     },
   ],
 ];
