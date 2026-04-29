@@ -57,7 +57,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                 <div className="absolute right-0 top-0 mt-2 mr-2">
                   <button
                     aria-label="Close"
-                    className="btn btn-icon"
+                    className="btn btn-icon cursor-pointer"
                     onClick={onClose}
                     type="button"
                     autoFocus={false}
@@ -118,7 +118,7 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
       ) : (
         <button
           type="button"
-          className="btn btn-icon"
+          className="btn btn-icon cursor-pointer" 
           onClick={() => copyToClipboard(text)}
           aria-label={`Copy ${label} address to clipboard`}
         >
