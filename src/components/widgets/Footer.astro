@@ -44,9 +44,9 @@ const social = [
 ];
 ---
 
-<footer class="relative border-t border-gray-200 dark:border-gray-800 not-prose">
+<footer class="relative border-t border-surface-200 dark:border-surface-800 not-prose">
   <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-gray-300">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-surface-300">
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
@@ -54,11 +54,11 @@ const social = [
         </div>
         <div class="text-sm text-muted">
           <a
-            class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
+            class="text-muted hover:text-primary-700 dark:hover:text-primary-300 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
             href="https://wiki.cachyos.org/policy/terms_of_service/">Terms</a
           >
           <a
-            class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
+            class="text-muted hover:text-primary-700 dark:hover:text-primary-300 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
             href="https://wiki.cachyos.org/policy/privacy_policy/">Privacy Policy</a
           >
           <LegalNoticeButton client:load />
@@ -67,13 +67,13 @@ const social = [
       {
         links.map(({ title, items }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class="dark:text-gray-300 font-medium mb-2">{title}</div>
+            <div class="text-surface-900 dark:text-surface-200 font-medium mb-2">{title}</div>
             {items && Array.isArray(items) && items.length > 0 && (
               <ul class="text-sm">
                 {items.map(({ title, href }) => (
                   <li class="mb-2">
                     <a
-                      class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
+                      class="text-muted hover:text-primary-700 dark:hover:text-primary-300 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
                       href={href}
                     >
                       {title}
@@ -94,7 +94,7 @@ const social = [
           social.map(({ label, href, icon }) => (
             <li>
               <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                class="text-muted hover:text-primary-700 dark:hover:text-primary-300 hover:bg-surface-100 dark:hover:bg-surface-800 focus:outline-hidden focus:ring-4 focus:ring-primary-300/40 dark:focus:ring-primary-500/30 rounded-lg text-sm p-2.5 inline-flex items-center transition"
                 aria-label={label}
                 href={href}
               >
@@ -105,7 +105,7 @@ const social = [
         }
       </ul>
 
-      <div class="text-sm mr-4 dark:text-gray-300">
+      <div class="text-sm mr-4 text-surface-700 dark:text-surface-300">
         <span
           class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-xs bg-[url(~/assets/images/logo.svg)]"
         >

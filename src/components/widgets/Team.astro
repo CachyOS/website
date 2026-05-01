@@ -87,17 +87,17 @@ const items = [
 <section class="py-28 overflow-hidden" id="team">
   <div class="py-8 px-4 mx-auto max-w-(--breakpoint-xl) text-center lg:py-16 lg:px-6">
     <div class="mx-auto mb-8 max-w-(--breakpoint-sm) lg:mb-16">
-      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-surface-900 dark:text-surface-50">
         Meet our team!
       </h2>
-      <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+      <p class="font-light text-surface-500 sm:text-xl dark:text-surface-400">
         Meet the people behind CachyOS!
       </p>
     </div>
     <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {
         items.map(({ name, description, avatar, github_url }) => (
-          <div class="text-center text-gray-500 dark:text-gray-400 flex flex-col rounded-lg h-96">
+          <div class="text-center text-surface-500 dark:text-surface-400 flex flex-col rounded-lg h-96">
             <div class="flex flex-row justify-center">
               <Image
                 src={avatar}
@@ -121,7 +121,7 @@ const items = [
             <ul class="flex justify-center mt-2 space-x-4">
               <li>
                 <a
-                  class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  class="text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-700 focus:outline-hidden focus:ring-4 focus:ring-primary-300/40 dark:focus:ring-primary-500/30 rounded-lg text-sm p-2.5 inline-flex items-center"
                   aria-label="Github"
                   href={github_url}
                 >
@@ -129,7 +129,7 @@ const items = [
                 </a>
               </li>
             </ul>
-            <h3 class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h3 class="mb-1 text-xl font-bold tracking-tight text-surface-900 dark:text-surface-50">
               {name}
             </h3>
             <p class="mb-4 text-sm font-medium">{description}</p>

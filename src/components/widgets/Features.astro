@@ -32,15 +32,11 @@ const items = [
 <section class="scroll-mt-16" id="features">
   <div class="px-4 py-16 mx-auto max-w-4xl lg:px-8 lg:py-20">
     <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-xl">
-      <p
-        class="text-base text-primary-700 dark:text-primary-200 font-semibold tracking-wide uppercase"
-      >
-        Features
-      </p>
+      <p class="text-eyebrow">Features</p>
       <h2 class="text-2xl md:text-3xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
         Why CachyOS Is <span class="whitespace-nowrap">Different</span>
       </h2>
-      <p class="max-w-xl mx-auto sm:text-center text-lg text-gray-600 dark:text-gray-400">
+      <p class="max-w-xl mx-auto sm:text-center text-lg text-surface-700 dark:text-surface-300">
         Most Linux distributions ship generic binaries. CachyOS rebuilds the stack — from kernel to
         packages — with modern CPU optimizations, delivering measurable performance where it
         matters.
@@ -49,12 +45,12 @@ const items = [
     <div class="grid gap-6 md:grid-cols-2">
       {
         items.map(({ title, description, icon }) => (
-          <div class="rounded-xl border border-surface-200 dark:border-surface-700/50 bg-surface-50 dark:bg-surface-800/30 p-5">
+          <div class="surface-card p-5">
             <div class="flex items-center mb-3 space-x-2">
-              {icon && <Icon name={icon} class="w-6 h-6 icon-light" />}
-              <h3 class="text-sm font-bold">{title}</h3>
+              {icon && <Icon name={icon} class="w-6 h-6 icon-light text-primary-600 dark:text-primary-300" />}
+              <h3 class="text-sm font-bold text-surface-900 dark:text-surface-50">{title}</h3>
             </div>
-            <p class="text-gray-800 dark:text-gray-200">{description}</p>
+            <p class="text-surface-700 dark:text-surface-300">{description}</p>
           </div>
         ))
       }

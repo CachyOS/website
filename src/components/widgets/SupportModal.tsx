@@ -53,7 +53,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-surface-950 pt-2 md:pt-3 pb-4 md:pb-6 px-2 md:px-6 text-left align-middle shadow-xl dark:shadow-lg dark:shadow-surface-900 transition-all relative">
+              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-surface-50 dark:bg-surface-950 pt-2 md:pt-3 pb-4 md:pb-6 px-2 md:px-6 text-left align-middle shadow-xl dark:shadow-lg dark:shadow-surface-900 transition-all relative">
                 <div className="absolute right-0 top-0 mt-2 mr-2">
                   <button
                     aria-label="Close"
@@ -76,7 +76,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                 </div>
                 <DialogTitle
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200 text-center"
+                  className="text-lg font-medium leading-6 text-surface-900 dark:text-surface-200 text-center"
                 >
                   Support Options
                 </DialogTitle>
@@ -104,7 +104,7 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
   const isLink = mode === 'link';
 
   return (
-    <div className="flex items-center space-x-2 bg-gray-100/90 dark:bg-surface-900/90 rounded-lg p-2 md:p-3">
+    <div className="flex items-center space-x-2 bg-surface-100/90 dark:bg-surface-900/90 rounded-lg p-2 md:p-3">
       {isLink ? (
         <a
           href={text}

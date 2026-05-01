@@ -30,13 +30,13 @@ const features = [
       <div class="w-full lg:w-1/2">
         <div class="flex flex-row gap-x-3">
           <div
-            class="shrink-0 w-11 h-11 flex items-center justify-center p-0.75 rounded-full ring-1 ring-gray-900/10 dark:ring-gray-900/30 shadow-sm overflow-hidden dark:bg-gray-800/80"
+            class="shrink-0 w-11 h-11 flex items-center justify-center p-0.75 rounded-full ring-1 ring-surface-900/10 dark:ring-surface-900/30 shadow-sm overflow-hidden dark:bg-surface-800/80"
           >
             <Icon class="w-6 h-6" name="tabler:heart-handshake" />
           </div>
           <h2 class="mt-0.5 mb-4 text-3xl lg:text-4xl font-bold font-heading">Support CachyOS</h2>
         </div>
-        <p class="mb-8 text-xl text-gray-600 dark:text-gray-400">
+        <p class="mb-8 text-xl text-surface-600 dark:text-surface-400">
           CachyOS is an independent, community-driven project. Your financial support directly
           contributes to our infrastructure, development, and the continuous improvement of the
           operating system.
@@ -53,13 +53,13 @@ const features = [
             features.map(({ icon, title, description }) => (
               <div class="flex space-x-4">
                 <div class="shrink-0">
-                  <div class="flex items-center justify-center w-11 h-11 rounded-full ring-1 ring-gray-900/10 shadow-sm dark:bg-gray-800/80">
-                    <Icon name={icon} class="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  <div class="flex items-center justify-center w-11 h-11 rounded-full ring-1 ring-surface-900/10 shadow-sm dark:bg-surface-800/80">
+                    <Icon name={icon} class="w-6 h-6 text-surface-600 dark:text-surface-400" />
                   </div>
                 </div>
                 <div>
-                  <h3 class="text-lg font-medium leading-6 dark:text-white">{title}</h3>
-                  <p class="mt-2 text-gray-600 dark:text-gray-400">{description}</p>
+                  <h3 class="text-lg font-medium leading-6 dark:text-surface-50">{title}</h3>
+                  <p class="mt-2 text-surface-600 dark:text-surface-400">{description}</p>
                 </div>
               </div>
             ))

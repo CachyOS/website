@@ -28,7 +28,7 @@ const LegalNoticeModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClo
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-dark p-4 text-left align-middle shadow-xl transition-all">
+              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-surface-50 dark:bg-dark p-4 text-left align-middle shadow-xl transition-all">
                 <div className="absolute right-0 top-0 pr-3 pt-3">
                   <button
                     aria-label="Close"
@@ -51,7 +51,7 @@ const LegalNoticeModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClo
                 </div>
                 <DialogTitle
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200 text-center"
+                  className="text-lg font-medium leading-6 text-surface-900 dark:text-surface-200 text-center"
                 >
                   Legal Notice
                 </DialogTitle>
@@ -68,7 +68,7 @@ const LegalNoticeModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClo
                       href="mailto:ptr1337@cachyos.org"
                       target="_blank"
                       rel="noopener"
-                      className="dark:text-white font-bold decoration-2 decoration-gray-300 underline"
+                      className="dark:text-surface-50 font-bold decoration-2 decoration-surface-300 underline"
                     >
                       ptr1337@cachyos.org
                     </a>

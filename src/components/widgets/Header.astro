@@ -17,12 +17,12 @@ const navItems = [
 ---
 
 <header
-  class="sticky top-0 z-40 flex-none mx-auto transition-colors w-full duration-500 lg:z-50 supports-backdrop-blur:bg-white/95 md:backdrop-blur-xs"
+  class="sticky top-0 z-40 flex-none mx-auto transition-colors w-full duration-500 lg:z-50 supports-backdrop-blur:bg-surface-50/95 dark:supports-backdrop-blur:bg-surface-950/95 md:backdrop-blur-xs"
   id="header"
 >
   <div class="py-3 px-3 mx-auto w-full md:justify-between max-w-6xl md:px-4">
     <div
-      class="md:flex md:items-center md:justify-between text-gray-700 font-semibold text-sm leading-6 dark:text-gray-200"
+      class="md:flex md:items-center md:justify-between text-surface-700 font-semibold text-sm leading-6 dark:text-surface-200"
     >
       <a class="hidden md:flex md:items-center" href={getHomePermalink()}>
         <Logo />
@@ -37,7 +37,7 @@ const navItems = [
         </div>
       </div>
       <nav
-        class="items-center w-full md:z-60 md:w-auto md:flex text-gray-700 dark:text-gray-200 h-[calc(100vh-100px)] md:h-auto overflow-y-auto md:overflow-visible hidden"
+        class="items-center w-full md:z-60 md:w-auto md:flex text-surface-700 dark:text-surface-200 h-[calc(100vh-100px)] md:h-auto overflow-y-auto md:overflow-visible hidden"
         aria-label="Main navigation"
       >
         <ul
@@ -47,7 +47,7 @@ const navItems = [
             navItems.map(({ href, text }) => (
               <li>
                 <a
-                  class="hover:text-gray-900 dark:hover:text-white px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out hover:underline underline-offset-2"
+                  class="hover:text-primary-700 dark:hover:text-primary-300 px-4 py-3 md:px-0 md:py-0 flex items-center transition duration-150 ease-in-out hover:underline underline-offset-2"
                   href={href}
                 >
                   {text}
@@ -57,7 +57,7 @@ const navItems = [
           }
           <li class="md:hidden">
             <a
-              class="font-bold hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+              class="font-bold hover:text-primary-700 dark:hover:text-primary-300 px-4 py-3 flex items-center transition duration-150 ease-in-out"
               href="https://github.com/cachyos"
             >
               Github
@@ -69,7 +69,7 @@ const navItems = [
             <ToggleTheme iconClass="w-5 h-5" />
             <a
               href="https://github.com/cachyos"
-              class="inline-block text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+              class="inline-block text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 focus:outline-hidden focus:ring-4 focus:ring-primary-300/40 dark:focus:ring-primary-500/30 rounded-lg text-sm p-2.5"
               aria-label="CachyOS Github"
             >
               <Icon name="tabler:brand-github" class="w-5 h-5" />

@@ -7,7 +7,7 @@ export default function LegalNoticeButton() {
     <>
       <LegalNoticeModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <button
-        className="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
+        className="text-muted hover:text-surface-700 dark:text-surface-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
         onClick={() => setIsOpen(true)}
       >
         Legal Notice
