@@ -1,7 +1,10 @@
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import { Fragment } from 'react';
 
-const LegalNoticeModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: () => void }>) => {
+const LegalNoticeModal = ({
+  isOpen,
+  onClose,
+}: Readonly<{ isOpen: boolean; onClose: () => void }>) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>

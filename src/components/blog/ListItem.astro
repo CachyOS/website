@@ -51,7 +51,7 @@ const link = getPermalink(post.permalink, 'post');
       <div class="mb-1">
         <span class="text-sm">
           <Icon name="tabler:clock" class="w-3.5 h-3.5 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(createdDate)} class="inline-block"
+          <time datetime={createdDate?.toISOString()} class="inline-block"
             >{getFormattedDate(createdDate)}</time
           >
           {

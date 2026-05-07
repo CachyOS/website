@@ -11,6 +11,8 @@
 import { basename, dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
+const timestampRegex = new RegExp(/^(?<timestamp>\d+)$/);
+
 /** Custom error thrown when git is not found in `PATH`. */
 class GitNotFoundError extends Error {}
 
@@ -29,7 +31,7 @@ export function getFileCommitDate(
   date: Date;
   timestamp: number;
 } {
-  let git_path = '';
+  let git_path;
   {
     const { stdout } = spawnSync('which', ['git'], {
       encoding: 'utf-8',
@@ -63,8 +65,7 @@ export function getFileCommitDate(
   }
 
   const output = result.stdout.trim();
-  const regex = /^(?<timestamp>\d+)$/;
-  const match = output.match(regex);
+  const match = timestampRegex.exec(output);
 
   if (!match?.groups?.timestamp) {
     throw new Error(`Failed to validate the timestamp for file "${file}"`);
