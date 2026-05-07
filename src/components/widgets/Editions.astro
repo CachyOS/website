@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import DropdownMenu from '~/components/widgets/DropdownMenu';
 import { ISOEdition, ISOSource, generateDownloadLink } from '~/utils/utils';
 import versions from '~/versions';
+import desktopImage from '~/assets/images/desktop_dark.png';
+import handheldImage from '~/assets/images/handheld.png';
 
 const [desktop_magnet = '', handheld_magnet = ''] = await Promise.all(
   [
@@ -36,7 +38,7 @@ const items = [
         versions.desktopISOVersion,
         ISOSource.TORRENT
       ),
-      preview: import('~/assets/images/desktop_dark.png'),
+      preview: desktopImage,
     },
     {
       title: 'Handheld Edition',
@@ -57,14 +59,14 @@ const items = [
         versions.handheldISOVersion,
         ISOSource.TORRENT
       ),
-      preview: import('~/assets/images/handheld.png'),
+      preview: handheldImage,
     },
   ],
 ];
 ---
 
 <section class="pt-12 md:pt-24 pb-20 md:pb-52">
-  <div class="container mx-auto grid gap-12 md:gap-18 px-6 space-y-20 md:space-y-52">
+  <div class="mx-auto max-w-6xl grid gap-12 md:gap-18 px-3 md:px-6 space-y-20 md:space-y-52">
     {
       items.map((subitems) =>
         subitems.map(
@@ -104,7 +106,7 @@ const items = [
                 {preview && (
                   <Image
                     src={preview}
-                    class="transform lg:hover:-translate-x-8 rounded-xl transition ease-in-out duration-700 cursor-pointer"
+                    class="transform lg:hover:-translate-x-8 rounded-xl transition ease-in-out duration-700"
                     alt={`${title} preview`}
                     decoding="async"
                     loading="lazy"
