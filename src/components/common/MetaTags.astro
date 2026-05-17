@@ -7,7 +7,9 @@ import { SITE } from '~/config.mjs';
 import type { MetaSEO } from '~/types';
 import { getCanonical, getAsset } from '~/utils/permalinks';
 import { getRelativeUrlByFilePath } from '~/utils/directories';
+import '@fontsource-variable/jetbrains-mono';
 import '@fontsource-variable/inter';
+import '@fontsource/vt323';
 
 export interface Props extends MetaSEO {
   dontUseTitleTemplate?: boolean;
@@ -43,7 +45,7 @@ const image =
   typeof _image === 'string'
     ? new URL(_image, Astro.site)
     : _image && typeof _image['src'] !== 'undefined'
-      ? // @ts-ignore
+      ? // @ts-expect-error: _image.src may exist but TS doesn't narrow it correctly
         new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
       : null;
 ---
@@ -55,7 +57,7 @@ const image =
 
 <AstroSeo
   title={title}
-  titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
+  titleTemplate={dontUseTitleTemplate ? '%s' : `%s - ${SITE.name}`}
   description={description}
   canonical={String(canonical)}
   noindex={noindex}

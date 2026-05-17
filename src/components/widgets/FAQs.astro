@@ -4,37 +4,32 @@ import { Icon } from 'astro-icon/components';
 const items = [
   [
     {
-      question: 'What do I need to start?',
-      answer: `Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds.
-
-    Many say exploration is part of our destiny, but it’s actually our duty to future generations.`,
+      question: 'What is CachyOS?',
+      answer: `CachyOS is a performance-optimized Arch Linux distribution. Every package is compiled with modern CPU instruction sets like x86-64-v3/v4 and Zen4, plus LTO and PGO optimizations. It ships a custom kernel with advanced scheduler options, giving you a noticeably faster Arch Linux experience while maintaining full rolling-release flexibility.`,
     },
     {
-      question: 'How to install the Astro + Tailwind CSS template?',
-      answer: `Well, the way they make shows is, they make one show. That show's called a pilot.
+      question: 'How is CachyOS different from regular Arch Linux?',
+      answer: `Standard Arch Linux ships generic x86-64 binaries. CachyOS rebuilds the entire stack with CPU-specific optimizations targeting x86-64-v3, x86-64-v4, and Zen4 architectures. Core packages receive additional PGO and BOLT optimization passes. The custom linux-cachyos kernel includes tuned schedulers like BORE, sched-ext, and BMQ for better responsiveness.
 
-    Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.`,
+You also get two installer options (graphical Calamares or CLI), 17+ desktop environments, and pre-configured optimizations out of the box.`,
     },
     {
-      question: "What's something that you completely don't understand?",
-      answer: `A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.`,
+      question: 'Which desktop environments are available?',
+      answer: `You can choose from over 17 desktop environments and window managers during installation, including KDE Plasma, GNOME, COSMIC, Hyprland, Sway, Niri, i3, XFCE, and more. Every option is fully supported and configured out of the box.`,
     },
   ],
   [
     {
-      question: "What's an example of when you changed your mind?",
-      answer: `Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.`,
+      question: 'Is CachyOS compatible with Arch Linux AUR?',
+      answer: `Yes. CachyOS is fully compatible with the Arch Linux AUR (Arch User Repository). You can use any AUR helper like yay, paru, or pamac to install packages from the AUR. All Arch Linux packages and documentation are compatible with CachyOS.`,
     },
     {
-      question: 'What is something that you would really like to try again?',
-      answer: `A business big enough that it could be listed on the NASDAQ goes belly up. Disappears!
-
-      It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.`,
+      question: 'What hardware does CachyOS support?',
+      answer: `CachyOS supports x86-64 hardware with a focus on modern CPUs. We offer optimized builds for x86-64-v3 (Haswell and newer), x86-64-v4 (modern high-end CPUs), and Zen4 architectures. The Handheld Edition supports ROG Ally, Steam Deck OLED/LCD, Legion Go, and Lenovo Legion Go S.`,
     },
     {
-      question:
-        'If you could only ask one question to each person you meet, what would that question be?',
-      answer: `This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.`,
+      question: 'How can I support the project?',
+      answer: `CachyOS is an independent, community-driven project. You can support us through donations via Bitcoin, Ethereum, Litecoin, or Patreon. Your contributions help cover infrastructure costs (mirrors, build servers, hosting), fund active development, and enable hardware testing across different architectures.`,
     },
   ],
 ];

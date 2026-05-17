@@ -18,7 +18,7 @@ const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
 
 const meta = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `Blog${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
   openGraph: {
     type: 'blog',
   },
@@ -27,7 +27,7 @@ const meta = {
 
 <Layout {meta}>
   <section class="px-6 sm:px-6 py-18 lg:py-28 mx-auto max-w-4xl">
-    <BackgroundGradient position="right" rotate="rotate-35" />
+    <BackgroundGradient position="right" rotate="rotate-35" variant="blob" noiseLayers={2} />
     <Headline> Cachy Blog </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />

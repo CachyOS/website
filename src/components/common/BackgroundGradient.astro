@@ -3,9 +3,23 @@ export interface Props {
   position?: 'left' | 'right' | 'center';
   colors?: [string, string];
   rotate?: string;
+  variant?: 'blob' | 'stripe' | 'combined' | 'aurora';
+  noiseOpacity?: number;
+  noiseLayers?: 1 | 2 | 3;
+  stripeDensity?: 'sparse' | 'medium' | 'dense';
+  animate?: boolean;
 }
 
-const { position = 'left', colors = ['#8B5CF6', '#2DD4BF'], rotate = 'rotate-30' } = Astro.props;
+const {
+  position = 'left',
+  colors = ['#00CCFF', '#00AA88'],
+  rotate = 'rotate-30',
+  variant = 'combined',
+  noiseOpacity = 0.04,
+  noiseLayers = 3,
+  stripeDensity = 'medium',
+  animate = true,
+} = Astro.props;
 
 const positionClasses = {
   left: 'left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)]',
@@ -15,34 +29,191 @@ const positionClasses = {
 
 const positionClass = positionClasses[position];
 const gradientId = `grad-${Math.random().toString(36).substring(2, 11)}`;
+const noiseFilterId = `noise-${Math.random().toString(36).substring(2, 11)}`;
+const showBlob = variant === 'blob' || variant === 'combined';
+const showStripes = variant === 'stripe' || variant === 'combined';
+const showAurora = variant === 'aurora';
+
+const stripeDensityClass = {
+  sparse: 'opacity-30 dark:opacity-20',
+  medium: 'opacity-50 dark:opacity-30',
+  dense: 'opacity-70 dark:opacity-50',
+};
+
+const animClass = animate ? 'blob-animate-1' : '';
+const animClass2 = animate ? 'blob-animate-2' : '';
+const animClass3 = animate ? 'blob-animate-3' : '';
 ---
 
 <div
-  class="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 pointer-events-none"
+  class="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
   aria-hidden="true"
 >
-  <svg
-    class={`relative ${positionClass} -z-10 h-84.75 max-w-none -translate-x-1/2 ${rotate} sm:h-169.5`}
-    viewBox="0 0 1155 678"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill={`url(#${gradientId})`}
-      fill-opacity=".3"
-      d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-    ></path>
+  <!-- Aurora Variant -->
+  {showAurora && (
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-aurora-gradient" />
+      <div class="absolute inset-0 bg-aurora-glow" />
+    </div>
+  )}
+
+  <!-- Layer 1: Color Blobs (3 overlapping for depth) -->
+  {showBlob && (
+    <>
+      <!-- Blob 1: Primary -->
+      <div class={`absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80 ${animClass}`}>
+        <svg
+          class={`relative ${positionClass} h-84.75 max-w-none -translate-x-1/2 ${rotate} sm:h-169.5`}
+          viewBox="0 0 1155 678"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill={`url(#${gradientId})`}
+            fill-opacity=".3"
+            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+          ></path>
+          <defs>
+            <linearGradient
+              id={gradientId}
+              x1="1155.49"
+              x2="-78.208"
+              y1=".177"
+              y2="474.645"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color={colors[0]}></stop>
+              <stop offset="1" stop-color={colors[1]}></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Blob 2: Secondary (offset) -->
+      <div class={`absolute inset-x-0 -top-20 transform-gpu overflow-hidden blur-3xl sm:-top-60 ${animClass2}`}>
+        <svg
+          class={`relative left-[calc(50%-5rem)] sm:left-[calc(50%-20rem)] h-72 max-w-none -translate-x-1/2 rotate-45 sm:h-144`}
+          viewBox="0 0 1155 678"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill={`url(#${gradientId}-2)`}
+            fill-opacity=".2"
+            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+          ></path>
+          <defs>
+            <linearGradient
+              id={`${gradientId}-2`}
+              x1="1155.49"
+              x2="-78.208"
+              y1=".177"
+              y2="474.645"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color={colors[1]}></stop>
+              <stop offset="1" stop-color="#00FFCC"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Blob 3: Accent (subtle) -->
+      <div class={`absolute inset-x-0 top-20 transform-gpu overflow-hidden blur-3xl sm:top-40 ${animClass3}`}>
+        <svg
+          class={`relative left-[calc(50%+5rem)] sm:left-[calc(50%+20rem)] h-60 max-w-none -translate-x-1/2 -rotate-12 sm:h-120`}
+          viewBox="0 0 1155 678"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill={`url(#${gradientId}-3)`}
+            fill-opacity=".15"
+            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+          ></path>
+          <defs>
+            <linearGradient
+              id={`${gradientId}-3`}
+              x1="1155.49"
+              x2="-78.208"
+              y1=".177"
+              y2="474.645"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#00FFCC"></stop>
+              <stop offset="1" stop-color={colors[0]}></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </>
+  )}
+
+  <!-- Layer 3: Vertical Stripes -->
+  {showStripes && (
+    <>
+      <div class={`absolute inset-0 bg-stripe-pattern ${stripeDensityClass[stripeDensity]}`} />
+      <div class="absolute inset-0 bg-stripe-pattern-glow opacity-20 dark:opacity-10" />
+      <div class="absolute inset-0 bg-stripe-pattern-fade opacity-30 dark:opacity-20" />
+    </>
+  )}
+
+  <!-- Layer 2: Multi-Layer Noise Texture -->
+  <!-- Layer 2a: Fine grain -->
+  <svg class="absolute inset-0 w-full h-full" style={`opacity: ${noiseLayers >= 1 ? noiseOpacity * 0.75 : 0}`}>
     <defs>
-      <linearGradient
-        id={gradientId}
-        x1="1155.49"
-        x2="-78.208"
-        y1=".177"
-        y2="474.645"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stop-color={colors[0]}></stop>
-        <stop offset="1" stop-color={colors[1]}></stop>
-      </linearGradient>
+      <filter id={`${noiseFilterId}-fine`}>
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
     </defs>
+    <rect width="100%" height="100%" filter={`url(#${noiseFilterId}-fine)`} />
   </svg>
+
+  <!-- Layer 2b: Medium texture -->
+  {noiseLayers >= 2 && (
+    <svg class="absolute inset-0 w-full h-full" style={`opacity: ${noiseOpacity * 0.5}`}>
+      <defs>
+        <filter id={`${noiseFilterId}-medium`}>
+          <feTurbulence type="fractalNoise" baseFrequency="0.4" numOctaves="2" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+      </defs>
+      <rect width="100%" height="100%" filter={`url(#${noiseFilterId}-medium)`} />
+    </svg>
+  )}
+
+  <!-- Layer 2c: Soft cloud -->
+  {noiseLayers >= 3 && (
+    <svg class="absolute inset-0 w-full h-full" style={`opacity: ${noiseOpacity}`}>
+      <defs>
+        <filter id={`${noiseFilterId}-cloud`}>
+          <feTurbulence type="fractalNoise" baseFrequency="0.15" numOctaves="1" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+      </defs>
+      <rect width="100%" height="100%" filter={`url(#${noiseFilterId}-cloud)`} />
+    </svg>
+  )}
 </div>
+
+<style is:global>
+  @keyframes blob-drift-1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -30px) rotate(5deg); }
+  }
+  @keyframes blob-drift-2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-15px, 20px) rotate(-3deg); }
+  }
+  @keyframes blob-drift-3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(10px, 15px) rotate(2deg); }
+  }
+  .blob-animate-1 { animation: blob-drift-1 25s ease-in-out infinite; }
+  .blob-animate-2 { animation: blob-drift-2 30s ease-in-out infinite; }
+  .blob-animate-3 { animation: blob-drift-3 20s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .blob-animate-1, .blob-animate-2, .blob-animate-3,
+    .bg-aurora-gradient, .bg-aurora-glow {
+      animation: none !important;
+    }
+  }
+</style>

@@ -7,13 +7,13 @@ import Team from '~/components/widgets/Team.astro';
 
 const meta = {
   title: `About us`,
-  description: `Learn more about us.`,
+  description: `Meet the team behind CachyOS and learn about the performance-optimized Arch Linux distribution.`,
   canonical: getCanonical(getPermalink('/about/')),
 };
 ---
 
 <Layout {meta}>
-  <BackgroundGradient position="center" rotate="rotate-230" />
+  <BackgroundGradient position="center" rotate="rotate-230" variant="stripe" noiseLayers={2} stripeDensity="dense" />
   <Distribution />
   <Team />
 </Layout>
