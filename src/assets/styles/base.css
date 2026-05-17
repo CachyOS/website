@@ -68,6 +68,24 @@
     'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+@utility bg-stripe-pattern {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 204, 255, 0.08) 8%,
+    transparent 15%,
+    transparent 28%,
+    rgba(0, 170, 136, 0.06) 35%,
+    transparent 43%,
+    transparent 55%,
+    rgba(0, 255, 204, 0.05) 62%,
+    transparent 70%,
+    transparent 82%,
+    rgba(0, 204, 255, 0.06) 88%,
+    transparent 100%
+  );
+}
+
 @utility bg-dark {
   @apply bg-gray-950;
 }

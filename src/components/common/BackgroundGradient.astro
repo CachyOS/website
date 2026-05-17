@@ -3,9 +3,17 @@ export interface Props {
   position?: 'left' | 'right' | 'center';
   colors?: [string, string];
   rotate?: string;
+  variant?: 'blob' | 'stripe' | 'combined';
+  noiseOpacity?: number;
 }
 
-const { position = 'left', colors = ['#8B5CF6', '#2DD4BF'], rotate = 'rotate-30' } = Astro.props;
+const {
+  position = 'left',
+  colors = ['#00CCFF', '#00AA88'],
+  rotate = 'rotate-30',
+  variant = 'combined',
+  noiseOpacity = 0.04,
+} = Astro.props;
 
 const positionClasses = {
   left: 'left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)]',
@@ -15,34 +23,58 @@ const positionClasses = {
 
 const positionClass = positionClasses[position];
 const gradientId = `grad-${Math.random().toString(36).substring(2, 11)}`;
+const noiseFilterId = `noise-${Math.random().toString(36).substring(2, 11)}`;
+const showBlob = variant !== 'stripe';
+const showStripes = variant !== 'blob';
 ---
 
 <div
-  class="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 pointer-events-none"
+  class="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
   aria-hidden="true"
 >
-  <svg
-    class={`relative ${positionClass} -z-10 h-84.75 max-w-none -translate-x-1/2 ${rotate} sm:h-169.5`}
-    viewBox="0 0 1155 678"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill={`url(#${gradientId})`}
-      fill-opacity=".3"
-      d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-    ></path>
-    <defs>
-      <linearGradient
-        id={gradientId}
-        x1="1155.49"
-        x2="-78.208"
-        y1=".177"
-        y2="474.645"
-        gradientUnits="userSpaceOnUse"
+  <!-- Layer 1: Color Blob -->
+  {showBlob && (
+    <div class="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+      <svg
+        class={`relative ${positionClass} h-84.75 max-w-none -translate-x-1/2 ${rotate} sm:h-169.5`}
+        viewBox="0 0 1155 678"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <stop stop-color={colors[0]}></stop>
-        <stop offset="1" stop-color={colors[1]}></stop>
-      </linearGradient>
+        <path
+          fill={`url(#${gradientId})`}
+          fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+        ></path>
+        <defs>
+          <linearGradient
+            id={gradientId}
+            x1="1155.49"
+            x2="-78.208"
+            y1=".177"
+            y2="474.645"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color={colors[0]}></stop>
+            <stop offset="1" stop-color={colors[1]}></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  )}
+
+  <!-- Layer 3: Vertical Stripes -->
+  {showStripes && (
+    <div class="absolute inset-0 bg-stripe-pattern opacity-50 dark:opacity-30" />
+  )}
+
+  <!-- Layer 2: Noise Texture (on top of everything) -->
+  <svg class="absolute inset-0 w-full h-full" style={`opacity: ${noiseOpacity}`}>
+    <defs>
+      <filter id={noiseFilterId}>
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
     </defs>
+    <rect width="100%" height="100%" filter={`url(#${noiseFilterId})`} />
   </svg>
 </div>
