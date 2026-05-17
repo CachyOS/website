@@ -29,10 +29,9 @@ export function getFileCommitDate(
   date: Date;
   timestamp: number;
 } {
-  const whichCmd = process.platform === 'win32' ? 'where' : 'which';
-  let git_path = 'git';
+  const gitPath = process.platform === 'win32' ? 'where' : 'which';
   {
-    const { stdout, status } = spawnSync(whichCmd, ['git'], {
+    const { stdout, status } = spawnSync(gitPath, ['git'], {
       encoding: 'utf-8',
     });
     if (status !== 0 || !stdout) {
@@ -40,11 +39,10 @@ export function getFileCommitDate(
         `Failed to retrieve git history for "${file}" because git is not installed.`
       );
     }
-    git_path = stdout.trim().split(/\r?\n/)[0];
   }
 
   const result = spawnSync(
-    git_path,
+    'git',
     [
       'log',
       '--format=%ct',

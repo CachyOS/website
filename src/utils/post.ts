@@ -3,10 +3,10 @@ import { getFileCommitDate } from './git';
 
 export const getLastUpdated = (entry: CollectionEntry<'post'>): Date | undefined => {
   const currentFilePath = `src/content/post/` + entry.id + '.md';
-  let date = undefined;
+  let date: Date | undefined;
   try {
     ({ date } = getFileCommitDate(currentFilePath, 'newest'));
-  } catch (e) {
+  } catch {
     const fallback = entry.data.updateDate || entry.data.publishDate;
     if (fallback) return fallback;
   }
@@ -15,10 +15,10 @@ export const getLastUpdated = (entry: CollectionEntry<'post'>): Date | undefined
 
 export const getCreatedDate = (entry: CollectionEntry<'post'>): Date | undefined => {
   const currentFilePath = `src/content/post/` + entry.id + '.md';
-  let date = undefined;
+  let date: Date | undefined;
   try {
     ({ date } = getFileCommitDate(currentFilePath, 'oldest'));
-  } catch (e) {
+  } catch {
     return entry.data.publishDate;
   }
   return date;

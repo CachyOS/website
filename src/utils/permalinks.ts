@@ -24,7 +24,7 @@ export const BLOG_BASE = cleanSlug('blog');
 export const CATEGORY_BASE = cleanSlug('category');
 export const TAG_BASE = cleanSlug('tag') || 'tag';
 
-export const POST_PERMALINK_PATTERN = trimSlash('/blog/%slug%' || `${BLOG_BASE}/%slug%`);
+export const POST_PERMALINK_PATTERN = trimSlash('/blog/%slug%');
 
 /** */
 export const getCanonical = (path = ''): string | URL => new URL(path, SITE.origin);

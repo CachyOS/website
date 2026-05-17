@@ -66,24 +66,132 @@
   --font-heading:
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-tagline:
+    'VT323', 'Courier New', monospace;
 }
 
 @utility bg-stripe-pattern {
+  background-image: 
+    repeating-linear-gradient(90deg,
+      transparent 0px,
+      rgba(0, 204, 255, 0.04) 2px,
+      rgba(0, 170, 136, 0.03) 4px,
+      transparent 6px,
+      transparent 12px
+    );
+}
+
+@utility bg-stripe-pattern-glow {
+  background-image: 
+    repeating-linear-gradient(90deg,
+      transparent 0px,
+      rgba(0, 204, 255, 0.06) 1px,
+      rgba(0, 255, 204, 0.04) 3px,
+      transparent 5px,
+      transparent 10px
+    );
+  filter: blur(2px);
+}
+
+@utility bg-stripe-pattern-fade {
   background-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0, 204, 255, 0.08) 8%,
-    transparent 15%,
-    transparent 28%,
-    rgba(0, 170, 136, 0.06) 35%,
-    transparent 43%,
-    transparent 55%,
-    rgba(0, 255, 204, 0.05) 62%,
-    transparent 70%,
-    transparent 82%,
-    rgba(0, 204, 255, 0.06) 88%,
-    transparent 100%
+    180deg,
+    rgba(2, 2, 2, 0.9) 0%,
+    rgba(2, 2, 2, 0.4) 30%,
+    rgba(0, 204, 255, 0.1) 70%,
+    rgba(0, 255, 204, 0.15) 100%
   );
+}
+
+@utility bg-aurora-gradient {
+  background: linear-gradient(
+    120deg,
+    rgba(2, 2, 2, 0.95) 0%,
+    rgba(0, 20, 20, 0.8) 25%,
+    rgba(0, 204, 255, 0.15) 50%,
+    rgba(0, 170, 136, 0.1) 75%,
+    rgba(2, 2, 2, 0.95) 100%
+  );
+  background-size: 200% 200%;
+  animation: aurora-flow 25s ease-in-out infinite;
+}
+
+@utility bg-aurora-glow {
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(0, 255, 204, 0.08) 0%,
+    transparent 70%
+  );
+  animation: aurora-pulse 20s ease-in-out infinite;
+}
+
+@keyframes aurora-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes aurora-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes blob-drift-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -30px) rotate(5deg); }
+}
+
+@keyframes blob-drift-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-15px, 20px) rotate(-3deg); }
+}
+
+@keyframes blob-drift-3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(10px, 15px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-aurora-gradient,
+  .bg-aurora-glow,
+  .blob-animate-1,
+  .blob-animate-2,
+  .blob-animate-3 {
+    animation: none !important;
+  }
+}
+
+/* Hero Tagline Animations */
+.hero-word-1,
+.hero-word-2,
+.hero-word-3 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero-word-1 { animation-delay: 0.1s; }
+.hero-word-2 { animation-delay: 0.25s; }
+.hero-word-3 { animation-delay: 0.4s; }
+
+@keyframes hero-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-word-1,
+  .hero-word-2,
+  .hero-word-3 {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 @utility bg-dark {
