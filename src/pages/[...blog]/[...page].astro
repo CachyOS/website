@@ -18,7 +18,7 @@ const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
 
 const meta = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `Blog${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
   openGraph: {
     type: 'blog',
   },

@@ -29,17 +29,18 @@ export function getFileCommitDate(
   date: Date;
   timestamp: number;
 } {
-  let git_path = '';
+  const whichCmd = process.platform === 'win32' ? 'where' : 'which';
+  let git_path = 'git';
   {
-    const { stdout } = spawnSync('which', ['git'], {
+    const { stdout, status } = spawnSync(whichCmd, ['git'], {
       encoding: 'utf-8',
     });
-    if (!stdout) {
+    if (status !== 0 || !stdout) {
       throw new GitNotFoundError(
         `Failed to retrieve git history for "${file}" because git is not installed.`
       );
     }
-    git_path = stdout.replace(/\n$/, '');
+    git_path = stdout.trim().split(/\r?\n/)[0];
   }
 
   const result = spawnSync(
