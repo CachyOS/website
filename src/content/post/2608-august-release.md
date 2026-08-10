@@ -74,11 +74,6 @@ Grab your copy of the latest ISO from our mirrors on SourceForge:
 * Russia: <https://mirror.yandex.ru/cachyos/ISO/desktop/260809/cachyos-desktop-linux-260809.iso>
 * <https://sourceforge.net/projects/cachyos-arch/files>
 
-**Handheld Edition:**
-
-* CDN: <https://iso.cachyos.org/handheld/260809/cachyos-handheld-linux-260809.iso>
-* CDN2: <https://cdn77.cachyos.org/ISO/handheld/260809/cachyos-handheld-linux-260809.iso>
-
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
