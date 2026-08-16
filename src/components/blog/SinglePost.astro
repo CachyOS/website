@@ -26,7 +26,7 @@ const { Content } = post;
       >
         <p>
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(post.publishDate)} class="inline-block"
+          <time datetime={post.publishDate.toISOString()} class="inline-block"
             >{getFormattedDate(post.publishDate)}</time
           >
           {

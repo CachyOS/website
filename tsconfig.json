@@ -8,6 +8,7 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "exactOptionalPropertyTypes": false
   }
 }

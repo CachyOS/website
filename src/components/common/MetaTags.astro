@@ -6,7 +6,6 @@ import { ClientRouter } from 'astro:transitions';
 import { SITE } from '~/config.mjs';
 import type { MetaSEO } from '~/types';
 import { getCanonical, getAsset } from '~/utils/permalinks';
-import { getRelativeUrlByFilePath } from '~/utils/directories';
 import '@fontsource-variable/inter';
 
 export interface Props extends MetaSEO {
@@ -27,9 +26,9 @@ const defaultImage = SITE.defaultImage
 const {
   title = SITE.name,
   description = '',
-  image: _image = defaultImage,
+  image = new URL(defaultImage, Astro.site),
 
-  canonical = String(getCanonical(String(Astro.url.pathname))),
+  canonical = getCanonical(Astro.url.pathname),
   noindex = false,
   nofollow = false,
 
@@ -38,14 +37,6 @@ const {
 
   dontUseTitleTemplate = false,
 } = Astro.props;
-
-const image =
-  typeof _image === 'string'
-    ? new URL(_image, Astro.site)
-    : _image && typeof _image['src'] !== 'undefined'
-      ? // @ts-ignore
-        new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
-      : null;
 ---
 
 <meta charset="UTF-8" />
@@ -57,11 +48,11 @@ const image =
   title={title}
   titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
   description={description}
-  canonical={String(canonical)}
+  canonical={canonical.toString()}
   noindex={noindex}
   nofollow={nofollow}
   openGraph={{
-    url: String(canonical),
+    url: canonical.toString(),
     title: ogTitle,
     description: description,
     type: ogType,
@@ -73,11 +64,8 @@ const image =
           },
         ]
       : undefined,
-    // site_name: 'SiteName',
   }}
   twitter={{
-    // handle: '@handle',
-    // site: '@site',
     cardType: image ? 'summary_large_image' : undefined,
   }}
 />
