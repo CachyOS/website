@@ -29,7 +29,7 @@ export const enum ISOEdition {
   KDE = 'kde',
 }
 
-const direct_base_link = 'https://cdn77.cachyos.org/ISO';
+const direct_base_link = 'https://mirror.zyner.org/mirror/cachyos/ISO';
 const sourceforge_base_link = 'https://sourceforge.net/projects/cachyos-arch/files/gui-installer';
 const torrent_base_link = 'https://torrents.soulharsh007-codewerkstatt.de/processed';
 const magnet_base_link = 'https://torrents.soulharsh007-codewerkstatt.de/magnet';
