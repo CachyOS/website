@@ -20,6 +20,7 @@ const items = [
     description: 'Kernel maintainer, scx contributor, University lecturer from Poland',
     avatar: '~/assets/images/logo.svg',
     github_url: 'https://github.com/sirlucjan',
+    contributor: true,
   },
   {
     name: 'Vasiliy Stelmachenok (ventureoo)',
@@ -80,68 +81,89 @@ const items = [
     description: 'Developer, Contributor, Wiki, Tester',
     avatar: '~/assets/images/azdanov_avatar.png',
     github_url: 'https://github.com/azdanov',
+    contributor: true,
   },
   {
     name: 'Simen Gravdal (sim)',
     description: 'Contributor, Support, Wiki, Tester',
     avatar: '~/assets/images/sim_avatar.webp',
     github_url: 'https://github.com/simiscoool-afk',
+
+  },
+];
+
+const subsections = [
+  {
+    name: 'Meet our team!',
+    description: 'Meet the people behind CachyOS!',
+    items: items.filter((item) => !item.contributor),
+  },
+  {
+    name: 'Contributors',
+    description: 'Thank you to everyone who helped shape CachyOS along the way.',
+    items: items.filter((item) => item.contributor),
   },
 ];
 ---
 
 <section class="py-28 overflow-hidden" id="team">
   <div class="py-8 px-4 mx-auto max-w-(--breakpoint-xl) text-center lg:py-16 lg:px-6">
-    <div class="mx-auto mb-8 max-w-(--breakpoint-sm) lg:mb-16">
-      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-        Meet our team!
-      </h2>
-      <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-        Meet the people behind CachyOS!
-      </p>
-    </div>
-    <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {
-        items.map(({ name, description, avatar, github_url }) => (
-          <div class="text-center text-gray-500 dark:text-gray-400 flex flex-col rounded-lg h-96">
-            <div class="flex flex-row justify-center">
-              <Image
-                src={avatar}
-                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square hidden md:block"
-                alt={`Avatar of ${name}`}
-                aspectRatio={1}
-                loading="eager"
-                width={512}
-                height={512}
-              />
-              <Image
-                src={avatar}
-                class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square md:hidden"
-                alt={`Avatar of ${name}`}
-                aspectRatio={1}
-                loading="eager"
-                width={256}
-                height={256}
-              />
-            </div>
-            <ul class="flex justify-center mt-2 space-x-4">
-              <li>
-                <a
-                  class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label="Github"
-                  href={github_url}
-                >
-                  <Icon name="tabler:brand-github" class="w-5 h-5" />
-                </a>
-              </li>
-            </ul>
-            <h3 class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {name}
-            </h3>
-            <p class="mb-4 text-sm font-medium">{description}</p>
-          </div>
-        ))
-      }
-    </div>
+    {
+      subsections.map(({ name, description, items }) => (
+        <div class="mx-auto mb-8 max-w-(--breakpoint-sm) lg:mb-16">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+            {name}
+          </h2>
+          <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+            {description}
+          </p>
+        </div>
+
+        <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {
+            items.map(({ name, description, avatar, github_url }) => (
+              <div class="text-center text-gray-500 dark:text-gray-400 flex flex-col rounded-lg h-96">
+                <div class="flex flex-row justify-center">
+                  <Image
+                    src={avatar}
+                    class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square hidden md:block"
+                    alt={`Avatar of ${name}`}
+                    aspectRatio={1}
+                    loading="eager"
+                    width={512}
+                    height={512}
+                  />
+                  <Image
+                    src={avatar}
+                    class="transform hover:scale-105 transition ease-in-out duration-1000 aspect-square md:hidden"
+                    alt={`Avatar of ${name}`}
+                    aspectRatio={1}
+                    loading="eager"
+                    width={256}
+                    height={256}
+                  />
+                </div>
+                <ul class="flex justify-center mt-2 space-x-4">
+                  <li>
+                    <a
+                      class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                      aria-label="Github"
+                      href={github_url}
+                    >
+                      <Icon name="tabler:brand-github" class="w-5 h-5" />
+                    </a>
+                  </li>
+                </ul>
+                <h3 class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {name}
+                </h3>
+                <p class="mb-4 text-sm font-medium">{description}</p>
+              </div>
+            ))
+          }
+        </div>
+      ))
+    }
+
   </div>
 </section>
