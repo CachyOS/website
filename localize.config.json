@@ -1,0 +1,17 @@
+{
+  "sourceLocale": "en",
+  "targetLocales": ["eu"],
+  "localesPath": "src/locales/{locale}.json",
+  "doNotTranslate": [
+    "CachyOS",
+    "Github",
+    "GitHub",
+    "SourceForge",
+    "X",
+    "Discord",
+    "Bluesky",
+    "Mastodon",
+    "Reddit",
+    "Patreon"
+  ]
+}
