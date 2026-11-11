@@ -7,14 +7,16 @@ import type { MetaSEO } from '~/types';
 
 export interface Props {
   meta?: MetaSEO;
+  /** The page has a copy in every language (src/pages/<lang>/). */
+  translated?: boolean;
 }
 
-const { meta } = Astro.props;
+const { meta, translated = false } = Astro.props;
 ---
 
-<Layout {meta}>
+<Layout {meta} {translated}>
   <slot name="header">
-    <Header />
+    <Header {translated} />
   </slot>
   <main>
     <slot />

@@ -1,0 +1,46 @@
+{
+  "dropdown": {
+    "download_button": "Deskargatu {{title}}",
+    "menu_aria_label": "menua",
+    "direct_menu_item": "Zuzenean",
+    "magnet_menu_item": "Magnet",
+    "torrent_menu_item": "Torrent",
+    "checksum_menu_item": "Kontrol-batura",
+    "signature_menu_item": "Sinadura"
+  },
+  "editions": {
+    "under_construction_button": "Eraikitzen 🚧",
+    "preview_title": "{{title}} aurrebista",
+    "desktop_title": "Mahaigaineko edizioa",
+    "desktop_description": "Arch Linux mahaigaineko sistema guztiz optimizatua, CPU-espezifikoak diren paketeen eraikuntzak, kernel sintonizatua eta zure mahaigaineko ingurunearen aukera dituena. Arakatu, garatu, sortu eta jokatu abiadurarako eraikitako sistema batean - software libre eta kode irekiz guztiz elikatua. <br/><br/> Mahaigaineko ingurune ugari eskuragarri: Lineako instalatzaileak 17 ingurune baino gehiago aukeratzeko aukera ematen dizu, besteak beste, KDE Plasma, GNOME, COSMIC, Hyprland, Niri, Sway, i3, XFCE, <a class=\"underline decoration-2 underline-offset-2 text-surface-700 dark:text-primary-500/90\" href=\"https://wiki.cachyos.org/installation/desktop_environments/\">eta gehiago</a>.",
+    "handheld_title": "Eskuko edizioa",
+    "handheld_description": "CachyOS-en eskuko edizioak GameMode antzeko esperientzia bat eskaintzen du eta aurrez instalatutako joko tresnekin dator. Ofizialki onartzen ditu ROG Ally, Steam Deck OLED eta LCD, Legion Go eta Lenovo Legion Go S. Momentuz, KDE Plasma bakarrik onartzen da."
+  },
+  "footer": {
+    "terms_link": "Baldintzak",
+    "privacy_policy_link": "Pribatutasun-politika",
+    "made_by_label": "Egilea:",
+    "all_rights_reserved": "· Eskubide guztiak erreserbatuta.",
+    "product_title": "Produktua",
+    "features_title": "Ezaugarriak",
+    "team_title": "Taldea",
+    "support_title": "Laguntza",
+    "docs_title": "Dokumentazioa",
+    "community_forum_link": "Komunitateko foroa",
+    "distribution_link": "Banaketa",
+    "about_link": "Honi buruz",
+    "mail_label": "Posta",
+    "rss_feed_label": "RSS jarioa"
+  },
+  "header": {
+    "main_navigation_label": "Nabigazio nagusia",
+    "download_button": "Deskargatu",
+    "blog_link": "Bloga",
+    "forum_link": "Foroa",
+    "wiki_link": "Wiki",
+    "packages_link": "Paketeak"
+  },
+  "download": {
+    "hardware_edition_description": "Aurkitu zure hardwarerako egokia den {{name}} edizio bat."
+  }
+}

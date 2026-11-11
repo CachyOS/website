@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
+    "resolveJsonModule": true,
     "jsx": "react-jsx",
     "allowJs": true,
     "checkJs": true,

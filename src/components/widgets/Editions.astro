@@ -5,6 +5,8 @@ import { ISOEdition, ISOSource, generateDownloadLink } from '~/utils/utils';
 import versions from '~/versions';
 import desktopImage from '~/assets/images/desktop_dark.png';
 import handheldImage from '~/assets/images/handheld.png';
+import { getLangFromUrl, useTranslations } from '../../i18n';
+const t = useTranslations(getLangFromUrl(Astro.url));
 
 const [desktop_magnet = '', handheld_magnet = ''] = await Promise.all(
   [
@@ -20,8 +22,9 @@ const [desktop_magnet = '', handheld_magnet = ''] = await Promise.all(
 const items = [
   [
     {
-      title: 'Desktop Edition',
-      description: `A fully optimized Arch Linux desktop with CPU-specific package builds, a tuned kernel, and your choice of desktop environment. Browse, develop, create, and game on a system built for speed - powered entirely by free and open-source software. <br/><br/> Many Desktop Environments Available: The online installer lets you choose from 17+ environments, including KDE Plasma, GNOME, COSMIC, Hyprland, Niri, Sway, i3, XFCE, <a class="underline decoration-2 underline-offset-2 text-surface-700 dark:text-primary-500/90" href="https://wiki.cachyos.org/installation/desktop_environments/">and more</a>.`,
+      name: 'Desktop Edition',
+      title: t('editions.desktop_title'),
+      description: t('editions.desktop_description'),
       direct_url: generateDownloadLink(
         ISOEdition.DESKTOP,
         versions.desktopISOVersion,
@@ -41,8 +44,9 @@ const items = [
       preview: desktopImage,
     },
     {
-      title: 'Handheld Edition',
-      description: `The CachyOS Handheld Edition provides a GameMode-like experience and comes with preinstalled gaming tools. It officially supports the ROG Ally, Steam Deck OLED and LCD, Legion Go, and Lenovo Legion Go S. At the moment, only KDE Plasma is supported.`,
+      name: 'Handheld Edition',
+      title: t('editions.handheld_title'),
+      description: t('editions.handheld_description'),
       direct_url: generateDownloadLink(
         ISOEdition.HANDHELD,
         versions.handheldISOVersion,
@@ -70,7 +74,16 @@ const items = [
     {
       items.map((subitems) =>
         subitems.map(
-          ({ title, description, direct_url, srcforge_url, magnet_url, torrent_url, preview }) => (
+          ({
+            name,
+            title,
+            description,
+            direct_url,
+            srcforge_url,
+            magnet_url,
+            torrent_url,
+            preview,
+          }) => (
             <div class="flex flex-wrap md:flex-nowrap items-center md:space-x-10">
               <div class="w-full md:w-1/2">
                 <h2 class="mb-9 text-4xl md:text-6xl xl:text-8xl font-bold font-heading leading-none text-nowrap lg:text-wrap md:max-w-md">
@@ -85,6 +98,7 @@ const items = [
                     <DropdownMenu
                       client:load
                       data={{
+                        name,
                         title,
                         direct_url,
                         srcforge_url,
@@ -96,7 +110,7 @@ const items = [
                   {!direct_url && !srcforge_url && (
                     <div>
                       <button type="button" class="under-construction py-4 px-6">
-                        Under construction 🚧
+                        {t('editions.under_construction_button')}
                       </button>
                     </div>
                   )}
@@ -107,7 +121,7 @@ const items = [
                   <Image
                     src={preview}
                     class="transform lg:hover:-translate-x-8 rounded-xl transition ease-in-out duration-700"
-                    alt={`${title} preview`}
+                    alt={t('editions.preview_title', { title })}
                     decoding="async"
                     loading="lazy"
                     layout="constrained"

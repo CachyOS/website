@@ -1,8 +1,12 @@
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
+import '../../i18n/react';
 
 interface Props {
   data: {
+    /** The edition's English name, for the download stats. */
+    name: string;
     title: string;
     direct_url: string;
     srcforge_url?: string;
@@ -24,16 +28,17 @@ async function handleDirectButton(edition_name: string) {
 }
 
 const DropdownMenu = ({ data }: Props) => {
+  const { t } = useTranslation();
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <MenuButton
           className="btn btn-primary py-4 px-6"
-          aria-label="menu"
+          aria-label={t('dropdown.menu_aria_label')}
           aria-expanded="true"
           aria-haspopup="true"
         >
-          Download {data.title}
+          {t('dropdown.download_button', { title: data.title })}
           <svg
             className="w-4 h-4 ml-2"
             fill="none"
@@ -70,9 +75,9 @@ const DropdownMenu = ({ data }: Props) => {
             key={data.direct_url}
             href={data.direct_url}
             className="btn-dropdown-item block"
-            onClick={async () => await handleDirectButton(data.title)}
+            onClick={async () => await handleDirectButton(data.name)}
           >
-            Direct
+            {t('dropdown.direct_menu_item')}
           </MenuItem>
           {data.srcforge_url && (
             <MenuItem
@@ -91,7 +96,7 @@ const DropdownMenu = ({ data }: Props) => {
               href={data.magnet_url}
               className="btn-dropdown-item block"
             >
-              Magnet
+              {t('dropdown.magnet_menu_item')}
             </MenuItem>
           )}
           {data.torrent_url && (
@@ -101,7 +106,7 @@ const DropdownMenu = ({ data }: Props) => {
               href={data.torrent_url}
               className="btn-dropdown-item block"
             >
-              Torrent
+              {t('dropdown.torrent_menu_item')}
             </MenuItem>
           )}
           <MenuItem
@@ -110,7 +115,7 @@ const DropdownMenu = ({ data }: Props) => {
             href={data.direct_url + '.sha256'}
             className="btn-dropdown-item block"
           >
-            Checksum
+            {t('dropdown.checksum_menu_item')}
           </MenuItem>
           <MenuItem
             as="a"
@@ -118,7 +123,7 @@ const DropdownMenu = ({ data }: Props) => {
             href={data.direct_url + '.sig'}
             className="btn-dropdown-item block"
           >
-            Signature
+            {t('dropdown.signature_menu_item')}
           </MenuItem>
         </MenuItems>
       </Transition>

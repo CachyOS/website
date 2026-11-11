@@ -5,15 +5,17 @@ import { getCanonical, getPermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import BackgroundGradient from '~/components/common/BackgroundGradient.astro';
 import Editions from '~/components/widgets/Editions.astro';
+import { getLangFromUrl, useTranslations } from '../i18n';
+const t = useTranslations(getLangFromUrl(Astro.url));
 
 const meta = {
-  title: `Download`,
-  description: `Find a suitable ${SITE.name} edition for your hardware.`,
-  canonical: getCanonical(getPermalink('/download/')),
+  title: t('header.download_button'),
+  description: t('download.hardware_edition_description', { name: SITE.name }),
+  canonical: getCanonical(getPermalink(Astro.url.pathname)),
 };
 ---
 
-<Layout {meta}>
+<Layout {meta} translated>
   <BackgroundGradient position="center" rotate="rotate-30" />
   <Editions />
 </Layout>
