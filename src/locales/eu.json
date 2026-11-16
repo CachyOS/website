@@ -2,19 +2,19 @@
   "dropdown": {
     "download_button": "Deskargatu {{title}}",
     "menu_aria_label": "menua",
-    "direct_menu_item": "Zuzenean",
+    "direct_menu_item": "Zuzeneko deskarga",
     "magnet_menu_item": "Magnet",
     "torrent_menu_item": "Torrent",
     "checksum_menu_item": "Kontrol-batura",
     "signature_menu_item": "Sinadura"
   },
   "editions": {
-    "under_construction_button": "Eraikitzen 🚧",
-    "preview_title": "{{title}} aurrebista",
-    "desktop_title": "Mahaigaineko edizioa",
-    "desktop_description": "Arch Linux mahaigaineko sistema guztiz optimizatua, CPU-espezifikoak diren paketeen eraikuntzak, kernel sintonizatua eta zure mahaigaineko ingurunearen aukera dituena. Arakatu, garatu, sortu eta jokatu abiadurarako eraikitako sistema batean - software libre eta kode irekiz guztiz elikatua. <br/><br/> Mahaigaineko ingurune ugari eskuragarri: Lineako instalatzaileak 17 ingurune baino gehiago aukeratzeko aukera ematen dizu, besteak beste, KDE Plasma, GNOME, COSMIC, Hyprland, Niri, Sway, i3, XFCE, <a class=\"underline decoration-2 underline-offset-2 text-surface-700 dark:text-primary-500/90\" href=\"https://wiki.cachyos.org/installation/desktop_environments/\">eta gehiago</a>.",
-    "handheld_title": "Eskuko edizioa",
-    "handheld_description": "CachyOS-en eskuko edizioak GameMode antzeko esperientzia bat eskaintzen du eta aurrez instalatutako joko tresnekin dator. Ofizialki onartzen ditu ROG Ally, Steam Deck OLED eta LCD, Legion Go eta Lenovo Legion Go S. Momentuz, KDE Plasma bakarrik onartzen da."
+    "under_construction_button": "Prestatzen 🚧",
+    "preview_title": "Aurrebista: {{title}}",
+    "desktop_title": "Mahaigaineko bertsioa",
+    "desktop_description": "Arch Linux-en oinarritutako mahaigain guztiz optimizatua: PUZ motaren arabera konpilatutako paketeak, doitutako kernela eta mahaigain-ingurunea zuk aukeratzeko aukera. Nabigatu, garatu, sortu eta jolastu abiadurarako eraikitako sistema batean, software libre eta kode irekikoarekin soilik. <br/><br/> Mahaigain-ingurune ugari eskuragarri: lineako instalatzaileak 17 ingurune baino gehiagoren artean aukeratzen uzten dizu, besteak beste KDE Plasma, GNOME, COSMIC, Hyprland, Niri, Sway, i3, XFCE <a class=\"underline decoration-2 underline-offset-2 text-surface-700 dark:text-primary-500/90\" href=\"https://wiki.cachyos.org/installation/desktop_environments/\">eta beste hainbat</a>.",
+    "handheld_title": "Handheld bertsioa",
+    "handheld_description": "CachyOS Handheld bertsioak GameMode-ren antzeko esperientzia eskaintzen du, eta jokoetarako tresnak aurrez instalatuta dakartza. Ofizialki ROG Ally, Steam Deck OLED eta LCD, Legion Go eta Lenovo Legion Go S gailuak onartzen ditu. Oraingoz, KDE Plasma soilik onartzen da."
   },
   "footer": {
     "terms_link": "Baldintzak",
@@ -26,7 +26,7 @@
     "team_title": "Taldea",
     "support_title": "Laguntza",
     "docs_title": "Dokumentazioa",
-    "community_forum_link": "Komunitateko foroa",
+    "community_forum_link": "Komunitatearen foroa",
     "distribution_link": "Banaketa",
     "about_link": "Honi buruz",
     "mail_label": "Posta",
@@ -37,10 +37,10 @@
     "download_button": "Deskargatu",
     "blog_link": "Bloga",
     "forum_link": "Foroa",
-    "wiki_link": "Wiki",
+    "wiki_link": "Wikia",
     "packages_link": "Paketeak"
   },
   "download": {
-    "hardware_edition_description": "Aurkitu zure hardwarerako egokia den {{name}} edizio bat."
+    "hardware_edition_description": "Aurkitu zure hardwarerako {{name}} bertsio egokia."
   }
 }
