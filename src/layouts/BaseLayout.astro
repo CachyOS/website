@@ -5,17 +5,25 @@ import MetaTags from '~/components/common/MetaTags.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
 import type { MetaSEO } from '~/types';
+import { dirOf, getLangFromUrl } from '../i18n';
+import { setIslandsLanguage } from '../i18n/islands';
+import I18nHead from '../i18n/I18nHead.astro';
 
 export interface Props {
   meta?: MetaSEO;
+  /** Links to the page's other languages, only where it has them. */
+  translated?: boolean;
 }
 
-const { meta = {} } = Astro.props;
+const { meta = {}, translated = false } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+setIslandsLanguage(lang);
 ---
 
 <!doctype html>
-<html lang="en" class="2xl:text-xl">
+<html class="2xl:text-xl" lang={lang} dir={dirOf(lang)}>
   <head>
+    {translated && <I18nHead canonical={false} />}
     <MetaTags {...meta} />
   </head>
 
