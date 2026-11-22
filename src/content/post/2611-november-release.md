@@ -14,11 +14,11 @@ This release brings support for **Easy Anti-Cheat Linux v2**. EAC only lets game
 
 The **CachyOS Package Installer** has been fully revamped with a new UI for its 2.0.0 release. Besides the CachyOS and Arch repositories, it can now build packages from the AUR and install Flatpak apps and AppImages, each of them opt-in. Before an AUR package gets built, the PKGBUILD and its install scripts are shown for review, and a static analysis marks the lines which should be looked at. When reviewing an update, it shows what changed since the installed version. AppImages can be added from a local file or from a GitHub project, which also offers newer releases as updates, and AppImages which were added with Shelly or Gear Lever can be taken over. The new settings page offers several colour themes and a button to rank the mirrors.
 
-![CachyOS Package Installer: the Discover page in the light and dark theme, and the review page of an AUR package](../../assets/images/2611-package-installer.png)
+![CachyOS Package Installer: the Discover page in the light and dark theme, and the review page of an AUR package](https://1016613440.rsc.cdn77.org/images/2611-package-installer.webp)
 
 **cachyos-recovery** is our new recovery environment. It is a self-contained image, which can be booted from your bootloader or directly from UEFI, so rolling back a broken system no longer needs a live USB. From its menu you can boot any Btrfs snapshot with a writable root to try it first, and then roll back to it permanently, either from the notification on the desktop or directly from the recovery menu. The rollback also regenerates the kernel and initramfs files and the bootloader configuration for the restored snapshot, and signs them if Secure Boot is set up with sbctl. It works independently of Snapper, supports LUKS encrypted installations and takes about 70 MB on the ESP. It can be installed with `sudo pacman -S cachyos-recovery`, or `cachyos-recovery-legacy` on BIOS systems.
 
-![CachyOS Recovery: the snapshot list in the recovery menu and the rollback notification on a booted snapshot](../../assets/images/2611-recovery.png)
+![CachyOS Recovery: the snapshot list in the recovery menu and the rollback notification on a booted snapshot](https://1016613440.rsc.cdn77.org/images/2611-recovery.webp)
 
 **cachyos-drm-awaiter** is a new package, which replaces early KMS and the `nvidia-module-loader`. It waits for the GPU drivers to be loaded before the display manager gets started, for any driver and not only NVIDIA, and shows a QR code if the driver failed to load. **chwd** and the **installer** have been adjusted for it, so the `kms` hook is no longer added to the initramfs by default.
 
