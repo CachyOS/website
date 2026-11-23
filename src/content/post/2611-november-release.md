@@ -187,13 +187,13 @@ sudo chwd -a -f
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: <https://iso.cachyos.org/desktop/261122/cachyos-desktop-linux-261122.iso>
-* Germany: <https://mirror.cachyos.org/ISO/desktop/261122/cachyos-desktop-linux-261122.iso>
-* Sweden: <https://mirror.zyner.org/cachyos/ISO/desktop/261122/cachyos-desktop-linux-261122.iso>
-* USA: <https://us.cachyos.org/ISO/desktop/261122/cachyos-desktop-linux-261122.iso>
-* China: <https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/261122/cachyos-desktop-linux-261122.iso>
-* Russia: <https://archlinux.gay/cachy/ISO/desktop/261122/cachyos-desktop-linux-261122.iso>
-* Russia: <https://mirror.yandex.ru/cachyos/ISO/desktop/261122/cachyos-desktop-linux-261122.iso>
+* CDN: <https://iso.cachyos.org/desktop/261123/cachyos-desktop-linux-261123.iso>
+* Germany: <https://mirror.cachyos.org/ISO/desktop/261123/cachyos-desktop-linux-261123.iso>
+* Sweden: <https://mirror.zyner.org/cachyos/ISO/desktop/261123/cachyos-desktop-linux-261123.iso>
+* USA: <https://us.cachyos.org/ISO/desktop/261123/cachyos-desktop-linux-261123.iso>
+* China: <https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/261123/cachyos-desktop-linux-261123.iso>
+* Russia: <https://archlinux.gay/cachy/ISO/desktop/261123/cachyos-desktop-linux-261123.iso>
+* Russia: <https://mirror.yandex.ru/cachyos/ISO/desktop/261123/cachyos-desktop-linux-261123.iso>
 * <https://sourceforge.net/projects/cachyos-arch/files>
 
 **Support Us:**
