@@ -2,26 +2,31 @@
 import { Icon } from 'astro-icon/components';
 import { getHomePermalink, getAsset } from '~/utils/permalinks';
 import LegalNoticeButton from './LegalNoticeButton';
+import { getLangFromUrl, useTranslations } from '../../i18n';
+const t = useTranslations(getLangFromUrl(Astro.url));
 
 const links = [
   {
-    title: 'Product',
+    title: t('footer.product_title'),
     items: [
-      { title: 'Features', href: 'https://wiki.cachyos.org/cachyos_basic/why_cachyos/' },
-      { title: 'Team', href: '/about/#team' },
+      {
+        title: t('footer.features_title'),
+        href: 'https://wiki.cachyos.org/cachyos_basic/why_cachyos/',
+      },
+      { title: t('footer.team_title'), href: '/about/#team' },
     ],
   },
   {
-    title: 'Support',
+    title: t('footer.support_title'),
     items: [
-      { title: 'Docs', href: 'https://wiki.cachyos.org/' },
-      { title: 'Community Forum', href: 'https://discuss.cachyos.org/' },
+      { title: t('footer.docs_title'), href: 'https://wiki.cachyos.org/' },
+      { title: t('footer.community_forum_link'), href: 'https://discuss.cachyos.org/' },
     ],
   },
   {
-    title: 'Distribution',
+    title: t('footer.distribution_link'),
     items: [
-      { title: 'About', href: '/about/#distribution' },
+      { title: t('footer.about_link'), href: '/about/#distribution' },
       //{ title: 'Blog', href: '#' },
     ],
   },
@@ -39,8 +44,8 @@ const social = [
   { label: 'Reddit', icon: 'tabler:brand-reddit', href: 'https://www.reddit.com/r/cachyos' },
   { label: 'Patreon', icon: 'tabler:brand-patreon', href: 'https://www.patreon.com/CachyOS' },
   { label: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/cachyos' },
-  { label: 'Mail', icon: 'tabler:mail-opened', href: 'mailto:admin@cachyos.org' },
-  { label: 'RSS Feed', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+  { label: t('footer.mail_label'), icon: 'tabler:mail-opened', href: 'mailto:admin@cachyos.org' },
+  { label: t('footer.rss_feed_label'), icon: 'tabler:rss', href: getAsset('/rss.xml') },
 ];
 ---
 
@@ -55,11 +60,12 @@ const social = [
         <div class="text-sm text-muted">
           <a
             class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
-            href="https://wiki.cachyos.org/policy/terms_of_service/">Terms</a
+            href="https://wiki.cachyos.org/policy/terms_of_service/">{t('footer.terms_link')}</a
           >
           <a
             class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
-            href="https://wiki.cachyos.org/policy/privacy_policy/">Privacy Policy</a
+            href="https://wiki.cachyos.org/policy/privacy_policy/"
+            >{t('footer.privacy_policy_link')}</a
           >
           <LegalNoticeButton client:load />
         </div>
@@ -110,12 +116,14 @@ const social = [
           class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-xs bg-[url(~/assets/images/logo.svg)]"
         >
         </span>
-        Made by <a
+        {t('footer.made_by_label')}
+        <a
           class="text-primary-700 dark:text-primary-300 font-bold underline underline-offset-2 decoration-2"
           href="https://cachyos.org/"
         >
           CachyOS</a
-        > · All rights reserved.
+        >
+        {t('footer.all_rights_reserved')}
       </div>
     </div>
   </div>

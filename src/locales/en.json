@@ -1,0 +1,46 @@
+{
+  "dropdown": {
+    "download_button": "Download {{title}}",
+    "menu_aria_label": "menu",
+    "direct_menu_item": "Direct",
+    "magnet_menu_item": "Magnet",
+    "torrent_menu_item": "Torrent",
+    "checksum_menu_item": "Checksum",
+    "signature_menu_item": "Signature"
+  },
+  "editions": {
+    "under_construction_button": "Under construction 🚧",
+    "preview_title": "{{title}} preview",
+    "desktop_title": "Desktop Edition",
+    "desktop_description": "A fully optimized Arch Linux desktop with CPU-specific package builds, a tuned kernel, and your choice of desktop environment. Browse, develop, create, and game on a system built for speed - powered entirely by free and open-source software. <br/><br/> Many Desktop Environments Available: The online installer lets you choose from 17+ environments, including KDE Plasma, GNOME, COSMIC, Hyprland, Niri, Sway, i3, XFCE, <a class=\"underline decoration-2 underline-offset-2 text-surface-700 dark:text-primary-500/90\" href=\"https://wiki.cachyos.org/installation/desktop_environments/\">and more</a>.",
+    "handheld_title": "Handheld Edition",
+    "handheld_description": "The CachyOS Handheld Edition provides a GameMode-like experience and comes with preinstalled gaming tools. It officially supports the ROG Ally, Steam Deck OLED and LCD, Legion Go, and Lenovo Legion Go S. At the moment, only KDE Plasma is supported."
+  },
+  "footer": {
+    "terms_link": "Terms",
+    "privacy_policy_link": "Privacy Policy",
+    "made_by_label": "Made by",
+    "all_rights_reserved": "· All rights reserved.",
+    "product_title": "Product",
+    "features_title": "Features",
+    "team_title": "Team",
+    "support_title": "Support",
+    "docs_title": "Docs",
+    "community_forum_link": "Community Forum",
+    "distribution_link": "Distribution",
+    "about_link": "About",
+    "mail_label": "Mail",
+    "rss_feed_label": "RSS Feed"
+  },
+  "header": {
+    "main_navigation_label": "Main navigation",
+    "download_button": "Download",
+    "blog_link": "Blog",
+    "forum_link": "Forum",
+    "wiki_link": "Wiki",
+    "packages_link": "Packages"
+  },
+  "download": {
+    "hardware_edition_description": "Find a suitable {{name}} edition for your hardware."
+  }
+}

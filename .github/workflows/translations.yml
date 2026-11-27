@@ -1,0 +1,22 @@
+name: Translations
+
+# Fails when an English message in src/locales/en.json has no translation in another
+# language's file, so translators can see what changed. Reads files only; no key needed.
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npx -y localize-dev@0.33 check --only translations
